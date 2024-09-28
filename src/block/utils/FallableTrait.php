@@ -37,49 +37,42 @@ use pocketmine\world\sound\Sound;
  * TODO: convert this into a dynamic component
  * @see Fallable
  */
-trait FallableTrait
-{
+trait FallableTrait{
 
-	abstract protected function getPosition(): Position;
+	abstract protected function getPosition() : Position;
 
-	public function onNearbyBlockChange(): void
-	{
+	public function onNearbyBlockChange() : void{
 		$pos = $this->getPosition();
 		$world = $pos->getWorld();
 		$down = $world->getBlock($pos->getSide(Facing::DOWN));
-		if ($down->canBeReplaced()) {
+		if($down->canBeReplaced()){
 			$world->setBlock($pos, VanillaBlocks::AIR());
 
 			$block = $this;
-			if (!($block instanceof Block)) throw new AssumptionFailedError(__TRAIT__ . " should only be used by Blocks");
+			if(!($block instanceof Block)) throw new AssumptionFailedError(__TRAIT__ . " should only be used by Blocks");
 
 			$fall = new FallingBlock(Location::fromObject($pos->add(0.5, 0, 0.5), $world), $block);
 			$fall->spawnToAll();
 		}
 	}
 
-	public function tickFalling(): ?Block
-	{
+	public function tickFalling() : ?Block{
 		return null;
 	}
 
-	public function onHitGround(FallingBlock $blockEntity): bool
-	{
+	public function onHitGround(FallingBlock $blockEntity) : bool{
 		return true;
 	}
 
-	public function getFallDamagePerBlock(): float
-	{
+	public function getFallDamagePerBlock() : float{
 		return 0.0;
 	}
 
-	public function getMaxFallDamage(): float
-	{
+	public function getMaxFallDamage() : float{
 		return 0.0;
 	}
 
-	public function getLandSound(): ?Sound
-	{
+	public function getLandSound() : ?Sound{
 		return null;
 	}
 }
