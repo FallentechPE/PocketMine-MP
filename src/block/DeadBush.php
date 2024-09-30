@@ -57,13 +57,13 @@ class DeadBush extends Flowable{
 			$supportBlock->hasTypeTag(BlockTypeTags::MUD) ||
 			match($supportBlock->getTypeId()){
 				//can't use DIRT tag here because it includes farmland
+				BlockTypeIds::MOSS_BLOCK,
 				BlockTypeIds::PODZOL,
 				BlockTypeIds::MYCELIUM,
 				BlockTypeIds::DIRT,
 				BlockTypeIds::GRASS,
 				BlockTypeIds::HARDENED_CLAY,
 				BlockTypeIds::STAINED_CLAY => true,
-				//TODO: moss block
 				default => false,
 			};
 	}

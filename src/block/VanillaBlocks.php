@@ -535,6 +535,8 @@ use function strtolower;
  * @method static Slab MOSSY_STONE_BRICK_SLAB()
  * @method static Stair MOSSY_STONE_BRICK_STAIRS()
  * @method static Wall MOSSY_STONE_BRICK_WALL()
+ * @method static MossBlock MOSS_BLOCK()
+ * @method static MossCarpet MOSS_CARPET()
  * @method static Opaque MUD()
  * @method static SimplePillar MUDDY_MANGROVE_ROOTS()
  * @method static Opaque MUD_BRICKS()
@@ -1267,6 +1269,7 @@ final class VanillaBlocks{
 		self::registerOres();
 		self::registerWoodenBlocks();
 		self::registerCauldronBlocks();
+		self::registerNewBlocks();
 	}
 
 	private static function registerWoodenBlocks() : void{
@@ -1666,5 +1669,11 @@ final class VanillaBlocks{
 		self::register("water_cauldron", new WaterCauldron(new BID(Ids::WATER_CAULDRON, TileCauldron::class), "Water Cauldron", $cauldronBreakInfo));
 		self::register("lava_cauldron", new LavaCauldron(new BID(Ids::LAVA_CAULDRON, TileCauldron::class), "Lava Cauldron", $cauldronBreakInfo));
 		self::register("potion_cauldron", new PotionCauldron(new BID(Ids::POTION_CAULDRON, TileCauldron::class), "Potion Cauldron", $cauldronBreakInfo));
+	}
+
+	private static function registerNewBlocks(): void {
+		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::hoe(0.1))));
+		self::register("moss_carpet", new MossCarpet(new BID(Ids::MOSS_CARPET), "Moss Carpet", new Info(BreakInfo::hoe(0.1))));
+
 	}
 }

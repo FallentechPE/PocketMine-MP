@@ -1734,5 +1734,8 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(StateNames::REDSTONE_SIGNAL, $block->getOutputSignalStrength());
 		});
 		$this->map(Blocks::WHEAT(), fn(Wheat $block) => Helper::encodeCrops($block, new Writer(Ids::WHEAT)));
+
+		$this->mapSimple(Blocks::MOSS_BLOCK(), Ids::MOSS_BLOCK);
+		$this->mapSimple(Blocks::MOSS_CARPET(), Ids::MOSS_CARPET);
 	}
 }

@@ -1678,6 +1678,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setAge($in->readBoundedInt(StateNames::WEEPING_VINES_AGE, 0, 25));
 		});
 		$this->map(Ids::WHEAT, fn(Reader $in) => Helper::decodeCrops(Blocks::WHEAT(), $in));
+
+		$this->mapSimple(Ids::MOSS_BLOCK, fn() => Blocks::MOSS_BLOCK());
+		$this->mapSimple(Ids::MOSS_CARPET, fn() => Blocks::MOSS_CARPET());
+
 	}
 
 	/** @throws BlockStateDeserializeException */
