@@ -20,14 +20,17 @@ if($php -ne ""){
 	exit 1
 }
 
-if($file -eq ""){
-	if(Test-Path "PocketMine-MP.phar"){
-	    $file = "PocketMine-MP.phar"
-	}else{
-	    echo "PocketMine-MP.phar not found"
-	    echo "Downloads can be found at https://github.com/pmmp/PocketMine-MP/releases"
-	    pause
-	    exit 1
+# Determine PocketMine file
+if ($file -eq "") {
+	if (Test-Path "PocketMine-MP.phar") {
+		$file = "PocketMine-MP.phar"
+	} elseif (Test-Path "src\PocketMine.php") {
+		$file = "src\PocketMine.php"
+	} else {
+		echo "Neither PocketMine-MP.phar nor src/pocketmine.php found"
+		echo "Please download PocketMine-MP.phar or ensure src/pocketmine.php is available"
+		pause
+		exit 1
 	}
 }
 

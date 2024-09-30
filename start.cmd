@@ -22,11 +22,16 @@ if "%PHP_BINARY%"=="" (
 	exit 1
 )
 
+rem Check if PocketMine-MP.phar exists, otherwise use src/pocketmine.php
 if exist PocketMine-MP.phar (
 	set POCKETMINE_FILE=PocketMine-MP.phar
+	echo Using PocketMine-MP.phar
+) else if exist src\pocketmine.php (
+	set POCKETMINE_FILE=src\PocketMine.php
+	echo PocketMine-MP.phar not found, using src/pocketmine.php
 ) else (
-	echo PocketMine-MP.phar not found
-	echo Downloads can be found at https://github.com/pmmp/PocketMine-MP/releases
+	echo Neither PocketMine-MP.phar nor src\pocketmine.php found
+	echo Please download PocketMine-MP.phar or ensure src/pocketmine.php is available
 	pause
 	exit 1
 )
