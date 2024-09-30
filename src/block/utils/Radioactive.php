@@ -2,6 +2,13 @@
 
 namespace pocketmine\block\utils;
 
-interface Radioactive {
+use pocketmine\math\AxisAlignedBB;
+
+interface Radioactive
+{
+	public function getRadioactivityRadius(): float;
+
 	public function getRadioactivityStrength(): float;
+
+	public function tickRadioactivity(AxisAlignedBB $bb): bool;
 }
