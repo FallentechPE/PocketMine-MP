@@ -144,6 +144,7 @@ use pocketmine\block\Trapdoor;
 use pocketmine\block\TrappedChest;
 use pocketmine\block\Tripwire;
 use pocketmine\block\TripwireHook;
+use pocketmine\block\TurtleEgg;
 use pocketmine\block\UnderwaterTorch;
 use pocketmine\block\utils\BrewingStandSlot;
 use pocketmine\block\utils\CoralType;
@@ -1747,5 +1748,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(BlockStateNames::STABILITY_CHECK, $block->isStable())
 				->writeInt(BlockStateNames::STABILITY, $block->getStability());
 		});
+//		$this->map(Blocks::TURTLE_EGG(), function(TurtleEgg $block) : Writer {
+//			return Writer::create(Ids::TURTLE_EGG)
+//				->writeInt(BlockStateNames::TURTLE_EGG_COUNT, $block->getCount())
+//				->writeInt(BlockStateNames::CRACKED_STATE, $block->getCracks());
+//		});
 	}
 }

@@ -741,6 +741,7 @@ use function strtolower;
  * @method static Tripwire TRIPWIRE()
  * @method static TripwireHook TRIPWIRE_HOOK()
  * @method static Opaque TUFF()
+ * @method static TurtleEgg TURTLE_EGG()
  * @method static NetherVines TWISTING_VINES()
  * @method static UnderwaterTorch UNDERWATER_TORCH()
  * @method static Vine VINES()
@@ -1682,5 +1683,7 @@ final class VanillaBlocks{
 		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
 		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
+		self::register("turtle_egg", new TurtleEgg(new BID(Ids::TURTLE_EGG), "Turtle Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
+
 	}
 }
