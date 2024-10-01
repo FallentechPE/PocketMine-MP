@@ -1920,7 +1920,7 @@ class World implements ChunkManager{
 		}
 
 		if($addToCache && $relativeBlockHash !== null){
-			$this->blockCache[$chunkHash][$relativeBlockHash] = $block;
+			$this->blockCache[$chunkHash][$relativeBlockHash] = $block; // todo add fix for https://github.com/pmmp/PocketMine-MP/issues/152 by adding cache size
 		}
 
 		return $block;

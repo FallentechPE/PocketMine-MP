@@ -47,6 +47,7 @@ use pocketmine\nbt\tag\ListTag;
 use pocketmine\nbt\tag\StringTag;
 use pocketmine\nbt\TreeRoot;
 use pocketmine\player\Player;
+use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\GlobalItemDataHandlers;
 use function base64_decode;
@@ -66,9 +67,13 @@ class Item implements \JsonSerializable{
 
 	public const TAG_DISPLAY = "display";
 	public const TAG_BLOCK_ENTITY_TAG = "BlockEntityTag";
+	public const TAG_ITEM_LOCK = "minecraft:item_lock";
 
 	public const TAG_DISPLAY_NAME = "Name";
 	public const TAG_DISPLAY_LORE = "Lore";
+
+	public const VALUE_ITEM_LOCK_IN_SLOT = 1;
+	public const VALUE_ITEM_LOCK_IN_INVENTORY = 2;
 
 	public const TAG_KEEP_ON_DEATH = "minecraft:keep_on_death";
 
@@ -97,6 +102,8 @@ class Item implements \JsonSerializable{
 	 * @phpstan-var array<string, string>
 	 */
 	protected array $canDestroy = [];
+
+	protected ?ItemLockMode $lockMode = null;
 
 	protected bool $keepOnDeath = false;
 
@@ -227,6 +234,15 @@ class Item implements \JsonSerializable{
 		}
 	}
 
+	public function getLockMode() : ?ItemLockMode{
+		return $this->lockMode;
+	}
+
+	public function setLockMode(?ItemLockMode $lockMode) : self {
+		$this->lockMode = $lockMode;
+		return $this;
+	}
+
 	/**
 	 * Returns whether players will retain this item on death. If a non-player dies it will be excluded from the drops.
 	 */
@@ -336,6 +352,11 @@ class Item implements \JsonSerializable{
 				$this->canDestroy[$entry->getValue()] = $entry->getValue();
 			}
 		}
+		$this->lockMode = match ($tag->getByte(self::TAG_ITEM_LOCK, 0)) {
+			self::VALUE_ITEM_LOCK_IN_SLOT => ItemLockMode::SLOT(),
+			self::VALUE_ITEM_LOCK_IN_INVENTORY => ItemLockMode::INVENTORY(),
+			default => null
+		};
 
 		$this->keepOnDeath = $tag->getByte(self::TAG_KEEP_ON_DEATH, 0) !== 0;
 	}
@@ -399,6 +420,16 @@ class Item implements \JsonSerializable{
 			$tag->setTag(self::TAG_CAN_DESTROY, $canDestroy);
 		}else{
 			$tag->removeTag(self::TAG_CAN_DESTROY);
+		}
+
+		if ($this->lockMode !== null) {
+			$tag->setByte(self::TAG_ITEM_LOCK, match ($this->lockMode->id()) {
+				ItemLockMode::SLOT()->id() => self::VALUE_ITEM_LOCK_IN_SLOT,
+				ItemLockMode::INVENTORY()->id() => self::VALUE_ITEM_LOCK_IN_INVENTORY,
+				default => throw new AssumptionFailedError("Unknown lock mode")
+			});
+		} else {
+			$tag->removeTag(self::TAG_ITEM_LOCK);
 		}
 
 		if($this->keepOnDeath){

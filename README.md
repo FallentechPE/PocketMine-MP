@@ -37,6 +37,7 @@ Additions
 > https://github.com/pmmp/PocketMine-MP/pull/5122
 > https://github.com/pmmp/PocketMine-MP/pull/5232
 > https://github.com/pmmp/PocketMine-MP/pull/5276
+> https://github.com/pmmp/PocketMine-MP/pull/5333
 
 
 ## What is this?
