@@ -13,6 +13,12 @@ Because PocketMine-MP requires several non-standard PHP extensions and configura
 
 If you use a custom binary, you'll need to replace `composer` usages in this guide with `path/to/your/php path/to/your/composer.phar`.
 
+## Script to set up
+This fork offers a setup script which automates the steps below. You can use it to initially install and update.
+Additionally the start script has been modified to run PocketMine.php if no built .phar is present.
+1. Run `setup-source-running` using your preferred script or shell script
+2. Run `start` using your preferred script or shell script
+
 ## Setting up environment
 1. `git clone https://github.com/pmmp/PocketMine-MP.git`
 2. `composer install`
