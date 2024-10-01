@@ -7,7 +7,7 @@ use pocketmine\item\Item;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\utils\Random;
-use pocketmine\world\particle\HappyVillagerParticle;
+use pocketmine\world\particle\CropGrowthEmitterParticle;
 use pocketmine\world\Position;
 
 class MossBlock extends Opaque{
@@ -16,7 +16,7 @@ class MossBlock extends Opaque{
 		if($item instanceof Fertilizer){
 			$this->convertToMoss($this->getPosition());
 			$this->populateRegion($this->getPosition());
-			$this->getPosition()->getWorld()->addParticle($this->getPosition()->add(0.5, 1.5, 0.5), new HappyVillagerParticle()); // same as crop growth particle
+			$this->getPosition()->getWorld()->addParticle($this->getPosition()->add(0.5, 1.5, 0.5), new CropGrowthEmitterParticle());
 			$item->pop();
 			return true;
 		}
@@ -94,10 +94,10 @@ class MossBlock extends Opaque{
 								$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::TALL_GRASS()); // todo double tall grass
 							}
 						}
-						if ($randomFloat >= 0.53125 && $randomFloat < 0.575) {
+						if($randomFloat >= 0.53125 && $randomFloat < 0.575){
 							$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::AZALEA());
 						}
-						if ($randomFloat >= 0.575 && $randomFloat < 0.6) {
+						if($randomFloat >= 0.575 && $randomFloat < 0.6){
 							$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::FLOWERING_AZALEA());
 						}
 						if($randomFloat >= 0.6 && $randomFloat < 1){
