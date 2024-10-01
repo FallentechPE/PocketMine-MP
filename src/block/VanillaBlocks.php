@@ -666,6 +666,7 @@ use function strtolower;
  * @method static Slab SANDSTONE_SLAB()
  * @method static Stair SANDSTONE_STAIRS()
  * @method static Wall SANDSTONE_WALL()
+ * @method static Scaffolding SCAFFOLDING()
  * @method static Sculk SCULK()
  * @method static SeaLantern SEA_LANTERN()
  * @method static SeaPickle SEA_PICKLE()
@@ -1680,5 +1681,6 @@ final class VanillaBlocks{
 		self::register("azalea", new Azalea(new BID(Ids::AZALEA), "Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
+		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
 	}
 }

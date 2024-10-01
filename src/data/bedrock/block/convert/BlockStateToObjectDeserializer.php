@@ -33,6 +33,7 @@ use pocketmine\block\DoublePitcherCrop;
 use pocketmine\block\Opaque;
 use pocketmine\block\PinkPetals;
 use pocketmine\block\PitcherCrop;
+use pocketmine\block\Scaffolding;
 use pocketmine\block\Slab;
 use pocketmine\block\Stair;
 use pocketmine\block\SweetBerryBush;
@@ -1684,6 +1685,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::AZALEA, fn() => Blocks::AZALEA());
 		$this->mapSimple(Ids::FLOWERING_AZALEA, fn() => Blocks::FLOWERING_AZALEA());
 		$this->mapSimple(Ids::TARGET, fn() => Blocks::TARGET());
+		$this->map(Ids::SCAFFOLDING, function(Reader $in) : Block{
+			return Blocks::SCAFFOLDING()
+				->setStability($in->readBoundedInt(StateNames::STABILITY, 0, 7))
+				->setStable($in->readBool(StateNames::STABILITY_CHECK));
+		});
 
 	}
 

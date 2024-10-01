@@ -118,6 +118,7 @@ use pocketmine\block\RedstoneTorch;
 use pocketmine\block\RedstoneWire;
 use pocketmine\block\RuntimeBlockStateRegistry;
 use pocketmine\block\Sapling;
+use pocketmine\block\Scaffolding;
 use pocketmine\block\SeaPickle;
 use pocketmine\block\SimplePillar;
 use pocketmine\block\SimplePressurePlate;
@@ -170,6 +171,7 @@ use pocketmine\block\WoodenTrapdoor;
 use pocketmine\block\Wool;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\data\bedrock\block\BlockStateNames;
 use pocketmine\data\bedrock\block\BlockStateNames as StateNames;
 use pocketmine\data\bedrock\block\BlockStateSerializeException;
 use pocketmine\data\bedrock\block\BlockStateSerializer;
@@ -1740,5 +1742,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::AZALEA(), Ids::AZALEA);
 		$this->mapSimple(Blocks::FLOWERING_AZALEA(), Ids::FLOWERING_AZALEA);
 		$this->mapSimple(Blocks::TARGET(), Ids::TARGET);
+		$this->map(Blocks::SCAFFOLDING(), function(Scaffolding $block) : Writer{
+			return Writer::create(Ids::SCAFFOLDING)
+				->writeBool(BlockStateNames::STABILITY_CHECK, $block->isStable())
+				->writeInt(BlockStateNames::STABILITY, $block->getStability());
+		});
 	}
 }

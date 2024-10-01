@@ -982,4 +982,12 @@ class Block{
 
 		return $currentHit;
 	}
+
+	public function down() : Block{
+		return $this->getSide(Facing::DOWN);
+	}
+
+	public function up() : Block{
+		return $this->getSide(Facing::UP);
+	}
 }
