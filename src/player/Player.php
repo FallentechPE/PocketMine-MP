@@ -1702,17 +1702,26 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			return true;
 		}
 
-		$item = $block->getPickedItem($addTileNBT);
+		$pickedItem = $block->getPickedItem($addTileNBT);
 
-		$ev = new PlayerBlockPickEvent($this, $block, $item);
-		$existingSlot = $this->inventory->first($item);
-		if($existingSlot === -1 && $this->hasFiniteResources()){
-			$ev->cancel();
-		}
+		$ev = new PlayerBlockPickEvent($this, $block, $pickedItem);
+		$findExistingSlot = function(Item $item) use ($ev) : int {
+			$existingSlot = $this->inventory->first($item);
+			if ($existingSlot === -1 && $this->hasFiniteResources()) {
+				$ev->cancel();
+			}
+			return $existingSlot;
+		};
+		$existingSlot = $findExistingSlot($pickedItem);
 		$ev->call();
 
+		$resultItem = $ev->getResultItem();
+		if (!$resultItem->equalsExact($pickedItem)) { // todo Why rechecking again when you can do it all at once after the call? The item will be the same if there has been no change, or it will be modified directly.
+			$existingSlot = $findExistingSlot($resultItem);
+		}
+
 		if(!$ev->isCancelled()){
-			$this->equipOrAddPickedItem($existingSlot, $item);
+			$this->equipOrAddPickedItem($existingSlot, $resultItem);
 		}
 
 		return true;
