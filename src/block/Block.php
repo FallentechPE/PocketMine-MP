@@ -983,6 +983,10 @@ class Block{
 		return $currentHit;
 	}
 
+	public function getCreativeDrops() : array{
+		return [];
+	}
+
 	public function down() : Block{
 		return $this->getSide(Facing::DOWN);
 	}
