@@ -20,6 +20,10 @@
 	<a href="https://github.com/pmmp/PocketMine-MP/releases/latest"><img alt="GitHub release (latest by SemVer)" src="https://img.shields.io/github/downloads/pmmp/PocketMine-MP/latest/total?sort=semver"></a>
 </p>
 
+## What is THIS?
+A fork of PocketMine-MP implementing items, blocks, stale PRs, and other features and QOL API additions. This is not a stable version of PocketMine, and there will be bugs. Items and blocks for the majority have functionality, however some do not. The only PRs added are ones that are not BC breaking. This will remain a version of PM-5 and should be a drop in replacement. If something is merged to the main branch of PocketMine, it will be changed here, hopefully with any fixes. The aim of this fork is to provide a "beta" version of PocketMine will untested, but functional changes that would usually take longer being to be added. PRs and issues are welcome however I will not be able to fix every bug. No composer libraries will be forked and the original PMMP version will be used.
+
+
 ## What is this?
 PocketMine-MP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.
 
