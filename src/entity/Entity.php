@@ -27,6 +27,7 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\block\Block;
+use pocketmine\block\Liquid;
 use pocketmine\block\Water;
 use pocketmine\entity\animation\Animation;
 use pocketmine\event\entity\EntityDamageEvent;
@@ -1131,6 +1132,27 @@ abstract class Entity{
 		$block = $this->getWorld()->getBlockAt((int) floor($this->location->x), (int) floor($y = ($this->location->y + $this->getEyeHeight())), (int) floor($this->location->z));
 
 		return $block->isSolid() && !$block->isTransparent() && $block->collidesWithBB($this->getBoundingBox());
+	}
+
+	public function isInsideOfLiquid(Liquid $liquid, bool $checkEyePos, bool $submerged = false) : bool{
+		$y = $this->location->y + $this->getEyeHeight();
+		$blockY = floor($y);
+		if ($checkEyePos) {
+			return $this->getWorld()->getBlockAt((int) floor($this->location->x), (int) $blockY, (int) floor($this->location->z)) instanceof $liquid;
+		}
+		$collisionBlocks = $this->getBlocksAroundWithEntityInsideActions();
+		$blocks = array_filter($collisionBlocks, static function($block) use ($liquid, $y, $blockY, $submerged) : bool{
+			if($submerged && $block instanceof $liquid){
+				$f = ($blockY + 1) - ($block->getFluidHeightPercent() - 0.1111111);
+				return $y < $f;
+			}
+			return $block instanceof $liquid;
+		});
+		$countFiltered = count($blocks);
+		if ($countFiltered === 0) {
+			return false;
+		}
+		return !$submerged || $countFiltered === count($collisionBlocks);
 	}
 
 	protected function move(float $dx, float $dy, float $dz) : void{
