@@ -747,8 +747,10 @@ final class BlockTypeIds{
 	public const DOUBLE_PITCHER_CROP = 10717;
 	public const MOSS_BLOCK = 10718;
 	public const MOSS_CARPET = 10719;
+	public const AZALEA = 10720;
+	public const FLOWERING_AZALEA = 10721;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10720;
+	public const FIRST_UNUSED_BLOCK_ID = 10722;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

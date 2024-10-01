@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world\generator\object;
 
+use pocketmine\block\Azalea;
 use pocketmine\block\Block;
 use pocketmine\block\Leaves;
 use pocketmine\block\Sapling;
@@ -108,6 +109,6 @@ abstract class Tree{
 	}
 
 	protected function canOverride(Block $block) : bool{
-		return $block->canBeReplaced() || $block instanceof Sapling || $block instanceof Leaves;
+		return $block->canBeReplaced() || $block instanceof Sapling || $block instanceof Leaves || $block instanceof Azalea;
 	}
 }

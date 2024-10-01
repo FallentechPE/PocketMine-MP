@@ -1737,5 +1737,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 
 		$this->mapSimple(Blocks::MOSS_BLOCK(), Ids::MOSS_BLOCK);
 		$this->mapSimple(Blocks::MOSS_CARPET(), Ids::MOSS_CARPET);
+		$this->mapSimple(Blocks::AZALEA(), Ids::AZALEA);
+		$this->mapSimple(Blocks::FLOWERING_AZALEA(), Ids::FLOWERING_AZALEA);
 	}
 }

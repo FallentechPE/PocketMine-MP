@@ -101,6 +101,7 @@ use function strtolower;
  * @method static Stair ANDESITE_STAIRS()
  * @method static Wall ANDESITE_WALL()
  * @method static Anvil ANVIL()
+ * @method static Azalea AZALEA()
  * @method static Leaves AZALEA_LEAVES()
  * @method static Flower AZURE_BLUET()
  * @method static Bamboo BAMBOO()
@@ -426,6 +427,7 @@ use function strtolower;
  * @method static TallGrass FERN()
  * @method static Fire FIRE()
  * @method static FletchingTable FLETCHING_TABLE()
+ * @method static Azalea FLOWERING_AZALEA()
  * @method static Leaves FLOWERING_AZALEA_LEAVES()
  * @method static FlowerPot FLOWER_POT()
  * @method static Froglight FROGLIGHT()
@@ -1674,6 +1676,8 @@ final class VanillaBlocks{
 	private static function registerNewBlocks(): void {
 		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::hoe(0.1))));
 		self::register("moss_carpet", new MossCarpet(new BID(Ids::MOSS_CARPET), "Moss Carpet", new Info(BreakInfo::hoe(0.1))));
+		self::register("azalea", new Azalea(new BID(Ids::AZALEA), "Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
+		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 
 	}
 }

@@ -35,6 +35,7 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * @method static TreeType JUNGLE()
  * @method static TreeType OAK()
  * @method static TreeType SPRUCE()
+ * @method static TreeType AZALEA()
  */
 enum TreeType{
 	use LegacyEnumShimTrait;
@@ -45,7 +46,8 @@ enum TreeType{
 	case JUNGLE;
 	case ACACIA;
 	case DARK_OAK;
-	//TODO: cherry blossom, mangrove, azalea
+	case AZALEA;
+	//TODO: cherry blossom, mangrove
 	//TODO: do crimson and warped "trees" belong here? I'm not sure if they're actually trees or just fungi
 	//TODO: perhaps huge mushrooms should be here too???
 
@@ -57,6 +59,7 @@ enum TreeType{
 			self::JUNGLE => "Jungle",
 			self::ACACIA => "Acacia",
 			self::DARK_OAK => "Dark Oak",
+			self::AZALEA => "Azalea"
 		};
 	}
 }

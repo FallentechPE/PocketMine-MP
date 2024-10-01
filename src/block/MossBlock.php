@@ -17,7 +17,7 @@ class MossBlock extends Opaque{
 			$this->convertToMoss($this->getPosition());
 			$this->populateRegion($this->getPosition());
 			$this->getPosition()->getWorld()->addParticle($this->getPosition()->add(0.5, 1.5, 0.5), new HappyVillagerParticle()); // same as crop growth particle
-			$item->setCount($item->getCount() - 1);
+			$item->pop();
 			return true;
 		}
 		return parent::onInteract($item, $face, $clickVector, $player, $returnedItems);
@@ -95,10 +95,10 @@ class MossBlock extends Opaque{
 							}
 						}
 						if ($randomFloat >= 0.53125 && $randomFloat < 0.575) {
-							// todo azalea
+							$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::AZALEA());
 						}
 						if ($randomFloat >= 0.575 && $randomFloat < 0.6) {
-							// flowering azalea
+							$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::FLOWERING_AZALEA());
 						}
 						if($randomFloat >= 0.6 && $randomFloat < 1){
 							$position->getWorld()->setBlock(new Position($x, $y, $z, $position->getWorld()), VanillaBlocks::AIR()); // todo can this be removed?
