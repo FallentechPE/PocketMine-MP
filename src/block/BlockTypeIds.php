@@ -749,8 +749,9 @@ final class BlockTypeIds{
 	public const MOSS_CARPET = 10719;
 	public const AZALEA = 10720;
 	public const FLOWERING_AZALEA = 10721;
+	public const TARGET = 10722;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10722;
+	public const FIRST_UNUSED_BLOCK_ID = 10723;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

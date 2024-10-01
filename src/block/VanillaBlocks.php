@@ -730,6 +730,7 @@ use function strtolower;
  * @method static DoublePlant SUNFLOWER()
  * @method static SweetBerryBush SWEET_BERRY_BUSH()
  * @method static TallGrass TALL_GRASS()
+ * @method static Target TARGET()
  * @method static TintedGlass TINTED_GLASS()
  * @method static TNT TNT()
  * @method static Torch TORCH()
@@ -1678,6 +1679,6 @@ final class VanillaBlocks{
 		self::register("moss_carpet", new MossCarpet(new BID(Ids::MOSS_CARPET), "Moss Carpet", new Info(BreakInfo::hoe(0.1))));
 		self::register("azalea", new Azalea(new BID(Ids::AZALEA), "Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
-
+		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
 	}
 }
