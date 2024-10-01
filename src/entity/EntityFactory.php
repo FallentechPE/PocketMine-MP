@@ -92,6 +92,9 @@ final class EntityFactory{
 			return new Egg(Helper::parseLocation($nbt, $world), null, $nbt);
 		}, ['Egg', 'minecraft:egg']);
 
+		$this->register(EndCrystal::class, function(World $world, CompoundTag $nbt) : EndCrystal {
+			return new EndCrystal(Helper::parseLocation($nbt, $world), $nbt);
+		}, ["EnderCrystal", "minecraft:ender_crystal"]);
 		$this->register(EnderPearl::class, function(World $world, CompoundTag $nbt) : EnderPearl{
 			return new EnderPearl(Helper::parseLocation($nbt, $world), null, $nbt);
 		}, ['ThrownEnderpearl', 'minecraft:ender_pearl']);

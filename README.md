@@ -25,6 +25,14 @@ A fork of PocketMine-MP implementing items, blocks, stale PRs, and other feature
 
 **Do not ask for support for this version of PocketMine in their main Discord server. Any questions can be directed to Joshy3282 on Discord. Additionally, please do not bug any actual PocketMine developers about this either.**
 
+Additions
+> Blocks: azalea, flowering azalea, target, moss block, moss carpet, scaffolding\
+> Items: end crystal\
+> https://github.com/pmmp/PocketMine-MP/pull/4652 
+> https://github.com/pmmp/PocketMine-MP/pull/4677 
+> https://github.com/pmmp/PocketMine-MP/pull/4687 
+> https://github.com/pmmp/PocketMine-MP/pull/4715
+
 
 ## What is this?
 PocketMine-MP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.
