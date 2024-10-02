@@ -34,6 +34,7 @@ use function gettype;
 use function is_array;
 use function is_dir;
 use function is_float;
+use function preg_match;
 use function is_int;
 use function is_string;
 use function mkdir;
@@ -43,6 +44,7 @@ use function strtolower;
 use const DIRECTORY_SEPARATOR;
 
 class ResourcePackManager{
+	private const URL_REGEX = "/\b(?:https?:\/\/)?(?:www\.)?(?:[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+|\d{1,3}(?:\.\d{1,3}){3})(?:\/[^\s]*)?\b/";
 	private string $path;
 	private bool $serverForceResources = false;
 
@@ -57,6 +59,9 @@ class ResourcePackManager{
 	 * @phpstan-var array<string, string>
 	 */
 	private array $encryptionKeys = [];
+
+	/** @phpstan-var array<string, string> */
+	private array $packURLs = [];
 
 	/**
 	 * @param string $path Path to resource-packs directory.
@@ -87,6 +92,11 @@ class ResourcePackManager{
 			throw new \InvalidArgumentException("\"resource_stack\" key should contain a list of pack names");
 		}
 
+		$remotePacks = $resourcePacksConfig->get("cdn", []);
+		if (!is_array($remotePacks)) {
+			throw new \InvalidArgumentException("\"cdn\" should be an array of pack URLs");
+		}
+
 		foreach($resourceStack as $pos => $pack){
 			if(!is_string($pack) && !is_int($pack) && !is_float($pack)){
 				$logger->critical("Found invalid entry in resource pack list at offset $pos of type " . gettype($pack));
@@ -112,6 +122,13 @@ class ResourcePackManager{
 						throw new ResourcePackException("Invalid encryption key length, must be exactly 32 bytes");
 					}
 					$this->encryptionKeys[$index] = $key;
+				}
+				if (isset($remotePacks[$index])) {
+					$url = $remotePacks[$pack];
+					if (!is_string($url) || preg_match(self::URL_REGEX, $url) !== 1) {
+						throw new ResourcePackException("Invalid CDN URL for pack $pack");
+					}
+					$this->packURLs[$newPack->getPackId() . "_" . $newPack->getPackVersion()] = $url;
 				}
 			}catch(ResourcePackException $e){
 				$logger->critical("Could not load resource pack \"$pack\": " . $e->getMessage());
@@ -167,6 +184,10 @@ class ResourcePackManager{
 	 */
 	public function getResourceStack() : array{
 		return $this->resourcePacks;
+	}
+
+	public function getPackURLs() : array{
+		return $this->packURLs;
 	}
 
 	/**

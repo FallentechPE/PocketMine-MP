@@ -46,7 +46,8 @@ class PlayerResourcePackOfferEvent extends Event{
 		private readonly PlayerInfo $playerInfo,
 		private array $resourcePacks,
 		private array $encryptionKeys,
-		private bool $mustAccept
+		private bool $mustAccept,
+		private array $resourcePackURLs
 	){}
 
 	public function getPlayerInfo() : PlayerInfo{
@@ -86,6 +87,14 @@ class PlayerResourcePackOfferEvent extends Event{
 	 */
 	public function getResourcePacks() : array{
 		return $this->resourcePacks;
+	}
+
+	/**
+	 * @return array
+	 * @phpstan-return list<string>
+	 */
+	public function getPackURLs() : array{
+		return $this->resourcePackURLs;
 	}
 
 	/**
