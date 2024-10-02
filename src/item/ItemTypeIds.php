@@ -329,8 +329,9 @@ final class ItemTypeIds{
 	public const FIREWORK_ROCKET = 20290;
 	public const FIREWORK_STAR = 20291;
 	public const RECOVERY_COMPASS = 20292;
+	public const ENDER_EYE = 20293;
 
-	public const FIRST_UNUSED_ITEM_ID = 20293;
+	public const FIRST_UNUSED_ITEM_ID = 20294;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
