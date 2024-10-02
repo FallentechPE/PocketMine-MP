@@ -94,12 +94,14 @@ final class YmlServerProperties{
 	public const NETWORK_ASYNC_COMPRESSION_THRESHOLD = 'network.async-compression-threshold';
 	public const NETWORK_BATCH_THRESHOLD = 'network.batch-threshold';
 	public const NETWORK_COMPRESSION_LEVEL = 'network.compression-level';
+	public const NETWORK_COMPRESSION_THREADS = 'network.compression-threads';
 	public const NETWORK_ENABLE_ENCRYPTION = 'network.enable-encryption';
 	public const NETWORK_MAX_MTU_SIZE = 'network.max-mtu-size';
 	public const NETWORK_UPNP_FORWARDING = 'network.upnp-forwarding';
 	public const PLAYER = 'player';
 	public const PLAYER_SAVE_PLAYER_DATA = 'player.save-player-data';
 	public const PLAYER_VERIFY_XUID = 'player.verify-xuid';
+	public const PLAYER_DEFAULT_DATA_FORMAT = 'player.default-data-format';
 	public const PLUGINS = 'plugins';
 	public const PLUGINS_LEGACY_DATA_DIR = 'plugins.legacy-data-dir';
 	public const SETTINGS = 'settings';
