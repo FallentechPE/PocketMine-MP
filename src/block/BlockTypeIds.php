@@ -753,8 +753,9 @@ final class BlockTypeIds{
 	public const SCAFFOLDING = 10723;
 	public const TURTLE_EGG = 10724;
 	public const COMPOSTER = 10725;
+	public const POWDER_SNOW = 10726;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10726;
+	public const FIRST_UNUSED_BLOCK_ID = 10727;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
