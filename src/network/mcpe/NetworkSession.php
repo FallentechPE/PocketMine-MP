@@ -31,6 +31,7 @@ use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\form\Form;
 use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\NamespacedLanguage;
 use pocketmine\lang\Translatable;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
@@ -1137,7 +1138,8 @@ class NetworkSession{
 
 	public function onChatMessage(Translatable|string $message) : void{
 		if($message instanceof Translatable){
-			if(!$this->server->isLanguageForced()){
+			$namespace = explode(".", $message->getText())[0];
+			if(!in_array($namespace, NamespacedLanguage::getNamespaces(), true) && !$this->server->isLanguageForced()){
 				$this->sendDataPacket(TextPacket::translation(...$this->prepareClientTranslatableMessage($message)));
 			}else{
 				$this->sendDataPacket(TextPacket::raw($this->player->getLanguage()->translate($message)));
