@@ -52,7 +52,6 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\compression\CompressBatchPromise;
 use pocketmine\network\mcpe\compression\CompressBatchTask;
 use pocketmine\network\mcpe\compression\Compressor;
-use pocketmine\network\mcpe\compression\CompressorWorkerPool;
 use pocketmine\network\mcpe\compression\ZlibCompressor;
 use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\encryption\EncryptionContext;
@@ -211,6 +210,8 @@ class Server{
 	private const TICKS_PER_TPS_OVERLOAD_WARNING = 5 * self::TARGET_TICKS_PER_SECOND;
 	private const TICKS_PER_STATS_REPORT = 300 * self::TARGET_TICKS_PER_SECOND;
 
+	private const DEFAULT_ASYNC_COMPRESSION_THRESHOLD = 10_000;
+
 	private static ?Server $instance = null;
 
 	private TimeTrackingSleeperHandler $tickSleeper;
@@ -268,13 +269,8 @@ class Server{
 	private bool $onlineMode = true;
 
 	private Network $network;
-
-	private int $networkCompressionThreads;
-	/**
-	 * @var CompressorWorkerPool[]
-	 * @phpstan-var array<int, CompressorWorkerPool>
-	 */
-	private array $networkCompressionThreadPools = [];
+	private bool $networkCompressionAsync = true;
+	private int $networkCompressionAsyncThreshold = self::DEFAULT_ASYNC_COMPRESSION_THRESHOLD;
 
 	private Language $language;
 	private bool $forceLanguage = false;
@@ -913,13 +909,11 @@ class Server{
 			}
 			ZlibCompressor::setInstance(new ZlibCompressor($netCompressionLevel, $netCompressionThreshold, ZlibCompressor::DEFAULT_MAX_DECOMPRESSION_SIZE));
 
-			// todo maybe add toggle to use this or legacy network compression
-			$netCompressionThreads = $this->configGroup->getPropertyString(Yml::NETWORK_COMPRESSION_THREADS, "auto");
-			if($netCompressionThreads === "auto"){
-				$this->networkCompressionThreads = max(1, Utils::getCoreCount() - 2);
-			}else{
-				$this->networkCompressionThreads = max(0, (int) $netCompressionThreads);
-			}
+			$this->networkCompressionAsync = $this->configGroup->getPropertyBool(Yml::NETWORK_ASYNC_COMPRESSION, true);
+			$this->networkCompressionAsyncThreshold = max(
+				$this->configGroup->getPropertyInt(Yml::NETWORK_ASYNC_COMPRESSION_THRESHOLD, self::DEFAULT_ASYNC_COMPRESSION_THRESHOLD),
+				$netCompressionThreshold ?? self::DEFAULT_ASYNC_COMPRESSION_THRESHOLD
+			);
 
 			EncryptionContext::$ENABLED = $this->configGroup->getPropertyBool(Yml::NETWORK_ENABLE_ENCRYPTION, true);
 
@@ -1017,7 +1011,7 @@ class Server{
 
 			$this->queryInfo = new QueryInfo($this);
 
-			$playerDataProviderType = $this->configGroup->getPropertyString(Yml::PLAYER_DEFAULT_DATA_FORMAT, "datfile");
+			$playerDataProviderType = $this->configGroup->getPropertyString("player.default-data-format", "datfile");
 			$path = Path::join($this->dataPath, "players");
 			if ($playerDataProviderType === "datfile") {
 				$this->playerDataProvider = new DatFilePlayerDataProvider($path);
@@ -1370,17 +1364,6 @@ class Server{
 		return count($recipients);
 	}
 
-	private function getNetworkCompressionWorkerPool(Compressor $compressor) : CompressorWorkerPool{
-		$compressorId = spl_object_id($compressor);
-		$workerPool = $this->networkCompressionThreadPools[$compressorId] ?? null;
-		if ($workerPool === null) {
-			$this->logger->debug("Creating new worker pool for compressor " . get_class($compressor) . "#" . $compressorId);
-			$workerPool = $this->networkCompressionThreadPools[$compressorId] = new CompressorWorkerPool($this->networkCompressionThreads, $compressor, $this->tickSleeper);
-		}
-
-		return $workerPool;
-	}
-
 	/**
 	 * @internal
 	 * Promises to compress the given batch buffer using the selected compressor, optionally on a separate thread.
@@ -1399,22 +1382,26 @@ class Server{
 		try{
 			$timings->startTiming();
 
-			if($sync === null){
-				$threshold = $compressor->getCompressionThreshold();
-				$sync = $threshold === null || strlen($buffer) < $threshold;
-			}
+			$threshold = $compressor->getCompressionThreshold();
+			if($threshold === null || strlen($buffer) < $compressor->getCompressionThreshold()){
+				$compressionType = CompressionAlgorithm::NONE;
+				$compressed = $buffer;
 
-			if(!$sync && $this->networkCompressionThreads > 0){
-				$workerPool = $this->getNetworkCompressionWorkerPool($compressor);
-
-				//TODO: we really want to be submitting all sessions' buffers in one go to maximize performance
-				$promise = $workerPool->submit($buffer);
 			}else{
-				$promise = new CompressBatchPromise();
-				$promise->resolve($compressor->compress($buffer));
+				$sync ??= !$this->networkCompressionAsync;
+
+				if(!$sync && strlen($buffer) >= $this->networkCompressionAsyncThreshold){
+					$promise = new CompressBatchPromise();
+					$task = new CompressBatchTask($buffer, $promise, $compressor);
+					$this->asyncPool->submitTask($task);
+					return $promise;
+				}
+
+				$compressionType = $compressor->getNetworkId();
+				$compressed = $compressor->compress($buffer);
 			}
 
-			return $promise;
+			return chr($compressionType) . $compressed;
 		}finally{
 			$timings->stopTiming();
 		}
@@ -1530,10 +1517,6 @@ class Server{
 					$this->logger->debug("Stopping network interface " . get_class($interface));
 					$this->network->unregisterInterface($interface);
 				}
-			}
-			foreach($this->networkCompressionThreadPools as $pool){
-				$this->logger->debug("Shutting down network compression thread pool for compressor " . get_class($pool->getCompressor()) . "#" . spl_object_id($pool->getCompressor()));
-				$pool->shutdown();
 			}
 		}catch(\Throwable $e){
 			$this->logger->logException($e);
