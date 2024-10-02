@@ -157,7 +157,9 @@ class PlayerDeathEvent extends EntityDeathEvent{
 			case EntityDamageEvent::CAUSE_ENTITY_EXPLOSION:
 				if($deathCause instanceof EntityDamageByEntityEvent){
 					$e = $deathCause->getDamager();
-					if($e instanceof Living){
+					if($e instanceof FireworkRocket){
+						return KnownTranslationFactory::death_attack_fireworks($name);
+					}elseif($e instanceof Living){
 						return KnownTranslationFactory::death_attack_explosion_player($name, $e->getDisplayName());
 					}
 				}
