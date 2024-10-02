@@ -330,8 +330,18 @@ final class ItemTypeIds{
 	public const FIREWORK_STAR = 20291;
 	public const RECOVERY_COMPASS = 20292;
 	public const ENDER_EYE = 20293;
+	public const ACACIA_HANGING_SIGN = 20294;
+	public const BIRCH_HANGING_SIGN = 20295;
+	public const CHERRY_HANGING_SIGN = 20296;
+	public const CRIMSON_HANGING_SIGN = 20297;
+	public const DARK_OAK_HANGING_SIGN = 20298;
+	public const JUNGLE_HANGING_SIGN = 20299;
+	public const MANGROVE_HANGING_SIGN = 20300;
+	public const OAK_HANGING_SIGN = 20301;
+	public const SPRUCE_HANGING_SIGN = 20302;
+	public const WARPED_HANGING_SIGN = 20303;
 
-	public const FIRST_UNUSED_ITEM_ID = 20294;
+	public const FIRST_UNUSED_ITEM_ID = 20304;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
