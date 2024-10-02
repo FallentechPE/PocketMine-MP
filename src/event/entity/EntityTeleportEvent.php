@@ -35,10 +35,23 @@ use pocketmine\world\Position;
 class EntityTeleportEvent extends EntityEvent implements Cancellable{
 	use CancellableTrait;
 
+	public const CAUSE_PLUGIN = 0;
+	public const CAUSE_ENDER_PEARL = 1; // projectile is vague and not needed. ender pearl is the only teleporting projectile
+	public const CAUSE_CHORUS_FRUIT = 2;
+	public const CAUSE_COMMAND = 3;
+	public const CAUSE_DIMENSION_CHANGE = 4;
+	public const CAUSE_ENTERING_BED = 5; // according to wiki this is teleporting. will not implement for now
+	public const CAUSE_MOUNT_ENTITY = 6;
+	public const CAUSE_ENTER_ENTITY = 7;
+	public const CAUSE_RESPAWN = 8;
+
+	// todo possibly adding entities? such as tamed wolves/cats and endermen
+
 	public function __construct(
 		Entity $entity,
 		private Position $from,
-		private Position $to
+		private Position $to,
+		private int $cause = self::CAUSE_PLUGIN
 	){
 		$this->entity = $entity;
 	}
@@ -49,6 +62,10 @@ class EntityTeleportEvent extends EntityEvent implements Cancellable{
 
 	public function getTo() : Position{
 		return $this->to;
+	}
+
+	public function getCause() : int{
+		return $this->cause;
 	}
 
 	public function setTo(Position $to) : void{
