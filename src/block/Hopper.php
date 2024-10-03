@@ -38,7 +38,7 @@ use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 
-class Hopper extends Transparent implements HopperInteractable{
+class Hopper extends Transparent implements HopperInteractable, FacingInterface{
 	use PoweredByRedstoneTrait;
 
 	public const TRANSFER_COOLDOWN = 8; // todo make configurable

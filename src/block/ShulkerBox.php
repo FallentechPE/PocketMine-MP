@@ -34,7 +34,7 @@ use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 use function count;
 
-class ShulkerBox extends Opaque implements HopperInteractable{
+class ShulkerBox extends Opaque implements HopperInteractable, FacingInterface{
 	use AnyFacingTrait;
 	use HopperInteractableContainerTrait;
 

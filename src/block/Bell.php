@@ -38,7 +38,7 @@ use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 use pocketmine\world\sound\BellRingSound;
 
-final class Bell extends Transparent{
+final class Bell extends Transparent implements FacingInterface{
 	use HorizontalFacingTrait;
 
 	private BellAttachmentType $attachmentType = BellAttachmentType::FLOOR;
