@@ -248,6 +248,7 @@ use function strtolower;
  * @method static Item NETHERITE_UPGRADE_SMITHING_TEMPLATE()
  * @method static Item NETHER_BRICK()
  * @method static Item NETHER_QUARTZ()
+ * @method static WrittenBook NETHER_SPROUTS()
  * @method static Item NETHER_STAR()
  * @method static Boat OAK_BOAT()
  * @method static ItemBlockWallOrFloor OAK_HANGING_SIGN()
@@ -464,9 +465,9 @@ final class VanillaItems{
 		self::register("copper_ingot", new Item(new IID(Ids::COPPER_INGOT), "Copper Ingot"));
 		self::register("coral_fan", new CoralFan(new IID(Ids::CORAL_FAN)));
 		self::register("crimson_sign", new ItemBlockWallOrFloor(new IID(Ids::CRIMSON_SIGN), Blocks::CRIMSON_SIGN(), Blocks::CRIMSON_WALL_SIGN()));
-				self::register("crimson_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::CRIMSON_HANGING_SIGN), Blocks::CRIMSON_CEILING_HANGING_SIGN(), Blocks::CRIMSON_WALL_HANGING_SIGN()));
+		self::register("crimson_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::CRIMSON_HANGING_SIGN), Blocks::CRIMSON_CEILING_HANGING_SIGN(), Blocks::CRIMSON_WALL_HANGING_SIGN()));
 		self::register("dark_oak_sign", new ItemBlockWallOrFloor(new IID(Ids::DARK_OAK_SIGN), Blocks::DARK_OAK_SIGN(), Blocks::DARK_OAK_WALL_SIGN()));
-				self::register("dark_oak_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::DARK_OAK_HANGING_SIGN), Blocks::DARK_OAK_CEILING_HANGING_SIGN(), Blocks::DARK_OAK_WALL_HANGING_SIGN()));
+		self::register("dark_oak_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::DARK_OAK_HANGING_SIGN), Blocks::DARK_OAK_CEILING_HANGING_SIGN(), Blocks::DARK_OAK_WALL_HANGING_SIGN()));
 		self::register("diamond", new Item(new IID(Ids::DIAMOND), "Diamond"));
 		self::register("disc_fragment_5", new Item(new IID(Ids::DISC_FRAGMENT_5), "Disc Fragment (5)"));
 		self::register("dragon_breath", new Item(new IID(Ids::DRAGON_BREATH), "Dragon's Breath"));
@@ -638,6 +639,9 @@ final class VanillaItems{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
+
+		self::register("nether_sprouts", new WrittenBook(new IID(Ids::WRITTEN_BOOK), "Written Book"));
+
 	}
 
 	private static function registerTierToolItems() : void{

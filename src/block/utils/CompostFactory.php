@@ -62,7 +62,7 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaBlocks::FLOWERING_AZALEA_LEAVES()->asItem(), 50);
 		$this->register(VanillaBlocks::GLOW_LICHEN()->asItem(), 50);
 		$this->register(VanillaItems::MELON(), 50);
-		//Nether Sprouts Block
+		$this->register(VanillaBlocks::NETHER_SPROUTS()->asItem(), 50);
 		//Nether Sprouts Item
 		$this->register(VanillaBlocks::SUGARCANE()->asItem(), 50);
 		$this->register(VanillaBlocks::DOUBLE_TALLGRASS()->asItem(), 50);
@@ -108,7 +108,7 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaItems::BAKED_POTATO(), 85);
 		$this->register(VanillaItems::BREAD(), 85);
 		$this->register(VanillaItems::COOKIE(), 85);
-		//Flowering Azalea
+		$this->register(VanillaBlocks::FLOWERING_AZALEA()->asItem(), 85);
 		$this->register(VanillaBlocks::HAY_BALE()->asItem(), 85);
 		$this->register(VanillaBlocks::NETHER_WART_BLOCK()->asItem(), 85);
 		$this->register(VanillaBlocks::PITCHER_PLANT()->asItem(), 85);

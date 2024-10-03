@@ -573,6 +573,7 @@ use function strtolower;
  * @method static NetherPortal NETHER_PORTAL()
  * @method static NetherQuartzOre NETHER_QUARTZ_ORE()
  * @method static NetherReactor NETHER_REACTOR_CORE()
+ * @method static NetherSprouts NETHER_SPROUTS()
  * @method static NetherWartPlant NETHER_WART()
  * @method static Opaque NETHER_WART_BLOCK()
  * @method static Note NOTE_BLOCK()
@@ -1709,6 +1710,6 @@ final class VanillaBlocks{
 		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
 		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
 		self::register("turtle_egg", new TurtleEgg(new BID(Ids::TURTLE_EGG), "Turtle Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
-
+		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
 	}
 }

@@ -1777,6 +1777,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(BlockStateNames::STABILITY_CHECK, $block->isStable())
 				->writeInt(BlockStateNames::STABILITY, $block->getStability());
 		});
+		$this->mapSimple(Blocks::NETHER_SPROUTS(), Ids::NETHER_SPROUTS);
 //		$this->map(Blocks::TURTLE_EGG(), function(TurtleEgg $block) : Writer {
 //			return Writer::create(Ids::TURTLE_EGG)
 //				->writeInt(BlockStateNames::TURTLE_EGG_COUNT, $block->getCount())
