@@ -1706,6 +1706,13 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setStable($in->readBool(StateNames::STABILITY_CHECK));
 		});
 		$this->map(Ids::NETHER_SPROUTS, fn() => Blocks::NETHER_SPROUTS());
+		$this->map(Ids::OBSERVER, function(Reader $in) : Block{
+			$block = Blocks::OBSERVER()
+				->setFacing($in->readFacingDirectionString())
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+			var_dump($block->getFacing());
+			return $block;
+		});
 //		$this->map(Ids::TURTLE_EGG, function(Reader $in) : Block {
 //			return Blocks::TURTLE_EGG()
 //				->setCount($in->readBoundedInt(StateNames::TURTLE_EGG_COUNT, 1, 4))

@@ -594,6 +594,7 @@ use function strtolower;
  * @method static WallHangingSign OAK_WALL_HANGING_SIGN()
  * @method static WallSign OAK_WALL_SIGN()
  * @method static Wood OAK_WOOD()
+ * @method static Observer OBSERVER()
  * @method static Opaque OBSIDIAN()
  * @method static Flower ORANGE_TULIP()
  * @method static Flower OXEYE_DAISY()
@@ -1711,5 +1712,6 @@ final class VanillaBlocks{
 		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
 		self::register("turtle_egg", new TurtleEgg(new BID(Ids::TURTLE_EGG), "Turtle Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
 		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
+		self::register("observer", new Observer(new BID(Ids::OBSERVER), "Observer", new Info(BreakInfo::pickaxe(3, ToolTier::WOOD, 3))));
 	}
 }
