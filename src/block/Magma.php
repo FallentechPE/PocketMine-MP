@@ -28,6 +28,7 @@ use pocketmine\entity\Living;
 use pocketmine\event\entity\EntityDamageByBlockEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\math\Facing;
 
 class Magma extends Opaque{
 
@@ -35,16 +36,11 @@ class Magma extends Opaque{
 		return 3;
 	}
 
-	public function hasEntityCollision() : bool{
-		return true;
-	}
-
-	public function onEntityInside(Entity $entity) : bool{
-		if($entity instanceof Living && !$entity->isSneaking() && !$entity->getArmorInventory()->getBoots()->hasEnchantment(VanillaEnchantments::FROST_WALKER())){
+	public function onEntityCollide(Entity $entity, int $face) : void{
+		if($face === Facing::UP && $entity instanceof Living && !$entity->isSneaking() && !$entity->getArmorInventory()->getBoots()->hasEnchantment(VanillaEnchantments::FROST_WALKER())){
 			$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_FIRE, 1);
 			$entity->attack($ev);
 		}
-		return true;
 	}
 
 	public function burnsForever() : bool{
