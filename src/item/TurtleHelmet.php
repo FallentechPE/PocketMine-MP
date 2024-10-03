@@ -38,4 +38,14 @@ class TurtleHelmet extends Armor{
 
 		return false;
 	}
+
+
+	/**
+	 * Returns the typeId of items that can be used to repair this tool in the anvil.
+	 *
+	 * @return int[]
+	 */
+	public function getRepairMaterials() : array{
+		return $this->getMetadata()[5];
+	}
 }
