@@ -44,16 +44,16 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaBlocks::OAK_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::SPRUCE_SAPLING()->asItem(), 30);
 		//Mangrove propagule
-		//Mangrove roots
+		$this->register(VanillaBlocks::MANGROVE_ROOTS()->asItem(), 30);
 		$this->register(VanillaItems::MELON_SEEDS(), 30);
 		$this->register(VanillaBlocks::MOSS_CARPET()->asItem(), 30);
 		$this->register(VanillaBlocks::PINK_PETALS()->asItem(), 30);
 		$this->register(VanillaItems::PUMPKIN_SEEDS(), 30);
-		//Pitcher Pod
+		$this->register(VanillaItems::PITCHER_POD(), 30);
 		//Sea grass
 		$this->register(VanillaBlocks::SMALL_DRIPLEAF()->asItem(), 30);
 		$this->register(VanillaItems::SWEET_BERRIES(), 30);
-		//Torchflower Seeds
+		$this->register(VanillaItems::TORCHFLOWER_SEEDS(), 30);
 		$this->register(VanillaItems::WHEAT_SEEDS(), 30);
 
 		// region: 50% percentage compost
@@ -101,8 +101,8 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaItems::WHEAT(), 65);
 		//Crimson fungus
 		//Warped fungus
-		//Crimson roots
-		//Warped roots
+		$this->register(VanillaBlocks::CRIMSON_ROOTS()->asItem(), 65);
+		$this->register(VanillaBlocks::WARPED_ROOTS()->asItem(), 65);
 
 		// region: 85% percentage compost
 		$this->register(VanillaItems::BAKED_POTATO(), 85);
@@ -111,8 +111,8 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		//Flowering Azalea
 		$this->register(VanillaBlocks::HAY_BALE()->asItem(), 85);
 		$this->register(VanillaBlocks::NETHER_WART_BLOCK()->asItem(), 85);
-		//Pitcher Plant
-		//Torchflower
+		$this->register(VanillaBlocks::PITCHER_PLANT()->asItem(), 85);
+		$this->register(VanillaBlocks::TORCHFLOWER()->asItem(), 85);
 		$this->register(VanillaBlocks::WARPED_WART_BLOCK()->asItem(), 85);
 
 		// region: 100% percentage compost

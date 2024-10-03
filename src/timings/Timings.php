@@ -129,6 +129,11 @@ abstract class Timings{
 	/** @var TimingsHandler[] */
 	private static array $asyncTaskError = [];
 
+
+	private static TimingsHandler $asyncTaskWorkers;
+	/** @var TimingsHandler[] */
+	private static array $asyncTaskRun = [];
+
 	public static function init() : void{
 		if(self::$initialized){
 			return;
@@ -187,6 +192,8 @@ abstract class Timings{
 		self::$asyncTaskProgressUpdateParent = new TimingsHandler("Async Tasks - Progress Updates", self::$schedulerAsync);
 		self::$asyncTaskCompletionParent = new TimingsHandler("Async Tasks - Completion Handlers", self::$schedulerAsync);
 		self::$asyncTaskErrorParent = new TimingsHandler("Async Tasks - Error Handlers", self::$schedulerAsync);
+
+		self::$asyncTaskWorkers = new TimingsHandler("Async Task Workers");
 
 		self::$playerCommand = new TimingsHandler("Player Command");
 		self::$craftingDataCacheRebuild = new TimingsHandler("Build CraftingDataPacket Cache");
@@ -356,5 +363,20 @@ abstract class Timings{
 		}
 
 		return self::$asyncTaskError[$taskClass];
+	}
+
+
+	public static function getAsyncTaskRunTimings(AsyncTask $task, string $group = self::GROUP_MINECRAFT) : TimingsHandler{
+		$taskClass = $task::class;
+		if(!isset(self::$asyncTaskRun[$taskClass])){
+			self::init();
+			self::$asyncTaskRun[$taskClass] = new TimingsHandler(
+				"AsyncTask - " . self::shortenCoreClassName($taskClass, "pocketmine\\") . " - Run",
+				self::$asyncTaskWorkers,
+				$group
+			);
+		}
+
+		return self::$asyncTaskRun[$taskClass];
 	}
 }
