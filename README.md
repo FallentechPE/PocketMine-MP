@@ -74,6 +74,7 @@ Additions
 > https://github.com/pmmp/PocketMine-MP/pull/6383
 > https://github.com/pmmp/PocketMine-MP/pull/6396
 > https://github.com/pmmp/PocketMine-MP/pull/6403
+> https://github.com/pmmp/PocketMine-MP/pull/6418
 
 
 ## What is this?
