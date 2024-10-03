@@ -26,6 +26,8 @@ namespace pocketmine\player;
 use pocketmine\block\BaseSign;
 use pocketmine\block\Bed;
 use pocketmine\block\BlockTypeTags;
+use pocketmine\block\inventory\BlockInventory;
+use pocketmine\block\ProximityRestricted;
 use pocketmine\block\UnknownBlock;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\command\CommandSender;
@@ -308,6 +310,8 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 	protected \Logger $logger;
 
 	protected ?SurvivalBlockBreakHandler $blockBreakHandler = null;
+
+	protected ?Vector3 $openContainerPosition = null;
 
 	public function __construct(Server $server, NetworkSession $session, PlayerInfo $playerInfo, bool $authenticated, Location $spawnLocation, ?CompoundTag $namedtag){
 		$username = TextFormat::clean($playerInfo->getUsername());
@@ -1453,6 +1457,15 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 		if($exceededRateLimit){ //client and server positions will be out of sync if this happens
 			$this->logger->debug("Exceeded movement rate limit, forcing to last accepted position");
 			$this->sendPosition($this->location, $this->location->getYaw(), $this->location->getPitch(), MovePlayerPacket::MODE_RESET);
+		}
+		if ($this->openContainerPosition !== null && $this->currentWindow !== null) {
+			if ($this->currentWindow instanceof ProximityRestricted) {
+				$distance = $this->location->distance($this->openContainerPosition);
+
+				if ($distance > $this->currentWindow->getMaxDistance()) {
+					$this->removeCurrentWindow();
+				}
+			}
 		}
 	}
 
@@ -2789,6 +2802,17 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 		$inventoryManager->onCurrentWindowChange($inventory);
 		$inventory->onOpen($this);
 		$this->currentWindow = $inventory;
+
+		if ($inventory instanceof ProximityRestricted) {
+			if ($inventory->getMaxDistance() > 0) {
+				if ($inventory instanceof BlockInventory) {
+					$holder = $inventory->getHolder();
+					$this->openContainerPosition = $holder->asPosition();
+				}
+			}
+		}
+
+
 		return true;
 	}
 
@@ -2803,6 +2827,8 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			}
 			$this->currentWindow = null;
 			(new InventoryCloseEvent($currentWindow, $this))->call();
+
+			$this->openContainerPosition = null;
 		}
 	}
 
