@@ -80,6 +80,7 @@ Additions
 > https://github.com/pmmp/PocketMine-MP/pull/6444
 > https://github.com/pmmp/PocketMine-MP/pull/6445
 > https://github.com/pmmp/PocketMine-MP/pull/6456
+> https://github.com/pmmp/PocketMine-MP/pull/6461
 
 
 ## What is this?
