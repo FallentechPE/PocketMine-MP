@@ -8,11 +8,11 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
  *  These are retained for backwards compatibility only.
  *
- * @method static BellAttachmentType MERGE()
- * @method static BellAttachmentType TIP()
- * @method static BellAttachmentType FRUSTUM()
- * @method static BellAttachmentType MIDDLE()
- * @method static BellAttachmentType BASE()
+ * @method static DripstoneThickness MERGE()
+ * @method static DripstoneThickness TIP()
+ * @method static DripstoneThickness FRUSTUM()
+ * @method static DripstoneThickness MIDDLE()
+ * @method static DripstoneThickness BASE()
  */
 enum DripstoneThickness{
 	use LegacyEnumShimTrait;

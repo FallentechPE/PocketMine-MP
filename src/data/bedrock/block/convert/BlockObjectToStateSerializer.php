@@ -93,6 +93,7 @@ use pocketmine\block\FrostedIce;
 use pocketmine\block\Furnace;
 use pocketmine\block\GlazedTerracotta;
 use pocketmine\block\GlowLichen;
+use pocketmine\block\Grindstone;
 use pocketmine\block\HayBale;
 use pocketmine\block\Hopper;
 use pocketmine\block\ItemFrame;
@@ -1857,5 +1858,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writePointedDripstoneThickness($block->getThickness());
 		});
 		$this->mapSimple(Blocks::FROG_SPAWN(), Ids::FROG_SPAWN);
+		$this->map(Blocks::GRINDSTONE(), function(Grindstone $block) : Writer {
+			return Writer::create(Ids::GRINDSTONE)
+				->writeBellAttachmentType($block->getAttachmentType())
+				->writeLegacyHorizontalFacing($block->getFacing());
+		});
 	}
 }

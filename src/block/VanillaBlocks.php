@@ -475,6 +475,7 @@ use function strtolower;
  * @method static GrassPath GRASS_PATH()
  * @method static Gravel GRAVEL()
  * @method static Torch GREEN_TORCH()
+ * @method static Grindstone GRINDSTONE()
  * @method static HangingRoots HANGING_ROOTS()
  * @method static HardenedClay HARDENED_CLAY()
  * @method static HardenedGlass HARDENED_GLASS()
@@ -1329,6 +1330,7 @@ final class VanillaBlocks{
 		self::register("dripstone_block", new Dripstone(new BID(Ids::DRIPSTONE), "Dripstone Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 1))));
 		self::register("pointed_dripstone", new PointedDripstone(new BID(Ids::POINTED_DRIPSTONE), "Pointed Dripstone", new Info(BreakInfo::pickaxe(1.5, null, 3))));
 		self::register("frog_spawn", new Frogspawn(new BID(Ids::FROGSPAWN), "Frogspawn", new Info(BreakInfo::instant())));
+		self::register("grindstone", new Grindstone(new BID(Ids::GRINDSTONE), "Grindstone", new Info(BreakInfo::pickaxe(2, ToolTier::WOOD, 6))));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

@@ -1775,6 +1775,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setThickness($in->readPointedDripstoneThickness());
 		});
 		$this->mapSimple(Ids::FROG_SPAWN, fn() => Blocks::FROG_SPAWN());
+		$this->map(Ids::GRINDSTONE, function(Reader $in) : Block{
+			return Blocks::GRINDSTONE()
+				->setFacing($in->readLegacyHorizontalFacing())
+				->setAttachmentType($in->readBellAttachmentType());
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */
