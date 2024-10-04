@@ -1758,6 +1758,16 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::DECORATED_POT()
 				->setFacing($in->readLegacyHorizontalFacing());
 		});
+		$this->map(Ids::DISPENSER, function(Reader $in) : Block {
+			return Blocks::DISPENSER()
+				->setFacing($in->readFacingDirection())
+				->setTriggered($in->readBool(StateNames::TRIGGERED_BIT));
+		});
+		$this->map(Ids::DROPPER, function(Reader $in) : Block {
+			return Blocks::DROPPER()
+				->setFacing($in->readFacingDirection())
+				->setTriggered($in->readBool(StateNames::TRIGGERED_BIT));
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

@@ -70,10 +70,12 @@ use pocketmine\block\DaylightSensor;
 use pocketmine\block\DecoratedPot;
 use pocketmine\block\DetectorRail;
 use pocketmine\block\Dirt;
+use pocketmine\block\Dispenser;
 use pocketmine\block\Door;
 use pocketmine\block\DoublePitcherCrop;
 use pocketmine\block\DoublePlant;
 use pocketmine\block\DoubleTallGrass;
+use pocketmine\block\Dropper;
 use pocketmine\block\DyedCandle;
 use pocketmine\block\DyedShulkerBox;
 use pocketmine\block\EnderChest;
@@ -1836,6 +1838,16 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::DECORATED_POT(), function(DecoratedPot $block) : Writer {
 			return Writer::create(Ids::DECORATED_POT)
 				->writeLegacyHorizontalFacing($block->getFacing());
+		});
+		$this->map(Blocks::DISPENSER(), function(Dispenser $block) : Writer {
+			return Writer::create(Ids::DISPENSER)
+				->writeFacingDirection($block->getFacing())
+				->writeBool(StateNames::TRIGGERED_BIT, $block->isTriggered());
+		});
+		$this->map(Blocks::DROPPER(), function(Dropper $block) : Writer {
+			return Writer::create(Ids::DROPPER)
+				->writeFacingDirection($block->getFacing())
+				->writeBool(StateNames::TRIGGERED_BIT, $block->isTriggered());
 		});
 	}
 }

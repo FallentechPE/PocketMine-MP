@@ -305,10 +305,12 @@ use function strtolower;
  * @method static Stair DIORITE_STAIRS()
  * @method static Wall DIORITE_WALL()
  * @method static Dirt DIRT()
+ * @method static Dispenser DISPENSER()
  * @method static DoublePitcherCrop DOUBLE_PITCHER_CROP()
  * @method static DoubleTallGrass DOUBLE_TALLGRASS()
  * @method static DragonEgg DRAGON_EGG()
  * @method static DriedKelp DRIED_KELP()
+ * @method static Dropper DROPPER()
  * @method static DyedCandle DYED_CANDLE()
  * @method static DyedShulkerBox DYED_SHULKER_BOX()
  * @method static Element ELEMENT_ACTINIUM()
@@ -1312,6 +1314,15 @@ final class VanillaBlocks{
 		self::register("crimson_nylium", new Nylium(new BID(Ids::CRIMSON_NYLIUM), "Crimson Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
 		self::register("warped_nylium", new Nylium(new BID(Ids::WARPED_NYLIUM), "Warped Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
 		self::register("decorated_pot", new DecoratedPot(new BID(Ids::DECORATED_POT), "Decorated Pot", new Info(BreakInfo::instant())));
+		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::hoe(0.1))));
+		self::register("moss_carpet", new MossCarpet(new BID(Ids::MOSS_CARPET), "Moss Carpet", new Info(BreakInfo::hoe(0.1))));
+		self::register("azalea", new Azalea(new BID(Ids::AZALEA), "Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
+		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
+		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
+		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
+		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
+		self::register("dropper", new Dropper(new BID(Ids::DROPPER), "Dropper", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
+		self::register("dispenser", new Dispenser(new BID(Ids::DISPENSER), "Dispenser", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();
@@ -1325,7 +1336,6 @@ final class VanillaBlocks{
 		self::registerOres();
 		self::registerWoodenBlocks();
 		self::registerCauldronBlocks();
-		self::registerNewBlocks();
 	}
 
 	private static function registerWoodenBlocks() : void{
@@ -1726,15 +1736,5 @@ final class VanillaBlocks{
 		self::register("lava_cauldron", new LavaCauldron(new BID(Ids::LAVA_CAULDRON, TileCauldron::class), "Lava Cauldron", $cauldronBreakInfo));
 		self::register("powder_snow_cauldron", new PowderSnowCauldron(new BID(Ids::POWDER_SNOW_CAULDRON), "Powder Snow Cauldron", $cauldronBreakInfo));
 		self::register("potion_cauldron", new PotionCauldron(new BID(Ids::POTION_CAULDRON, TileCauldron::class), "Potion Cauldron", $cauldronBreakInfo));
-	}
-
-	private static function registerNewBlocks(): void {
-		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::hoe(0.1))));
-		self::register("moss_carpet", new MossCarpet(new BID(Ids::MOSS_CARPET), "Moss Carpet", new Info(BreakInfo::hoe(0.1))));
-		self::register("azalea", new Azalea(new BID(Ids::AZALEA), "Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
-		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
-		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
-		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
-		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
 	}
 }
