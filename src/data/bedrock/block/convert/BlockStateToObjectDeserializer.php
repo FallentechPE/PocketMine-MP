@@ -1780,6 +1780,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setFacing($in->readLegacyHorizontalFacing())
 				->setAttachmentType($in->readBellAttachmentType());
 		});
+		$this->map(Ids::HEAVY_CORE, fn() => Blocks::HEAVY_CORE());
 	}
 
 	/** @throws BlockStateDeserializeException */

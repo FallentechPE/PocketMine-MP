@@ -481,6 +481,7 @@ use function strtolower;
  * @method static HardenedGlass HARDENED_GLASS()
  * @method static HardenedGlassPane HARDENED_GLASS_PANE()
  * @method static HayBale HAY_BALE()
+ * @method static Transparent HEAVY_CORE()
  * @method static Opaque HONEYCOMB()
  * @method static Hopper HOPPER()
  * @method static Ice ICE()
@@ -1331,6 +1332,7 @@ final class VanillaBlocks{
 		self::register("pointed_dripstone", new PointedDripstone(new BID(Ids::POINTED_DRIPSTONE), "Pointed Dripstone", new Info(BreakInfo::pickaxe(1.5, null, 3))));
 		self::register("frog_spawn", new Frogspawn(new BID(Ids::FROGSPAWN), "Frogspawn", new Info(BreakInfo::instant())));
 		self::register("grindstone", new Grindstone(new BID(Ids::GRINDSTONE), "Grindstone", new Info(BreakInfo::pickaxe(2, ToolTier::WOOD, 6))));
+		self::register("heavy_core", new Transparent(new BID(Ids::HEAVY_CORE), "Heavy Core", new Info(BreakInfo::pickaxe(10, null, 30)))); // todo waterloggable
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();
