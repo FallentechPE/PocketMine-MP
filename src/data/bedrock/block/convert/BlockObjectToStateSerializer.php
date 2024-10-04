@@ -1856,5 +1856,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::HANGING, $block->isHanging())
 				->writePointedDripstoneThickness($block->getThickness());
 		});
+		$this->mapSimple(Blocks::FROG_SPAWN(), Ids::FROG_SPAWN);
 	}
 }

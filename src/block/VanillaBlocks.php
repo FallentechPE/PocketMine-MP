@@ -454,6 +454,7 @@ use function strtolower;
  * @method static Leaves FLOWERING_AZALEA_LEAVES()
  * @method static FlowerPot FLOWER_POT()
  * @method static Froglight FROGLIGHT()
+ * @method static Frogspawn FROG_SPAWN()
  * @method static FrostedIce FROSTED_ICE()
  * @method static Furnace FURNACE()
  * @method static GildedBlackstone GILDED_BLACKSTONE()
@@ -1327,7 +1328,7 @@ final class VanillaBlocks{
 		self::register("dispenser", new Dispenser(new BID(Ids::DISPENSER), "Dispenser", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
 		self::register("dripstone_block", new Dripstone(new BID(Ids::DRIPSTONE), "Dripstone Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 1))));
 		self::register("pointed_dripstone", new PointedDripstone(new BID(Ids::POINTED_DRIPSTONE), "Pointed Dripstone", new Info(BreakInfo::pickaxe(1.5, null, 3))));
-
+		self::register("frog_spawn", new Frogspawn(new BID(Ids::FROGSPAWN), "Frogspawn", new Info(BreakInfo::instant())));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

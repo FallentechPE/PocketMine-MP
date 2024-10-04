@@ -1774,6 +1774,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setHanging($in->readBool(StateNames::HANGING))
 				->setThickness($in->readPointedDripstoneThickness());
 		});
+		$this->mapSimple(Ids::FROG_SPAWN, fn() => Blocks::FROG_SPAWN());
 	}
 
 	/** @throws BlockStateDeserializeException */
