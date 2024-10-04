@@ -1043,6 +1043,7 @@ final class VanillaBlocks{
 		self::register("redstone_torch", new RedstoneTorch(new BID(Ids::REDSTONE_TORCH), "Redstone Torch", new Info(BreakInfo::instant())));
 		self::register("redstone_wire", new RedstoneWire(new BID(Ids::REDSTONE_WIRE), "Redstone", new Info(BreakInfo::instant())));
 		self::register("reserved6", new Reserved6(new BID(Ids::RESERVED6), "reserved6", new Info(BreakInfo::instant())));
+		self::register("observer", new Observer(new BID(Ids::OBSERVER), "Observer", new Info(BreakInfo::pickaxe(3, ToolTier::WOOD, 3))));
 
 		$sandTypeInfo = new Info(BreakInfo::shovel(0.5), [Tags::SAND]);
 		self::register("sand", new Sand(new BID(Ids::SAND), "Sand", $sandTypeInfo));

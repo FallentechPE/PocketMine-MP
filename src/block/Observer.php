@@ -19,11 +19,6 @@ class Observer extends Opaque{
 		$w->facing($this->facing);
 	}
 
-//	public function place(BlockTransaction $tx, Item $item, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, ?Player $player = null) : bool{
-//		$this->facing = Facing::opposite($face);
-//		return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
-//	}
-
 	public function place(BlockTransaction $tx, Item $item, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, ?Player $player = null) : bool{
 		if($player !== null){
 			if(abs($player->getPosition()->x - $this->position->x) < 2 && abs($player->getPosition()->z - $this->position->z) < 2){
@@ -44,6 +39,6 @@ class Observer extends Opaque{
 		return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
 	}
 
-//	todo redstone logic
+//	TODO: redstone logic
 
 }

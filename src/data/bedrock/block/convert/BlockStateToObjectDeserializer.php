@@ -1406,6 +1406,18 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		});
 		$this->mapSlab(Ids::NORMAL_STONE_SLAB, Ids::NORMAL_STONE_DOUBLE_SLAB, fn() => Blocks::STONE_SLAB());
 		$this->mapStairs(Ids::NORMAL_STONE_STAIRS, fn() => Blocks::STONE_STAIRS());
+		$this->map(Ids::OBSERVER, function(Reader $in) : Block{
+			return Blocks::OBSERVER()
+				->setFacing(match ($in->readString(StateNames::MC_FACING_DIRECTION)) {
+					StringValues::MC_BLOCK_FACE_DOWN => Facing::DOWN,
+					StringValues::MC_BLOCK_FACE_UP => Facing::UP,
+					StringValues::MC_BLOCK_FACE_NORTH => Facing::NORTH,
+					StringValues::MC_BLOCK_FACE_SOUTH => Facing::SOUTH,
+					StringValues::MC_BLOCK_FACE_WEST => Facing::WEST,
+					StringValues::MC_BLOCK_FACE_EAST => Facing::EAST,
+				})
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
 		$this->map(Ids::OCHRE_FROGLIGHT, fn(Reader $in) => Blocks::FROGLIGHT()->setFroglightType(FroglightType::OCHRE)->setAxis($in->readPillarAxis()));
 		$this->map(Ids::OXIDIZED_COPPER, fn() => Helper::decodeCopper(Blocks::COPPER(), CopperOxidation::OXIDIZED));
 		$this->map(Ids::OXIDIZED_CUT_COPPER, fn() => Helper::decodeCopper(Blocks::CUT_COPPER(), CopperOxidation::OXIDIZED));
