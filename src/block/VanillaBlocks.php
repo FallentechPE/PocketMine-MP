@@ -237,6 +237,7 @@ use function strtolower;
  * @method static FenceGate CRIMSON_FENCE_GATE()
  * @method static Fungus CRIMSON_FUNGUS()
  * @method static Wood CRIMSON_HYPHAE()
+ * @method static Nylium CRIMSON_NYLIUM()
  * @method static Planks CRIMSON_PLANKS()
  * @method static WoodenPressurePlate CRIMSON_PRESSURE_PLATE()
  * @method static NetherRoots CRIMSON_ROOTS()
@@ -785,6 +786,7 @@ use function strtolower;
  * @method static FenceGate WARPED_FENCE_GATE()
  * @method static Fungus WARPED_FUNGUS()
  * @method static Wood WARPED_HYPHAE()
+ * @method static Nylium WARPED_NYLIUM()
  * @method static Planks WARPED_PLANKS()
  * @method static WoodenPressurePlate WARPED_PRESSURE_PLATE()
  * @method static NetherRoots WARPED_ROOTS()
@@ -1306,6 +1308,9 @@ final class VanillaBlocks{
 		self::register("conduit", new Conduit(new BID(Ids::CONDUIT), "Conduit", new Info(BreakInfo::pickaxe(3, null, 3))));
 		self::register("crimson_fungus", new Fungus(new BID(Ids::CRIMSON_FUNGUS), "Crimson Fungus", new Info(BreakInfo::instant())));
 		self::register("warped_fungus", new Fungus(new BID(Ids::WARPED_FUNGUS), "Warped Fungus", new Info(BreakInfo::instant())));
+		self::register("crimson_nylium", new Nylium(new BID(Ids::CRIMSON_NYLIUM), "Crimson Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
+		self::register("warped_nylium", new Nylium(new BID(Ids::WARPED_NYLIUM), "Warped Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
+
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

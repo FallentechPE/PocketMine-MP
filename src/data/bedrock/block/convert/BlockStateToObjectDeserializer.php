@@ -1752,6 +1752,8 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		});
 		$this->map(Ids::CRIMSON_FUNGUS, fn() => Blocks::CRIMSON_FUNGUS());
 		$this->map(Ids::WARPED_FUNGUS, fn() => Blocks::WARPED_FUNGUS());
+		$this->map(Ids::CRIMSON_NYLIUM, fn() => Blocks::CRIMSON_NYLIUM());
+		$this->map(Ids::WARPED_NYLIUM, fn() => Blocks::WARPED_NYLIUM());
 	}
 
 	/** @throws BlockStateDeserializeException */

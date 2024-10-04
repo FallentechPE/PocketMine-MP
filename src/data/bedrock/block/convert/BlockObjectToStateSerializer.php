@@ -1830,5 +1830,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		});
 		$this->mapSimple(Blocks::CRIMSON_FUNGUS(), Ids::CRIMSON_FUNGUS);
 		$this->mapSimple(Blocks::WARPED_FUNGUS(), Ids::WARPED_FUNGUS);
+		$this->mapSimple(Blocks::CRIMSON_NYLIUM(), Ids::CRIMSON_NYLIUM);
+		$this->mapSimple(Blocks::WARPED_NYLIUM(), Ids::WARPED_NYLIUM);
 	}
 }
