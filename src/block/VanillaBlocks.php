@@ -228,6 +228,7 @@ use function strtolower;
  * @method static Opaque CRACKED_NETHER_BRICKS()
  * @method static Opaque CRACKED_POLISHED_BLACKSTONE_BRICKS()
  * @method static Opaque CRACKED_STONE_BRICKS()
+ * @method static Crafter CRAFTER()
  * @method static CraftingTable CRAFTING_TABLE()
  * @method static WoodenButton CRIMSON_BUTTON()
  * @method static CeilingHangingSign CRIMSON_CEILING_HANGING_SIGN()
@@ -1068,6 +1069,7 @@ final class VanillaBlocks{
 		self::register("shulker_box", new ShulkerBox(new BID(Ids::SHULKER_BOX, TileShulkerBox::class), "Shulker Box", $shulkerBoxBreakInfo));
 
 		self::register("turtle_egg", new TurtleEgg(new BID(Ids::TURTLE_EGG), "Turtle Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
+		self::register("crafter", new Crafter(new BID(Ids::CRAFTER), "Crafter", new Info(BreakInfo::pickaxe(1.5, null, 3.5))));
 
 		$stoneBreakInfo = new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 30.0));
 		self::register(

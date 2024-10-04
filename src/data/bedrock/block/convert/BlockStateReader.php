@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\data\bedrock\block\convert;
 
 use pocketmine\block\utils\BellAttachmentType;
+use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
@@ -351,6 +352,25 @@ final class BlockStateReader{
 			StringValues::CRACKED_STATE_CRACKED => TurtleEggCrackedState::CRACKED,
 			StringValues::CRACKED_STATE_MAX_CRACKED => TurtleEggCrackedState::MAX_CRACKED,
 			default => throw $this->badValueException(BlockStateNames::CRACKED_STATE, $count)
+		};
+	}
+
+	/** @throws BlockStateDeserializeException */
+	public function readOrientation() : Orientation{
+		return match ($orientation = $this->readString(BlockStateNames::ORIENTATION)) {
+			StringValues::ORIENTATION_DOWN_EAST => Orientation::DOWN_EAST,
+			StringValues::ORIENTATION_DOWN_NORTH => Orientation::DOWN_NORTH,
+			StringValues::ORIENTATION_DOWN_SOUTH => Orientation::DOWN_SOUTH,
+			StringValues::ORIENTATION_DOWN_WEST => Orientation::DOWN_WEST,
+			StringValues::ORIENTATION_EAST_UP => Orientation::EAST_UP,
+			StringValues::ORIENTATION_NORTH_UP => Orientation::NORTH_UP,
+			StringValues::ORIENTATION_SOUTH_UP => Orientation::SOUTH_UP,
+			StringValues::ORIENTATION_UP_EAST => Orientation::UP_EAST,
+			StringValues::ORIENTATION_UP_NORTH => Orientation::UP_NORTH,
+			StringValues::ORIENTATION_UP_SOUTH => Orientation::UP_SOUTH,
+			StringValues::ORIENTATION_UP_WEST => Orientation::UP_WEST,
+			StringValues::ORIENTATION_WEST_UP => Orientation::WEST_UP,
+			default => throw $this->badValueException(BlockStateNames::ORIENTATION, $orientation)
 		};
 	}
 

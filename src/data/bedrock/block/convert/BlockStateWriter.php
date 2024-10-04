@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\data\bedrock\block\convert;
 
 use pocketmine\block\utils\BellAttachmentType;
+use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
@@ -299,6 +300,25 @@ final class BlockStateWriter{
 			TurtleEggCrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
 			TurtleEggCrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
 			TurtleEggCrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writeOrientation(Orientation $orientation) : self{
+		$this->writeString(BlockStateNames::ORIENTATION, match ($orientation) {
+			Orientation::DOWN_EAST => StringValues::ORIENTATION_DOWN_EAST,
+			Orientation::DOWN_NORTH => StringValues::ORIENTATION_DOWN_NORTH,
+			Orientation::DOWN_SOUTH => StringValues::ORIENTATION_DOWN_SOUTH,
+			Orientation::DOWN_WEST => StringValues::ORIENTATION_DOWN_WEST,
+			Orientation::EAST_UP => StringValues::ORIENTATION_EAST_UP,
+			Orientation::NORTH_UP => StringValues::ORIENTATION_NORTH_UP,
+			Orientation::SOUTH_UP => StringValues::ORIENTATION_SOUTH_UP,
+			Orientation::UP_EAST => StringValues::ORIENTATION_UP_EAST,
+			Orientation::UP_NORTH => StringValues::ORIENTATION_UP_NORTH,
+			Orientation::UP_SOUTH => StringValues::ORIENTATION_UP_SOUTH,
+			Orientation::UP_WEST => StringValues::ORIENTATION_UP_WEST,
+			Orientation::WEST_UP => StringValues::ORIENTATION_WEST_UP,
 		});
 		return $this;
 	}

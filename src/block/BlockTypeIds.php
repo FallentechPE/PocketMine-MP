@@ -781,8 +781,9 @@ final class BlockTypeIds{
 	public const SCULK_SENSOR = 10751;
 	public const CALIBRATED_SCULK_SENSOR = 10752;
 	public const CONDUIT = 10753;
+	public const CRAFTER = 10754;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10754;
+	public const FIRST_UNUSED_BLOCK_ID = 10755;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

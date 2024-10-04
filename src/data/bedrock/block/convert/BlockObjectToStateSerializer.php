@@ -65,6 +65,7 @@ use pocketmine\block\CopperSlab;
 use pocketmine\block\CopperStairs;
 use pocketmine\block\Coral;
 use pocketmine\block\CoralBlock;
+use pocketmine\block\Crafter;
 use pocketmine\block\DaylightSensor;
 use pocketmine\block\DetectorRail;
 use pocketmine\block\Dirt;
@@ -1821,5 +1822,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(BlockStateNames::STABILITY, $block->getStability());
 		});
 		$this->mapSimple(Blocks::NETHER_SPROUTS(), Ids::NETHER_SPROUTS);
+		$this->map(Blocks::CRAFTER(), function(Crafter $block) : Writer {
+			return Writer::create(Ids::CRAFTER)
+				->writeBool(BlockStateNames::CRAFTING, $block->isCrafting())
+				->writeBool(BlockStateNames::TRIGGERED_BIT, $block->isTriggered())
+				->writeOrientation($block->getOrientation());
+		});
 	}
 }
