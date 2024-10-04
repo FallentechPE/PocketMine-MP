@@ -30,6 +30,7 @@ use pocketmine\block\Bamboo;
 use pocketmine\block\BambooSapling;
 use pocketmine\block\Barrel;
 use pocketmine\block\Bed;
+use pocketmine\block\BeeNest;
 use pocketmine\block\Beetroot;
 use pocketmine\block\Bell;
 use pocketmine\block\BigDripleafHead;
@@ -1168,6 +1169,16 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::BEDROCK(), function(Block $block) : Writer{
 			return Writer::create(Ids::BEDROCK)
 				->writeBool(StateNames::INFINIBURN_BIT, $block->burnsForever());
+		});
+		$this->map(Blocks::BEEHIVE(), function(BeeNest $block) : Writer {
+			return Writer::create(Ids::BEEHIVE)
+				->writeLegacyHorizontalFacing($block->getFacing())
+				->writeInt(StateNames::HONEY_LEVEL, $block->getHoney());
+		});
+		$this->map(Blocks::BEE_NEST(), function(BeeNest $block) : Writer {
+			return Writer::create(Ids::BEE_NEST)
+				->writeLegacyHorizontalFacing($block->getFacing())
+				->writeInt(StateNames::HONEY_LEVEL, $block->getHoney());
 		});
 		$this->map(Blocks::BEETROOTS(), fn(Beetroot $block) => Helper::encodeCrops($block, new Writer(Ids::BEETROOT)));
 		$this->map(Blocks::BELL(), function(Bell $block) : Writer{

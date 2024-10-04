@@ -115,7 +115,9 @@ use function strtolower;
  * @method static Beacon BEACON()
  * @method static Bed BED()
  * @method static Bedrock BEDROCK()
+ * @method static BeeNest BEEHIVE()
  * @method static Beetroot BEETROOTS()
+ * @method static BeeNest BEE_NEST()
  * @method static Bell BELL()
  * @method static BigDripleafHead BIG_DRIPLEAF_HEAD()
  * @method static BigDripleafStem BIG_DRIPLEAF_STEM()
@@ -842,7 +844,8 @@ final class VanillaBlocks{
 		self::register("beacon", new Beacon(new BID(Ids::BEACON, TileBeacon::class), "Beacon", new Info(new BreakInfo(3.0))));
 		self::register("bed", new Bed(new BID(Ids::BED, TileBed::class), "Bed Block", new Info(new BreakInfo(0.2))));
 		self::register("bedrock", new Bedrock(new BID(Ids::BEDROCK), "Bedrock", new Info(BreakInfo::indestructible())));
-
+		self::register("bee_nest",new BeeNest(new BID(Ids::BEE_NEST), "Bee Nest", new Info(BreakInfo::axe(0.3, null, 0.3))));
+		self::register("beehive",new BeeNest(new BID(Ids::BEEHIVE), "Beehive", new Info(BreakInfo::axe(0.6, null, 0.6))));
 		self::register("beetroots", new Beetroot(new BID(Ids::BEETROOTS), "Beetroot Block", new Info(BreakInfo::instant())));
 		self::register("bell", new Bell(new BID(Ids::BELL, TileBell::class), "Bell", new Info(BreakInfo::pickaxe(5.0, ToolTier::WOOD))));
 		self::register("blue_ice", new BlueIce(new BID(Ids::BLUE_ICE), "Blue Ice", new Info(BreakInfo::pickaxe(2.8))));

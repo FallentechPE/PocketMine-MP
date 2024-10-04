@@ -155,6 +155,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("bed", fn() => Blocks::BED());
 		$result->registerBlock("bed_block", fn() => Blocks::BED());
 		$result->registerBlock("bedrock", fn() => Blocks::BEDROCK());
+		$result->registerBlock("beehive", fn() => Blocks::BEEHIVE());
+		$result->registerBlock("bee_nest", fn() => Blocks::BEE_NEST());
 		$result->registerBlock("beetroot_block", fn() => Blocks::BEETROOTS());
 		$result->registerBlock("beetroots", fn() => Blocks::BEETROOTS());
 		$result->registerBlock("bell", fn() => Blocks::BELL());

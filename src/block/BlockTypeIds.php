@@ -776,8 +776,10 @@ final class BlockTypeIds{
 	public const CHERRY_WALL_HANGING_SIGN = 10746;
 	public const NETHER_SPROUTS = 10747;
 	public const OBSERVER = 10748;
+	public const BEE_NEST = 10749;
+	public const BEEHIVE = 10750;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10749;
+	public const FIRST_UNUSED_BLOCK_ID = 10751;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

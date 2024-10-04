@@ -1067,6 +1067,16 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::BEDROCK()
 				->setBurnsForever($in->readBool(StateNames::INFINIBURN_BIT));
 		});
+		$this->map(Ids::BEEHIVE, function(Reader $in) : Block {
+			return Blocks::BEEHIVE()
+				->setFacing($in->readLegacyHorizontalFacing())
+				->setHoney($in->readInt(StateNames::HONEY_LEVEL));
+		});
+		$this->map(Ids::BEE_NEST, function(Reader $in) : Block {
+			return Blocks::BEE_NEST()
+				->setFacing($in->readLegacyHorizontalFacing())
+				->setHoney($in->readInt(StateNames::HONEY_LEVEL));
+		});
 		$this->map(Ids::BEETROOT, fn(Reader $in) => Helper::decodeCrops(Blocks::BEETROOTS(), $in));
 		$this->map(Ids::BELL, function(Reader $in) : Block{
 			$in->ignored(StateNames::TOGGLE_BIT); //only useful at runtime
