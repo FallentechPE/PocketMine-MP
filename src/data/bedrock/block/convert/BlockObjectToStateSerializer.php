@@ -1828,5 +1828,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(BlockStateNames::TRIGGERED_BIT, $block->isTriggered())
 				->writeOrientation($block->getOrientation());
 		});
+		$this->mapSimple(Blocks::CRIMSON_FUNGUS(), Ids::CRIMSON_FUNGUS);
+		$this->mapSimple(Blocks::WARPED_FUNGUS(), Ids::WARPED_FUNGUS);
 	}
 }

@@ -1750,6 +1750,8 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setTriggered($in->readBool(StateNames::TRIGGERED_BIT))
 				->setOrientation($in->readOrientation());
 		});
+		$this->map(Ids::CRIMSON_FUNGUS, fn() => Blocks::CRIMSON_FUNGUS());
+		$this->map(Ids::WARPED_FUNGUS, fn() => Blocks::WARPED_FUNGUS());
 	}
 
 	/** @throws BlockStateDeserializeException */

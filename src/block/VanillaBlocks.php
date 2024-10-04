@@ -235,6 +235,7 @@ use function strtolower;
  * @method static WoodenDoor CRIMSON_DOOR()
  * @method static WoodenFence CRIMSON_FENCE()
  * @method static FenceGate CRIMSON_FENCE_GATE()
+ * @method static Fungus CRIMSON_FUNGUS()
  * @method static Wood CRIMSON_HYPHAE()
  * @method static Planks CRIMSON_PLANKS()
  * @method static WoodenPressurePlate CRIMSON_PRESSURE_PLATE()
@@ -782,6 +783,7 @@ use function strtolower;
  * @method static WoodenDoor WARPED_DOOR()
  * @method static WoodenFence WARPED_FENCE()
  * @method static FenceGate WARPED_FENCE_GATE()
+ * @method static Fungus WARPED_FUNGUS()
  * @method static Wood WARPED_HYPHAE()
  * @method static Planks WARPED_PLANKS()
  * @method static WoodenPressurePlate WARPED_PRESSURE_PLATE()
@@ -1302,6 +1304,8 @@ final class VanillaBlocks{
 		self::register("sculk_sensor", new SculkSensor(new BID(Ids::SCULK_SENSOR), "Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
 		self::register("calibrated_sculk_sensor", new CalibratedSculkSensor(new BID(Ids::CALIBRATED_SCULK_SENSOR), "Calibrated Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
 		self::register("conduit", new Conduit(new BID(Ids::CONDUIT), "Conduit", new Info(BreakInfo::pickaxe(3, null, 3))));
+		self::register("crimson_fungus", new Fungus(new BID(Ids::CRIMSON_FUNGUS), "Crimson Fungus", new Info(BreakInfo::instant())));
+		self::register("warped_fungus", new Fungus(new BID(Ids::WARPED_FUNGUS), "Warped Fungus", new Info(BreakInfo::instant())));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();
