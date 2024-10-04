@@ -1098,6 +1098,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("trunk", fn() => Blocks::OAK_PLANKS());
 		$result->registerBlock("trunk2", fn() => Blocks::ACACIA_LOG()->setStripped(false));
 		$result->registerBlock("tuff", fn() => Blocks::TUFF());
+		$result->registerBlock("turtle_egg", fn() => Blocks::TURTLE_EGG());
 		$result->registerBlock("twisting_vines", fn() => Blocks::TWISTING_VINES());
 		$result->registerBlock("underwater_tnt", fn() => Blocks::TNT()->setWorksUnderwater(true));
 		$result->registerBlock("underwater_torch", fn() => Blocks::UNDERWATER_TORCH());
@@ -1166,9 +1167,6 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("target", fn() => Blocks::TARGET());
 		$result->registerBlock("scaffolding", fn() => Blocks::SCAFFOLDING());
 		$result->registerBlock("nether_sprouts", fn() => Blocks::NETHER_SPROUTS());
-//		$result->registerBlock("turtle_egg", fn() => Blocks::TURTLE_EGG());
-		$result->registerBlock("observer", fn() => Blocks::OBSERVER());
-
 	}
 
 	private static function registerDynamicItems(self $result) : void{

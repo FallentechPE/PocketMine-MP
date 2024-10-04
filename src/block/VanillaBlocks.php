@@ -1713,8 +1713,6 @@ final class VanillaBlocks{
 		self::register("flowering_azalea", new Azalea(new BID(Ids::FLOWERING_AZALEA), "Flowering Azalea", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("target", new Target(new BID(Ids::TARGET), "Target", new Info(BreakInfo::hoe(0.5, null, 0.5))));
 		self::register("scaffolding", new Scaffolding(new BID(Ids::SCAFFOLDING), "Scaffolding", new Info(BreakInfo::instant())));
-		self::register("turtle_egg", new TurtleEgg(new BID(Ids::TURTLE_EGG), "Turtle Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
 		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
-		self::register("observer", new Observer(new BID(Ids::OBSERVER), "Observer", new Info(BreakInfo::pickaxe(3, ToolTier::WOOD, 3))));
 	}
 }

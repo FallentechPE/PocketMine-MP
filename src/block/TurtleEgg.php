@@ -2,41 +2,51 @@
 
 namespace pocketmine\block;
 
+use pocketmine\block\utils\TurtleEggCount;
+use pocketmine\block\utils\TurtleEggCrackedState;
 use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
 
 class TurtleEgg extends Flowable{
-	public const MIN_COUNT = 1;
-	public const MAX_COUNT = 4;
-	public const MIN_CRACKS = 1;
-	public const MAX_CRACKS = 3;
 
-	protected int $count = self::MIN_COUNT;
-	protected int $cracks = self::MIN_CRACKS;
+	protected TurtleEggCount $eggCount = TurtleEggCount::ONE_EGG;
+	protected TurtleEggCrackedState $crackedState = TurtleEggCrackedState::NO_CRACKS;
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
-		$w->boundedIntAuto(self::MIN_COUNT, self::MAX_COUNT, $this->count);
-		$w->boundedIntAuto(self::MIN_CRACKS, self::MAX_CRACKS, $this->cracks);
+		$w->enum($this->eggCount);
+		$w->enum($this->crackedState);
 	}
 
-	public function getCount() : int{ return $this->count; }
+	public function getEggCount() : TurtleEggCount{ return $this->eggCount; }
 
 	/** @return $this */
-	public function setCount(int $count) : self{
-		if($count < self::MIN_COUNT || $count > self::MAX_COUNT){
-			throw new \InvalidArgumentException("Count must be in range " . self::MIN_COUNT . " ... " . self::MAX_COUNT);
+	public function setEggCount(TurtleEggCount $eggCount) : self{
+		$this->eggCount = $eggCount;
+		return $this;
+	}
+
+	public function getEggCrackedState() : TurtleEggCrackedState{ return $this->crackedState; }
+
+	/** @return $this */
+	public function setEggCrackedState(TurtleEggCrackedState $crackedState) : self{
+		$this->crackedState = $crackedState;
+		return $this;
+	}
+
+	public function canBePlacedAt(Block $blockReplace, Vector3 $clickVector, int $face, bool $isClickedBlock) : bool{
+		//TODO: proper placement logic (needs a supporting face below)
+		return ($blockReplace instanceof TurtleEgg && $blockReplace->eggCount < TurtleEggCount::FOUR_EGG) || parent::canBePlacedAt($blockReplace, $clickVector, $face, $isClickedBlock);
+	}
+
+	public function place(BlockTransaction $tx, Item $item, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, ?Player $player = null) : bool{
+		if($blockReplace instanceof TurtleEgg && $blockReplace->eggCount < TurtleEggCount::FOUR_EGG){
+			$this->eggCount = $blockReplace->eggCount + 1;
 		}
-		$this->count = $count;
-		return $this;
-	}
 
-	public function getCracks() : int{
-		return $this->cracks;
-	}
-
-	/** @return $this */
-	public function setCracks(int $cracks) : self{
-		$this->cracks = $cracks;
-		return $this;
+		return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
 	}
 
 

@@ -1750,6 +1750,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::POWERED_BIT, $block->isPowered())
 				->writeLegacyHorizontalFacing($block->getFacing());
 		});
+		$this->map(Blocks::TURTLE_EGG(), function(TurtleEgg $block) : Writer {
+			return Writer::create(Ids::TURTLE_EGG)
+				->writeTurtleEggCount($block->getEggCount())
+				->writeTurtleEggCrackedState($block->getEggCrackedState());
+		});
 		$this->map(Blocks::TWISTING_VINES(), function(NetherVines $block) : Writer{
 			return Writer::create(Ids::TWISTING_VINES)
 				->writeInt(StateNames::TWISTING_VINES_AGE, $block->getAge());
@@ -1792,13 +1797,5 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(BlockStateNames::STABILITY, $block->getStability());
 		});
 		$this->mapSimple(Blocks::NETHER_SPROUTS(), Ids::NETHER_SPROUTS);
-		$this->map(Blocks::OBSERVER(), fn(Observer $block) => Writer::create(Ids::OBSERVER)
-			->writeFacingDirectionString($block->getFacing())
-			->writeBool(StateNames::POWERED_BIT, $block->isPowered()));
-//		$this->map(Blocks::TURTLE_EGG(), function(TurtleEgg $block) : Writer {
-//			return Writer::create(Ids::TURTLE_EGG)
-//				->writeInt(BlockStateNames::TURTLE_EGG_COUNT, $block->getCount())
-//				->writeInt(BlockStateNames::CRACKED_STATE, $block->getCracks());
-//		});
 	}
 }

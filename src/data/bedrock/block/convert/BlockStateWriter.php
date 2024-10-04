@@ -25,6 +25,8 @@ namespace pocketmine\data\bedrock\block\convert;
 
 use pocketmine\block\utils\BellAttachmentType;
 use pocketmine\block\utils\SlabType;
+use pocketmine\block\utils\TurtleEggCount;
+use pocketmine\block\utils\TurtleEggCrackedState;
 use pocketmine\block\utils\WallConnectionType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateData;
@@ -276,6 +278,27 @@ final class BlockStateWriter{
 			BellAttachmentType::CEILING => StringValues::ATTACHMENT_HANGING,
 			BellAttachmentType::ONE_WALL => StringValues::ATTACHMENT_SIDE,
 			BellAttachmentType::TWO_WALLS => StringValues::ATTACHMENT_MULTIPLE,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writeTurtleEggCount(TurtleEggCount $count) : self {
+		$this->writeString(BlockStateNames::TURTLE_EGG_COUNT, match ($count) {
+			TurtleEggCount::ONE_EGG => StringValues::TURTLE_EGG_COUNT_ONE_EGG,
+			TurtleEggCount::TWO_EGG => StringValues::TURTLE_EGG_COUNT_TWO_EGG,
+			TurtleEggCount::THREE_EGG => StringValues::TURTLE_EGG_COUNT_THREE_EGG,
+			TurtleEggCount::FOUR_EGG => StringValues::TURTLE_EGG_COUNT_FOUR_EGG,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writeTurtleEggCrackedState(TurtleEggCrackedState $crackedState) : self {
+		$this->writeString(BlockStateNames::CRACKED_STATE, match ($crackedState) {
+			TurtleEggCrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
+			TurtleEggCrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
+			TurtleEggCrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
 		});
 		return $this;
 	}
