@@ -161,6 +161,7 @@ use function strtolower;
  * @method static CakeWithCandle CAKE_WITH_CANDLE()
  * @method static CakeWithDyedCandle CAKE_WITH_DYED_CANDLE()
  * @method static Opaque CALCITE()
+ * @method static CalibratedSculkSensor CALIBRATED_SCULK_SENSOR()
  * @method static Candle CANDLE()
  * @method static Carpet CARPET()
  * @method static Carrot CARROTS()
@@ -691,6 +692,7 @@ use function strtolower;
  * @method static Wall SANDSTONE_WALL()
  * @method static Scaffolding SCAFFOLDING()
  * @method static Sculk SCULK()
+ * @method static SculkSensor SCULK_SENSOR()
  * @method static SeaLantern SEA_LANTERN()
  * @method static SeaPickle SEA_PICKLE()
  * @method static Opaque SHROOMLIGHT()
@@ -1293,6 +1295,9 @@ final class VanillaBlocks{
 				return [];
 			}
 		});
+		self::register("sculk_sensor", new SculkSensor(new BID(Ids::SCULK_SENSOR), "Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
+		self::register("calibrated_sculk_sensor", new CalibratedSculkSensor(new BID(Ids::CALIBRATED_SCULK_SENSOR), "Calibrated Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
+
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

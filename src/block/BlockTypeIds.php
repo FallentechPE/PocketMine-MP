@@ -778,8 +778,10 @@ final class BlockTypeIds{
 	public const OBSERVER = 10748;
 	public const BEE_NEST = 10749;
 	public const BEEHIVE = 10750;
+	public const SCULK_SENSOR = 10751;
+	public const CALIBRATED_SCULK_SENSOR = 10752;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10751;
+	public const FIRST_UNUSED_BLOCK_ID = 10753;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

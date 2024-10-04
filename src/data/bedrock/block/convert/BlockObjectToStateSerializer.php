@@ -44,6 +44,7 @@ use pocketmine\block\Cactus;
 use pocketmine\block\Cake;
 use pocketmine\block\CakeWithCandle;
 use pocketmine\block\CakeWithDyedCandle;
+use pocketmine\block\CalibratedSculkSensor;
 use pocketmine\block\Candle;
 use pocketmine\block\Carpet;
 use pocketmine\block\Carrot;
@@ -123,6 +124,7 @@ use pocketmine\block\RedstoneWire;
 use pocketmine\block\RuntimeBlockStateRegistry;
 use pocketmine\block\Sapling;
 use pocketmine\block\Scaffolding;
+use pocketmine\block\SculkSensor;
 use pocketmine\block\SeaPickle;
 use pocketmine\block\SimplePillar;
 use pocketmine\block\SimplePressurePlate;
@@ -1233,6 +1235,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::CAKE)
 				->writeInt(StateNames::BITE_COUNTER, $block->getBites());
 		});
+		$this->map(Blocks::CALIBRATED_SCULK_SENSOR(), function(CalibratedSculkSensor $block) : Writer {
+			return Writer::create(Ids::CALIBRATED_SCULK_SENSOR)
+				->writeInt(StateNames::SCULK_SENSOR_PHASE, $block->getPhase())
+				->writeCardinalHorizontalFacing($block->getFacing());
+		});
 		$this->map(Blocks::CARROTS(), fn(Carrot $block) => Helper::encodeCrops($block, new Writer(Ids::CARROTS)));
 		$this->map(Blocks::CARVED_PUMPKIN(), function(CarvedPumpkin $block) : Writer{
 			return Writer::create(Ids::CARVED_PUMPKIN)
@@ -1678,6 +1685,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSlab(Blocks::SANDSTONE_SLAB(), Ids::SANDSTONE_SLAB, Ids::SANDSTONE_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::SANDSTONE_STAIRS(), Ids::SANDSTONE_STAIRS);
 		$this->map(Blocks::SANDSTONE_WALL(), fn(Wall $block) => Helper::encodeWall($block, Writer::create(Ids::SANDSTONE_WALL)));
+		$this->map(Blocks::SCULK_SENSOR(), function(SculkSensor $block) : Writer {
+			return Writer::create(Ids::SCULK_SENSOR)
+				->writeInt(StateNames::SCULK_SENSOR_PHASE, $block->getPhase());
+		});
 		$this->map(Blocks::SEA_PICKLE(), function(SeaPickle $block) : Writer{
 			return Writer::create(Ids::SEA_PICKLE)
 				->writeBool(StateNames::DEAD_BIT, !$block->isUnderwater())

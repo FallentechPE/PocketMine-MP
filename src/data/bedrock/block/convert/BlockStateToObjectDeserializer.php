@@ -1130,6 +1130,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::CAKE()
 				->setBites($in->readBoundedInt(StateNames::BITE_COUNTER, 0, 6));
 		});
+		$this->map(Ids::CALIBRATED_SCULK_SENSOR, function(Reader $in) : Block {
+			return Blocks::CALIBRATED_SCULK_SENSOR()
+				->setFacing($in->readCardinalHorizontalFacing())
+				->setPhase($in->readInt(StateNames::SCULK_SENSOR_PHASE));
+		});
 		$this->map(Ids::CARROTS, fn(Reader $in) => Helper::decodeCrops(Blocks::CARROTS(), $in));
 		$this->map(Ids::CARVED_PUMPKIN, function(Reader $in) : Block{
 			return Blocks::CARVED_PUMPKIN()
@@ -1554,6 +1559,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSlab(Ids::SANDSTONE_SLAB, Ids::SANDSTONE_DOUBLE_SLAB, fn() => Blocks::SANDSTONE_SLAB());
 		$this->mapStairs(Ids::SANDSTONE_STAIRS, fn() => Blocks::SANDSTONE_STAIRS());
 		$this->map(Ids::SANDSTONE_WALL, fn(Reader $in) => Helper::decodeWall(Blocks::SANDSTONE_WALL(), $in));
+		$this->map(Ids::SCULK_SENSOR, function(Reader $in) : Block {
+			return Blocks::SCULK_SENSOR()
+				->setPhase($in->readInt(StateNames::SCULK_SENSOR_PHASE));
+		});
 		$this->map(Ids::SEA_PICKLE, function(Reader $in) : Block{
 			return Blocks::SEA_PICKLE()
 				->setCount($in->readBoundedInt(StateNames::CLUSTER_COUNT, 0, 3) + 1)
