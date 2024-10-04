@@ -216,6 +216,7 @@ use function strtolower;
  * @method static ChemistryTable COMPOUND_CREATOR()
  * @method static Concrete CONCRETE()
  * @method static ConcretePowder CONCRETE_POWDER()
+ * @method static Conduit CONDUIT()
  * @method static Copper COPPER()
  * @method static CopperOre COPPER_ORE()
  * @method static Coral CORAL()
@@ -1298,7 +1299,7 @@ final class VanillaBlocks{
 		});
 		self::register("sculk_sensor", new SculkSensor(new BID(Ids::SCULK_SENSOR), "Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
 		self::register("calibrated_sculk_sensor", new CalibratedSculkSensor(new BID(Ids::CALIBRATED_SCULK_SENSOR), "Calibrated Sculk Sensor", new Info(BreakInfo::hoe(1.5, null, 1.5))));
-
+		self::register("conduit", new Conduit(new BID(Ids::CONDUIT), "Conduit", new Info(BreakInfo::pickaxe(3, null, 3))));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();
