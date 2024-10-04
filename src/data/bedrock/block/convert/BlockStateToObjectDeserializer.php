@@ -1750,10 +1750,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setTriggered($in->readBool(StateNames::TRIGGERED_BIT))
 				->setOrientation($in->readOrientation());
 		});
-		$this->map(Ids::CRIMSON_FUNGUS, fn() => Blocks::CRIMSON_FUNGUS());
-		$this->map(Ids::WARPED_FUNGUS, fn() => Blocks::WARPED_FUNGUS());
-		$this->map(Ids::CRIMSON_NYLIUM, fn() => Blocks::CRIMSON_NYLIUM());
-		$this->map(Ids::WARPED_NYLIUM, fn() => Blocks::WARPED_NYLIUM());
+		$this->mapSimple(Ids::CRIMSON_FUNGUS, fn() => Blocks::CRIMSON_FUNGUS());
+		$this->mapSimple(Ids::WARPED_FUNGUS, fn() => Blocks::WARPED_FUNGUS());
+		$this->mapSimple(Ids::CRIMSON_NYLIUM, fn() => Blocks::CRIMSON_NYLIUM());
+		$this->mapSimple(Ids::WARPED_NYLIUM, fn() => Blocks::WARPED_NYLIUM());
 		$this->map(Ids::DECORATED_POT, function(Reader $in) : Block {
 			return Blocks::DECORATED_POT()
 				->setFacing($in->readLegacyHorizontalFacing());
@@ -1767,6 +1767,12 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::DROPPER()
 				->setFacing($in->readFacingDirection())
 				->setTriggered($in->readBool(StateNames::TRIGGERED_BIT));
+		});
+		$this->mapSimple(Ids::DRIPSTONE_BLOCK, fn() => Blocks::DRIPSTONE_BLOCK());
+		$this->map(Ids::POINTED_DRIPSTONE, function(Reader $in) : Block {
+			return Blocks::POINTED_DRIPSTONE()
+				->setHanging($in->readBool(StateNames::HANGING))
+				->setThickness($in->readPointedDripstoneThickness());
 		});
 	}
 

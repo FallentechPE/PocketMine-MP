@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\data\bedrock\block\convert;
 
 use pocketmine\block\utils\BellAttachmentType;
+use pocketmine\block\utils\DripstoneThickness;
 use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
@@ -342,6 +343,19 @@ final class BlockStateReader{
 			default => throw $this->badValueException(BlockStateNames::CRACKED_STATE, $count)
 		};
 	}
+
+	/** @throws BlockStateDeserializeException */
+	public function readPointedDripstoneThickness() : DripstoneThickness{
+		return match ($thickness = $this->readString(BlockStateNames::DRIPSTONE_THICKNESS)) {
+			StringValues::DRIPSTONE_THICKNESS_MERGE => DripstoneThickness::MERGE,
+			StringValues::DRIPSTONE_THICKNESS_TIP => DripstoneThickness::TIP,
+			StringValues::DRIPSTONE_THICKNESS_FRUSTUM => DripstoneThickness::FRUSTUM,
+			StringValues::DRIPSTONE_THICKNESS_MIDDLE => DripstoneThickness::MIDDLE,
+			StringValues::DRIPSTONE_THICKNESS_BASE => DripstoneThickness::BASE,
+			default => throw $this->badValueException(BlockStateNames::DRIPSTONE_THICKNESS, $thickness)
+		};
+	}
+
 
 	/** @throws BlockStateDeserializeException */
 	public function readOrientation() : Orientation{

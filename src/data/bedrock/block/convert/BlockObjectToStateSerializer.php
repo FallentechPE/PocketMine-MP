@@ -114,6 +114,7 @@ use pocketmine\block\NetherWartPlant;
 use pocketmine\block\Observer;
 use pocketmine\block\PinkPetals;
 use pocketmine\block\PitcherCrop;
+use pocketmine\block\PointedDripstone;
 use pocketmine\block\Potato;
 use pocketmine\block\PoweredRail;
 use pocketmine\block\PumpkinStem;
@@ -1848,6 +1849,12 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::DROPPER)
 				->writeFacingDirection($block->getFacing())
 				->writeBool(StateNames::TRIGGERED_BIT, $block->isTriggered());
+		});
+		$this->mapSimple(Blocks::DRIPSTONE_BLOCK(), Ids::DRIPSTONE_BLOCK);
+		$this->map(Blocks::POINTED_DRIPSTONE(), function(PointedDripstone $block) : Writer {
+			return Writer::create(Ids::POINTED_DRIPSTONE)
+				->writeBool(StateNames::HANGING, $block->isHanging())
+				->writePointedDripstoneThickness($block->getThickness());
 		});
 	}
 }

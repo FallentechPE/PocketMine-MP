@@ -1173,6 +1173,16 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("target", fn() => Blocks::TARGET());
 		$result->registerBlock("scaffolding", fn() => Blocks::SCAFFOLDING());
 		$result->registerBlock("nether_sprouts", fn() => Blocks::NETHER_SPROUTS());
+		$result->registerBlock("crafter", fn() => Blocks::CRAFTER());
+		$result->registerBlock("crimson_fungus", fn() => Blocks::CRIMSON_FUNGUS());
+		$result->registerBlock("warped_fungus", fn() => Blocks::WARPED_FUNGUS());
+		$result->registerBlock("crimson_nylium", fn() => Blocks::CRIMSON_NYLIUM());
+		$result->registerBlock("warped_nylium", fn() => Blocks::WARPED_NYLIUM());
+		$result->registerBlock("decorated_pot", fn() => Blocks::DECORATED_POT());
+		$result->registerBlock("dispenser", fn() => Blocks::DISPENSER());
+		$result->registerBlock("dropper", fn() => Blocks::DROPPER());
+		$result->registerBlock("dripstone_block", fn() => Blocks::DRIPSTONE_BLOCK());
+		$result->registerBlock("pointed_dripstone", fn() => Blocks::POINTED_DRIPSTONE());
 	}
 
 	private static function registerDynamicItems(self $result) : void{

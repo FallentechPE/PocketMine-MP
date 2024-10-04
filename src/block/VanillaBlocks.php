@@ -310,6 +310,7 @@ use function strtolower;
  * @method static DoubleTallGrass DOUBLE_TALLGRASS()
  * @method static DragonEgg DRAGON_EGG()
  * @method static DriedKelp DRIED_KELP()
+ * @method static Dripstone DRIPSTONE_BLOCK()
  * @method static Dropper DROPPER()
  * @method static DyedCandle DYED_CANDLE()
  * @method static DyedShulkerBox DYED_SHULKER_BOX()
@@ -617,6 +618,7 @@ use function strtolower;
  * @method static PitcherCrop PITCHER_CROP()
  * @method static DoublePlant PITCHER_PLANT()
  * @method static Podzol PODZOL()
+ * @method static PointedDripstone POINTED_DRIPSTONE()
  * @method static Opaque POLISHED_ANDESITE()
  * @method static Slab POLISHED_ANDESITE_SLAB()
  * @method static Stair POLISHED_ANDESITE_STAIRS()
@@ -1323,6 +1325,9 @@ final class VanillaBlocks{
 		self::register("nether_sprouts", new NetherSprouts(new BID(Ids::NETHER_SPROUTS), "Nether Sprouts", new Info(new BreakInfo(0, ToolType::SHEARS))));
 		self::register("dropper", new Dropper(new BID(Ids::DROPPER), "Dropper", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
 		self::register("dispenser", new Dispenser(new BID(Ids::DISPENSER), "Dispenser", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
+		self::register("dripstone_block", new Dripstone(new BID(Ids::DRIPSTONE), "Dripstone Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 1))));
+		self::register("pointed_dripstone", new PointedDripstone(new BID(Ids::POINTED_DRIPSTONE), "Pointed Dripstone", new Info(BreakInfo::pickaxe(1.5, null, 3))));
+
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\data\bedrock\block\convert;
 
 use pocketmine\block\utils\BellAttachmentType;
+use pocketmine\block\utils\DripstoneThickness;
 use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
@@ -286,6 +287,18 @@ final class BlockStateWriter{
 			TurtleEggCrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
 			TurtleEggCrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
 			TurtleEggCrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writePointedDripstoneThickness(DripstoneThickness $thickness) : self {
+		$this->writeString(BlockStateNames::DRIPSTONE_THICKNESS, match ($thickness) {
+			DripstoneThickness::MERGE => StringValues::DRIPSTONE_THICKNESS_MERGE,
+			DripstoneThickness::TIP => StringValues::DRIPSTONE_THICKNESS_TIP,
+			DripstoneThickness::FRUSTUM => StringValues::DRIPSTONE_THICKNESS_FRUSTUM,
+			DripstoneThickness::MIDDLE => StringValues::DRIPSTONE_THICKNESS_MIDDLE,
+			DripstoneThickness::BASE => StringValues::DRIPSTONE_THICKNESS_BASE,
 		});
 		return $this;
 	}
