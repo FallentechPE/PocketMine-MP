@@ -786,8 +786,9 @@ final class BlockTypeIds{
 	public const WARPED_FUNGUS = 10756;
 	public const CRIMSON_NYLIUM = 10757;
 	public const WARPED_NYLIUM = 10758;
+	public const DECORATED_POT = 10759;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10759;
+	public const FIRST_UNUSED_BLOCK_ID = 10760;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

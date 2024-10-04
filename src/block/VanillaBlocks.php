@@ -279,6 +279,7 @@ use function strtolower;
  * @method static Stair DARK_PRISMARINE_STAIRS()
  * @method static DaylightSensor DAYLIGHT_SENSOR()
  * @method static DeadBush DEAD_BUSH()
+ * @method static DecoratedPot DECORATED_POT()
  * @method static SimplePillar DEEPSLATE()
  * @method static Opaque DEEPSLATE_BRICKS()
  * @method static Slab DEEPSLATE_BRICK_SLAB()
@@ -1310,7 +1311,7 @@ final class VanillaBlocks{
 		self::register("warped_fungus", new Fungus(new BID(Ids::WARPED_FUNGUS), "Warped Fungus", new Info(BreakInfo::instant())));
 		self::register("crimson_nylium", new Nylium(new BID(Ids::CRIMSON_NYLIUM), "Crimson Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
 		self::register("warped_nylium", new Nylium(new BID(Ids::WARPED_NYLIUM), "Warped Nylium", new Info(BreakInfo::pickaxe(0.4, ToolTier::WOOD, 0.4))));
-
+		self::register("decorated_pot", new DecoratedPot(new BID(Ids::DECORATED_POT), "Decorated Pot", new Info(BreakInfo::instant())));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

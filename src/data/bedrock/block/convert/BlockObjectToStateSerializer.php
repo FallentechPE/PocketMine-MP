@@ -67,6 +67,7 @@ use pocketmine\block\Coral;
 use pocketmine\block\CoralBlock;
 use pocketmine\block\Crafter;
 use pocketmine\block\DaylightSensor;
+use pocketmine\block\DecoratedPot;
 use pocketmine\block\DetectorRail;
 use pocketmine\block\Dirt;
 use pocketmine\block\Door;
@@ -1832,5 +1833,9 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::WARPED_FUNGUS(), Ids::WARPED_FUNGUS);
 		$this->mapSimple(Blocks::CRIMSON_NYLIUM(), Ids::CRIMSON_NYLIUM);
 		$this->mapSimple(Blocks::WARPED_NYLIUM(), Ids::WARPED_NYLIUM);
+		$this->map(Blocks::DECORATED_POT(), function(DecoratedPot $block) : Writer {
+			return Writer::create(Ids::DECORATED_POT)
+				->writeLegacyHorizontalFacing($block->getFacing());
+		});
 	}
 }
