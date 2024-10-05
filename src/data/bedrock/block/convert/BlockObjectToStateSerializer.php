@@ -1864,5 +1864,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeLegacyHorizontalFacing($block->getFacing());
 		});
 		$this->mapSimple(Blocks::HEAVY_CORE(), Ids::HEAVY_CORE);
+		$this->mapSimple(Blocks::HONEY_BLOCK(), Ids::HONEY_BLOCK);
 	}
 }

@@ -1781,6 +1781,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setAttachmentType($in->readBellAttachmentType());
 		});
 		$this->map(Ids::HEAVY_CORE, fn() => Blocks::HEAVY_CORE());
+		$this->map(Ids::HONEY_BLOCK, fn() => Blocks::HONEY_BLOCK());
 	}
 
 	/** @throws BlockStateDeserializeException */

@@ -483,6 +483,7 @@ use function strtolower;
  * @method static HayBale HAY_BALE()
  * @method static Transparent HEAVY_CORE()
  * @method static Opaque HONEYCOMB()
+ * @method static Honey HONEY_BLOCK()
  * @method static Hopper HOPPER()
  * @method static Ice ICE()
  * @method static InfestedStone INFESTED_CHISELED_STONE_BRICK()
@@ -1333,6 +1334,7 @@ final class VanillaBlocks{
 		self::register("frog_spawn", new Frogspawn(new BID(Ids::FROGSPAWN), "Frogspawn", new Info(BreakInfo::instant())));
 		self::register("grindstone", new Grindstone(new BID(Ids::GRINDSTONE), "Grindstone", new Info(BreakInfo::pickaxe(2, ToolTier::WOOD, 6))));
 		self::register("heavy_core", new Transparent(new BID(Ids::HEAVY_CORE), "Heavy Core", new Info(BreakInfo::pickaxe(10, null, 30)))); // todo waterloggable
+		self::register("honey_block", new Honey(new BID(Ids::HONEY_BLOCK), "Honey Block", new Info(BreakInfo::instant())));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();
