@@ -787,6 +787,8 @@ use function strtolower;
  * @method static StonePressurePlate STONE_PRESSURE_PLATE()
  * @method static Slab STONE_SLAB()
  * @method static Stair STONE_STAIRS()
+ * @method static StructureBlock STRUCTURE_BLOCK()
+ * @method static Transparent STRUCTURE_VOID()
  * @method static Sugarcane SUGARCANE()
  * @method static DoublePlant SUNFLOWER()
  * @method static Suspicious SUSPICIOUS_GRAVEL()
@@ -1375,6 +1377,9 @@ final class VanillaBlocks{
 		$suspiciousBreakInfo = new Info(BreakInfo::shovel(0.25, null, 0.25));
 		self::register("suspicious_sand", new Suspicious(new BID(Ids::SUSPICIOUS_SAND), "Suspicious Sand", $suspiciousBreakInfo));
 		self::register("suspicious_gravel", new Suspicious(new BID(Ids::SUSPICIOUS_GRAVEL), "Suspicious Gravel", $suspiciousBreakInfo));
+		self::register("structure_void", new Transparent(new BID(Ids::STRUCTURE_VOID), "Strcture Void", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("structure_block", new StructureBlock(new BID(Ids::STRUCTURE_BLOCK), "Strcture Block", new Info(BreakInfo::indestructible(-1.0))));
+
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
 		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));

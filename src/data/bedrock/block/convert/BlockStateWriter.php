@@ -27,6 +27,7 @@ use pocketmine\block\utils\BellAttachmentType;
 use pocketmine\block\utils\DripstoneThickness;
 use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
+use pocketmine\block\utils\StructureType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
 use pocketmine\block\utils\VaultState;
@@ -311,6 +312,19 @@ final class BlockStateWriter{
 			DripstoneThickness::FRUSTUM => StringValues::DRIPSTONE_THICKNESS_FRUSTUM,
 			DripstoneThickness::MIDDLE => StringValues::DRIPSTONE_THICKNESS_MIDDLE,
 			DripstoneThickness::BASE => StringValues::DRIPSTONE_THICKNESS_BASE,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writeStructureBlockType(StructureType $type) : self {
+		$this->writeString(BlockStateNames::STRUCTURE_BLOCK_TYPE, match ($type) {
+			StructureType::CORNER => StringValues::STRUCTURE_BLOCK_TYPE_CORNER,
+			StructureType::DATA => StringValues::STRUCTURE_BLOCK_TYPE_DATA,
+			StructureType::EXPORT => StringValues::STRUCTURE_BLOCK_TYPE_EXPORT,
+			StructureType::INVALID => StringValues::STRUCTURE_BLOCK_TYPE_INVALID,
+			StructureType::LOAD => StringValues::STRUCTURE_BLOCK_TYPE_LOAD,
+			StructureType::SAVE => StringValues::STRUCTURE_BLOCK_TYPE_SAVE,
 		});
 		return $this;
 	}

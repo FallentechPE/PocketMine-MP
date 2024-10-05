@@ -157,6 +157,7 @@ use pocketmine\block\Stair;
 use pocketmine\block\StoneButton;
 use pocketmine\block\Stonecutter;
 use pocketmine\block\StonePressurePlate;
+use pocketmine\block\StructureBlock;
 use pocketmine\block\Sugarcane;
 use pocketmine\block\Suspicious;
 use pocketmine\block\SweetBerryBush;
@@ -2034,6 +2035,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::SUSPICIOUS_SAND)
 				->writeInt(StateNames::BRUSHED_PROGRESS, $block->getProgress())
 				->writeBool(StateNames::HANGING, $block->isHanging());
+		});
+		$this->mapSimple(Blocks::STRUCTURE_VOID(), Ids::STRUCTURE_VOID);
+		$this->map(Blocks::STRUCTURE_BLOCK(), function(StructureBlock $block) : Writer {
+			return Writer::create(Ids::STRUCTURE_BLOCK)
+				->writeStructureBlockType($block->getStructureType());
 		});
 	}
 }

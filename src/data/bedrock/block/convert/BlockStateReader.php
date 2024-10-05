@@ -27,6 +27,7 @@ use pocketmine\block\utils\BellAttachmentType;
 use pocketmine\block\utils\DripstoneThickness;
 use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
+use pocketmine\block\utils\StructureType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
 use pocketmine\block\utils\VaultState;
@@ -365,6 +366,19 @@ final class BlockStateReader{
 			StringValues::DRIPSTONE_THICKNESS_MIDDLE => DripstoneThickness::MIDDLE,
 			StringValues::DRIPSTONE_THICKNESS_BASE => DripstoneThickness::BASE,
 			default => throw $this->badValueException(BlockStateNames::DRIPSTONE_THICKNESS, $thickness)
+		};
+	}
+
+	/** @throws BlockStateDeserializeException */
+	public function readStructureBlockType() : StructureType{
+		return match ($type = $this->readString(BlockStateNames::STRUCTURE_BLOCK_TYPE)) {
+			StringValues::STRUCTURE_BLOCK_TYPE_CORNER => StructureType::CORNER,
+			StringValues::STRUCTURE_BLOCK_TYPE_DATA => StructureType::DATA,
+			StringValues::STRUCTURE_BLOCK_TYPE_EXPORT => StructureType::EXPORT,
+			StringValues::STRUCTURE_BLOCK_TYPE_INVALID => StructureType::INVALID,
+			StringValues::STRUCTURE_BLOCK_TYPE_LOAD => StructureType::LOAD,
+			StringValues::STRUCTURE_BLOCK_TYPE_SAVE => StructureType::SAVE,
+			default => throw $this->badValueException(BlockStateNames::STRUCTURE_BLOCK_TYPE, $type)
 		};
 	}
 

@@ -824,8 +824,10 @@ final class BlockTypeIds{
 	public const TRIAL_SPAWNER = 10794;
 	public const SUSPICIOUS_SAND = 10795;
 	public const SUSPICIOUS_GRAVEL = 10796;
+	public const STRUCTURE_VOID = 10797;
+	public const STRUCTURE_BLOCK = 10798;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10797;
+	public const FIRST_UNUSED_BLOCK_ID = 10799;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

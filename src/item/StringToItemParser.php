@@ -1215,6 +1215,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("trial_spawner", fn() => Blocks::TRIAL_SPAWNER());
 		$result->registerBlock("suspicious_sand", fn() => Blocks::SUSPICIOUS_SAND());
 		$result->registerBlock("suspicious_gravel", fn() => Blocks::SUSPICIOUS_GRAVEL());
+		$result->registerBlock("structure_void", fn() => Blocks::STRUCTURE_VOID());
+		$result->registerBlock("structure_block", fn() => Blocks::STRUCTURE_BLOCK());
 
 	}
 

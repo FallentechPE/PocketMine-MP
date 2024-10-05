@@ -1917,6 +1917,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setHanging($in->readBool(StateNames::HANGING))
 				->setProgress($in->readInt(StateNames::BRUSHED_PROGRESS));
 		});
+		$this->mapSimple(Ids::STRUCTURE_VOID, fn() => Blocks::STRUCTURE_VOID());
+		$this->map(Ids::STRUCTURE_BLOCK, function(Reader $in) : Block {
+			return Blocks::STRUCTURE_BLOCK()
+				->setStructureType($in->readStructureBlockType());
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */
