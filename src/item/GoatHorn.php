@@ -44,4 +44,8 @@ class GoatHorn extends Item implements Releasable{
 		return ItemUseResult::SUCCESS;
 	}
 
+	public function getCooldownTag() : ?string{
+		return ItemCooldownTags::GOAT_HORN;
+	}
+
 }
