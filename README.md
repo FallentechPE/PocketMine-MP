@@ -25,6 +25,7 @@ A fork of PocketMine-MP implementing items, blocks, stale PRs, and other feature
 
 **Do not ask for support for this version of PocketMine in their main Discord server. Any questions can be directed to Joshy3282 on Discord. Additionally, please do not bug any actual PocketMine developers about this either.**
 
+A majority of changes arent mine and they come from the original repo in commits or prs\
 Additions
 > Blocks: azalea, flowering azalea, target, moss block, moss carpet, scaffolding, composter, beacon, \
 > Items: end crystal, lingering potions, goat horns, end crystal\
