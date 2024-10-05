@@ -834,8 +834,10 @@ final class BlockTypeIds{
 	public const COMMAND_BLOCK = 10804;
 	public const CHAIN_COMMAND_BLOCK = 10805;
 	public const REPEATING_COMMAND_BLOCK = 10806;
+	public const END_GATEWAY = 10807;
+	public const END_PORTAL = 10808;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10807;
+	public const FIRST_UNUSED_BLOCK_ID = 10809;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

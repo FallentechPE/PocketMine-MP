@@ -1225,7 +1225,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("command_block", fn() => Blocks::COMMAND_BLOCK());
 		$result->registerBlock("chain_command_block", fn() => Blocks::CHAIN_COMMAND_BLOCK());
 		$result->registerBlock("repeating_command_block", fn() => Blocks::REPEATING_COMMAND_BLOCK());
-
+		$result->registerBlock("end_gateway", fn() => Blocks::END_GATEWAY());
+		$result->registerBlock("end_portal", fn() => Blocks::END_PORTAL());
 	}
 
 	private static function registerDynamicItems(self $result) : void{

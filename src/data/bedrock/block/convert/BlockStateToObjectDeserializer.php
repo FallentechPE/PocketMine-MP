@@ -1936,6 +1936,9 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::COMMAND_BLOCK, fn(Reader $in) => Helper::decodeCommandBlock(Blocks::COMMAND_BLOCK(), $in));
 		$this->map(Ids::CHAIN_COMMAND_BLOCK, fn(Reader $in) => Helper::decodeCommandBlock(Blocks::CHAIN_COMMAND_BLOCK(), $in));
 		$this->map(Ids::REPEATING_COMMAND_BLOCK, fn(Reader $in) => Helper::decodeCommandBlock(Blocks::REPEATING_COMMAND_BLOCK(), $in));
+		$this->mapSimple(Ids::END_GATEWAY, fn() => Blocks::END_GATEWAY());
+		$this->mapSimple(Ids::END_PORTAL, fn() => Blocks::END_PORTAL());
+
 	}
 
 	/** @throws BlockStateDeserializeException */

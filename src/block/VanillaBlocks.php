@@ -453,6 +453,8 @@ use function strtolower;
  * @method static EmeraldOre EMERALD_ORE()
  * @method static EnchantingTable ENCHANTING_TABLE()
  * @method static EnderChest ENDER_CHEST()
+ * @method static EndGateway END_GATEWAY()
+ * @method static EndPortal END_PORTAL()
  * @method static EndPortalFrame END_PORTAL_FRAME()
  * @method static EndRod END_ROD()
  * @method static Opaque END_STONE()
@@ -1395,6 +1397,8 @@ final class VanillaBlocks{
 		self::register("command_block", new CommandBlock(new BID(Ids::COMMAND_BLOCK), "Command Block", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("chain_command_block", new CommandBlock(new BID(Ids::CHAIN_COMMAND_BLOCK), "Repeating Command Block", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("repeating_command_block", new CommandBlock(new BID(Ids::REPEATING_COMMAND_BLOCK), "Repeating Command Block", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("end_gateway", new EndGateway(new BID(Ids::END_GATEWAY), "End Gateway", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("end_portal", new EndPortal(new BID(Ids::END_PORTAL), "End Portal", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

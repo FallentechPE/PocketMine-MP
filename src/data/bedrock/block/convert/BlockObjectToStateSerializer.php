@@ -2058,6 +2058,8 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::COMMAND_BLOCK)));
 		$this->map(Blocks::CHAIN_COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::CHAIN_COMMAND_BLOCK)));
 		$this->map(Blocks::REPEATING_COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::REPEATING_COMMAND_BLOCK)));
+		$this->mapSimple(Blocks::END_GATEWAY(), Ids::END_GATEWAY);
+		$this->mapSimple(Blocks::END_PORTAL(), Ids::END_PORTAL);
 
 
 	}
