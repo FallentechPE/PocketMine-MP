@@ -815,8 +815,13 @@ final class BlockTypeIds{
 	public const POLISHED_TUFF_SLAB = 10785;
 	public const POLISHED_TUFF_STAIRS = 10786;
 	public const POLISHED_TUFF_WALL = 10787;
+	public const COPPER_BULB = 10788;
+	public const COPPER_DOOR = 10789;
+	public const COPPER_TRAPDOOR = 10790;
+	public const CHISELED_COPPER = 10791;
+	public const COPPER_GRATE = 10792;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10788;
+	public const FIRST_UNUSED_BLOCK_ID = 10793;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

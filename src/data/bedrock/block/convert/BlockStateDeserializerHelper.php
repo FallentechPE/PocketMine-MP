@@ -108,7 +108,7 @@ final class BlockStateDeserializerHelper{
 	 * @phpstan-param TBlock $block
 	 * @phpstan-return TBlock
 	 */
-	public static function decodeCopper(Copper|CopperSlab|CopperStairs $block, CopperOxidation $oxidation) : Copper|CopperSlab|CopperStairs{
+	public static function decodeCopper(ICopper $block, CopperOxidation $oxidation) : ICopper{
 		$block->setOxidation($oxidation);
 		$block->setWaxed(false);
 		return $block;
@@ -120,7 +120,7 @@ final class BlockStateDeserializerHelper{
 	 * @phpstan-param TBlock $block
 	 * @phpstan-return TBlock
 	 */
-	public static function decodeWaxedCopper(Copper|CopperSlab|CopperStairs $block, CopperOxidation $oxidation) : Copper|CopperSlab|CopperStairs{
+	public static function decodeWaxedCopper(ICopper $block, CopperOxidation $oxidation) : ICopper{
 		$block->setOxidation($oxidation);
 		$block->setWaxed(true);
 		return $block;

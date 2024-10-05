@@ -1824,6 +1824,78 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::SCULK_VEIN()
 				->setFaces($in->readFacingFlags());
 		});
+		$this->map(Ids::CHISELED_COPPER, fn() => Helper::decodeCopper(Blocks::CHISELED_COPPER(), CopperOxidation::NONE));
+		$this->map(Ids::COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeCopper(Blocks::COPPER_BULB(), CopperOxidation::NONE)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeCopper(Blocks::COPPER_DOOR(), CopperOxidation::NONE), $in));
+		$this->map(Ids::COPPER_GRATE, fn() => Helper::decodeCopper(Blocks::COPPER_GRATE(), CopperOxidation::NONE));
+		$this->map(Ids::COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::NONE), $in));
+		$this->map(Ids::EXPOSED_CHISELED_COPPER, fn() => Helper::decodeCopper(Blocks::CHISELED_COPPER(), CopperOxidation::EXPOSED));
+		$this->map(Ids::EXPOSED_COPPER_GRATE, fn() => Helper::decodeCopper(Blocks::COPPER_GRATE(), CopperOxidation::EXPOSED));
+		$this->map(Ids::EXPOSED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeCopper(Blocks::COPPER_BULB(), CopperOxidation::EXPOSED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::EXPOSED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeCopper(Blocks::COPPER_DOOR(), CopperOxidation::EXPOSED), $in));
+		$this->map(Ids::EXPOSED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::EXPOSED), $in));
+		$this->map(Ids::OXIDIZED_CHISELED_COPPER, fn() => Helper::decodeCopper(Blocks::CHISELED_COPPER(), CopperOxidation::OXIDIZED));
+		$this->map(Ids::OXIDIZED_COPPER_GRATE, fn() => Helper::decodeCopper(Blocks::COPPER_GRATE(), CopperOxidation::OXIDIZED));
+		$this->map(Ids::OXIDIZED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeCopper(Blocks::COPPER_BULB(), CopperOxidation::OXIDIZED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::OXIDIZED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeCopper(Blocks::COPPER_DOOR(), CopperOxidation::OXIDIZED), $in));
+		$this->map(Ids::OXIDIZED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::OXIDIZED), $in));
+		$this->map(Ids::WAXED_CHISELED_COPPER, fn() => Helper::decodeWaxedCopper(Blocks::CHISELED_COPPER(), CopperOxidation::NONE));
+		$this->map(Ids::WAXED_COPPER_GRATE, fn() => Helper::decodeWaxedCopper(Blocks::COPPER_GRATE(), CopperOxidation::NONE));
+		$this->map(Ids::WAXED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeWaxedCopper(Blocks::COPPER_BULB(), CopperOxidation::NONE)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::WAXED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeWaxedCopper(Blocks::COPPER_DOOR(), CopperOxidation::NONE), $in));
+		$this->map(Ids::WAXED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeWaxedCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::NONE), $in));
+		$this->map(Ids::WAXED_EXPOSED_CHISELED_COPPER, fn() => Helper::decodeWaxedCopper(Blocks::CHISELED_COPPER(), CopperOxidation::EXPOSED));
+		$this->map(Ids::WAXED_EXPOSED_COPPER_GRATE, fn() => Helper::decodeWaxedCopper(Blocks::COPPER_GRATE(), CopperOxidation::EXPOSED));
+		$this->map(Ids::WAXED_EXPOSED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeWaxedCopper(Blocks::COPPER_BULB(), CopperOxidation::EXPOSED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::WAXED_EXPOSED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeWaxedCopper(Blocks::COPPER_DOOR(), CopperOxidation::EXPOSED), $in));
+		$this->map(Ids::WAXED_EXPOSED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeWaxedCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::EXPOSED), $in));
+		$this->map(Ids::WAXED_OXIDIZED_CHISELED_COPPER, fn() => Helper::decodeWaxedCopper(Blocks::CHISELED_COPPER(), CopperOxidation::OXIDIZED));
+		$this->map(Ids::WAXED_OXIDIZED_COPPER_GRATE, fn() => Helper::decodeWaxedCopper(Blocks::COPPER_GRATE(), CopperOxidation::OXIDIZED));
+		$this->map(Ids::WAXED_OXIDIZED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeWaxedCopper(Blocks::COPPER_BULB(), CopperOxidation::OXIDIZED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::WAXED_OXIDIZED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeWaxedCopper(Blocks::COPPER_DOOR(), CopperOxidation::OXIDIZED), $in));
+		$this->map(Ids::WAXED_OXIDIZED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeWaxedCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::OXIDIZED), $in));
+		$this->map(Ids::WAXED_WEATHERED_CHISELED_COPPER, fn() => Helper::decodeWaxedCopper(Blocks::CHISELED_COPPER(), CopperOxidation::WEATHERED));
+		$this->map(Ids::WAXED_WEATHERED_COPPER_GRATE, fn() => Helper::decodeWaxedCopper(Blocks::COPPER_GRATE(), CopperOxidation::WEATHERED));
+		$this->map(Ids::WAXED_WEATHERED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeWaxedCopper(Blocks::COPPER_BULB(), CopperOxidation::WEATHERED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::WAXED_WEATHERED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeWaxedCopper(Blocks::COPPER_DOOR(), CopperOxidation::WEATHERED), $in));
+		$this->map(Ids::WAXED_WEATHERED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeWaxedCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::WEATHERED), $in));
+		$this->map(Ids::WEATHERED_CHISELED_COPPER, fn() => Helper::decodeCopper(Blocks::CHISELED_COPPER(), CopperOxidation::WEATHERED));
+		$this->map(Ids::WEATHERED_COPPER_GRATE, fn() => Helper::decodeCopper(Blocks::COPPER_GRATE(), CopperOxidation::WEATHERED));
+		$this->map(Ids::WEATHERED_COPPER_BULB, function(Reader $in) : Block{
+			return Helper::decodeCopper(Blocks::COPPER_BULB(), CopperOxidation::WEATHERED)
+				->setLit($in->readBool(StateNames::LIT))
+				->setPowered($in->readBool(StateNames::POWERED_BIT));
+		});
+		$this->map(Ids::WEATHERED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeCopper(Blocks::COPPER_DOOR(), CopperOxidation::WEATHERED), $in));
+		$this->map(Ids::WEATHERED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::WEATHERED), $in));
 	}
 
 	/** @throws BlockStateDeserializeException */
