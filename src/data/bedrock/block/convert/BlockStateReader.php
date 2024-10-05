@@ -29,6 +29,7 @@ use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
+use pocketmine\block\utils\VaultState;
 use pocketmine\block\utils\WallConnectionType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateData;
@@ -341,6 +342,17 @@ final class BlockStateReader{
 			StringValues::CRACKED_STATE_CRACKED => TurtleEggCrackedState::CRACKED,
 			StringValues::CRACKED_STATE_MAX_CRACKED => TurtleEggCrackedState::MAX_CRACKED,
 			default => throw $this->badValueException(BlockStateNames::CRACKED_STATE, $count)
+		};
+	}
+
+	/** @throws BlockStateDeserializeException */
+	public function readVaultState() : VaultState{
+		return match ($state = $this->readString(BlockStateNames::VAULT_STATE)) {
+			StringValues::VAULT_STATE_ACTIVE => VaultState::ACTIVE,
+			StringValues::VAULT_STATE_EJECTING => VaultState::EJECTING,
+			StringValues::VAULT_STATE_INACTIVE => VaultState::INACTIVE,
+			StringValues::VAULT_STATE_UNLOCKING => VaultState::UNLOCKING,
+			default => throw $this->badValueException(BlockStateNames::VAULT_STATE, $state)
 		};
 	}
 

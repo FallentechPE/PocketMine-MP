@@ -1896,6 +1896,17 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		});
 		$this->map(Ids::WEATHERED_COPPER_DOOR, fn(Reader $in) => Helper::decodeDoor(Helper::decodeCopper(Blocks::COPPER_DOOR(), CopperOxidation::WEATHERED), $in));
 		$this->map(Ids::WEATHERED_COPPER_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Helper::decodeCopper(Blocks::COPPER_TRAPDOOR(), CopperOxidation::WEATHERED), $in));
+		$this->map(Ids::TRIAL_SPAWNER, function(Reader $in) : Block {
+			return Blocks::TRIAL_SPAWNER()
+				->setOminous($in->readBool(StateNames::OMINOUS))
+				->setState($in->readInt(StateNames::TRIAL_SPAWNER_STATE));
+		});
+		$this->map(Ids::VAULT, function(Reader $in) : Block {
+			return Blocks::VAULT()
+				->setOminous($in->readBool(StateNames::OMINOUS))
+				->setFacing($in->readCardinalHorizontalFacing())
+				->setState($in->readVaultState());
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

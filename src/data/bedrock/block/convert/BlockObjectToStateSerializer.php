@@ -164,6 +164,7 @@ use pocketmine\block\Torch;
 use pocketmine\block\TorchflowerCrop;
 use pocketmine\block\Trapdoor;
 use pocketmine\block\TrappedChest;
+use pocketmine\block\TrialSpawner;
 use pocketmine\block\Tripwire;
 use pocketmine\block\TripwireHook;
 use pocketmine\block\TurtleEgg;
@@ -176,6 +177,7 @@ use pocketmine\block\utils\DyeColor;
 use pocketmine\block\utils\FroglightType;
 use pocketmine\block\utils\LeverFacing;
 use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\block\Vault;
 use pocketmine\block\Vine;
 use pocketmine\block\Wall;
 use pocketmine\block\WallBanner;
@@ -2010,6 +2012,17 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::SCULK_VEIN(), function(SculkVein $block) : Writer {
 			return Writer::create(Ids::SCULK_VEIN)
 				->writeFacingFlags($block->getFaces());
+		});
+		$this->map(Blocks::TRIAL_SPAWNER(), function(TrialSpawner $block) : Writer {
+			return Writer::create(Ids::TRIAL_SPAWNER)
+				->writeBool(StateNames::OMINOUS, $block->isOminous())
+				->writeInt(StateNames::TRIAL_SPAWNER_STATE, $block->getState());
+		});
+		$this->map(Blocks::VAULT(), function(Vault $block) : Writer {
+			return Writer::create(Ids::VAULT)
+				->writeCardinalHorizontalFacing($block->getFacing())
+				->writeBool(StateNames::OMINOUS, $block->isOminous())
+				->writeVaultState($block->getState());
 		});
 	}
 }

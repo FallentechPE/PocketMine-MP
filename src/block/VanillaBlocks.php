@@ -798,6 +798,7 @@ use function strtolower;
  * @method static Flower TORCHFLOWER()
  * @method static TorchflowerCrop TORCHFLOWER_CROP()
  * @method static TrappedChest TRAPPED_CHEST()
+ * @method static TrialSpawner TRIAL_SPAWNER()
  * @method static Tripwire TRIPWIRE()
  * @method static TripwireHook TRIPWIRE_HOOK()
  * @method static Opaque TUFF()
@@ -811,6 +812,7 @@ use function strtolower;
  * @method static TurtleEgg TURTLE_EGG()
  * @method static NetherVines TWISTING_VINES()
  * @method static UnderwaterTorch UNDERWATER_TORCH()
+ * @method static Vault VAULT()
  * @method static Vine VINES()
  * @method static WallBanner WALL_BANNER()
  * @method static WallCoralFan WALL_CORAL_FAN()
@@ -1366,6 +1368,8 @@ final class VanillaBlocks{
 		self::register("sculk_catalyst", new SculkCatalyst(new BID(Ids::SCULK_CATALYST), "Sculk Catalyst", new Info(BreakInfo::hoe(3, null, 3))));
 		self::register("sculk_shrieker", new SculkShrieker(new BID(Ids::SCULK_SHRIEKER), "Sculk Shrieker", new Info(BreakInfo::hoe(3, null, 3))));
 		self::register("sculk_vein", new SculkVein(new BID(Ids::SCULK_VEIN), "Sculk Vein", new Info(BreakInfo::hoe(0.2, null, 0.2))));
+		self::register("vault", new Vault(new BID(Ids::VAULT), "Vault", new Info(new BreakInfo(50, ToolType::NONE, 0, 50))));
+		self::register("trial_spawner", new TrialSpawner(new BID(Ids::TRIAL_SPAWNER), "Trial Spawner", new Info(new BreakInfo(50, ToolType::NONE, 0, 50))));
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
 		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));

@@ -29,6 +29,7 @@ use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TurtleEggCount;
 use pocketmine\block\utils\TurtleEggCrackedState;
+use pocketmine\block\utils\VaultState;
 use pocketmine\block\utils\WallConnectionType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateData;
@@ -287,6 +288,17 @@ final class BlockStateWriter{
 			TurtleEggCrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
 			TurtleEggCrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
 			TurtleEggCrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
+		});
+		return $this;
+	}
+
+	/** @return $this */
+	public function writeVaultState(VaultState $vaultState) : self {
+		$this->writeString(BlockStateNames::VAULT_STATE, match ($vaultState) {
+			VaultState::ACTIVE => StringValues::VAULT_STATE_ACTIVE,
+			VaultState::EJECTING => StringValues::VAULT_STATE_EJECTING,
+			VaultState::INACTIVE => StringValues::VAULT_STATE_INACTIVE,
+			VaultState::UNLOCKING => StringValues::VAULT_STATE_UNLOCKING,
 		});
 		return $this;
 	}

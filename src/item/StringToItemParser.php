@@ -1211,6 +1211,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("sculk_vein", fn() => Blocks::SCULK_VEIN());
 		$result->registerBlock("campfire", fn() => Blocks::CAMPFIRE());
 		$result->registerBlock("soul_campfire", fn() => Blocks::SOUL_CAMPFIRE());
+		$result->registerBlock("vault", fn() => Blocks::VAULT());
+		$result->registerBlock("trial_spawner", fn() => Blocks::TRIAL_SPAWNER());
 	}
 
 	private static function registerDynamicItems(self $result) : void{
