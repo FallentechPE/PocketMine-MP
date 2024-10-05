@@ -1932,6 +1932,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::BUBBLE_COLUMN()
 				->setDragDown($in->readBool(StateNames::DRAG_DOWN));
 		});
+		$this->mapSimple(Ids::CAMERA, fn() => Blocks::CAMERA());
 	}
 
 	/** @throws BlockStateDeserializeException */

@@ -830,8 +830,9 @@ final class BlockTypeIds{
 	public const ALLOW = 10800;
 	public const DENY = 10801;
 	public const BUBBLE_COLUMN = 10802;
+	public const CAMERA = 10803;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10803;
+	public const FIRST_UNUSED_BLOCK_ID = 10804;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

@@ -2053,6 +2053,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::BUBBLE_COLUMN)
 				->writeBool(StateNames::DRAG_DOWN, $block->isDragDown());
 		});
-
+		$this->mapSimple(Blocks::CAMERA(), Ids::CAMERA);
 	}
 }

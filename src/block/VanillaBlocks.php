@@ -165,6 +165,7 @@ use function strtolower;
  * @method static CakeWithDyedCandle CAKE_WITH_DYED_CANDLE()
  * @method static Opaque CALCITE()
  * @method static CalibratedSculkSensor CALIBRATED_SCULK_SENSOR()
+ * @method static Opaque CAMERA()
  * @method static Campfire CAMPFIRE()
  * @method static Candle CANDLE()
  * @method static Carpet CARPET()
@@ -1387,6 +1388,7 @@ final class VanillaBlocks{
 		self::register("allow", new Opaque(new BID(Ids::ALLOW), "Allow", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("deny", new Opaque(new BID(Ids::DENY), "Deny", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("bubble_column", new BubbleColumn(new BID(Ids::BUBBLE_COLUMN), "Bubble Column", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("camera", new Opaque(new BID(Ids::CAMERA), "Camera", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
