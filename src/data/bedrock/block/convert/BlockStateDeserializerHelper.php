@@ -50,6 +50,7 @@ use pocketmine\block\Stair;
 use pocketmine\block\Stem;
 use pocketmine\block\Trapdoor;
 use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\ICopper;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\block\Wall;
@@ -102,7 +103,7 @@ final class BlockStateDeserializerHelper{
 	}
 
 	/**
-	 * @phpstan-template TBlock of Copper|CopperSlab|CopperStairs
+	 * @phpstan-template TBlock of ICopper
 	 *
 	 * @phpstan-param TBlock $block
 	 * @phpstan-return TBlock
@@ -114,7 +115,7 @@ final class BlockStateDeserializerHelper{
 	}
 
 	/**
-	 * @phpstan-template TBlock of Copper|CopperSlab|CopperStairs
+	 * @phpstan-template TBlock of ICopper
 	 *
 	 * @phpstan-param TBlock $block
 	 * @phpstan-return TBlock
