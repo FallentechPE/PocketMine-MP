@@ -95,6 +95,7 @@ use function strtolower;
  * @method static ActivatorRail ACTIVATOR_RAIL()
  * @method static Air AIR()
  * @method static Flower ALLIUM()
+ * @method static Opaque ALLOW()
  * @method static MushroomStem ALL_SIDED_MUSHROOM_STEM()
  * @method static Opaque AMETHYST()
  * @method static AmethystCluster AMETHYST_CLUSTER()
@@ -306,6 +307,7 @@ use function strtolower;
  * @method static Slab DEEPSLATE_TILE_SLAB()
  * @method static Stair DEEPSLATE_TILE_STAIRS()
  * @method static Wall DEEPSLATE_TILE_WALL()
+ * @method static Opaque DENY()
  * @method static DetectorRail DETECTOR_RAIL()
  * @method static Opaque DIAMOND()
  * @method static DiamondOre DIAMOND_ORE()
@@ -1381,6 +1383,8 @@ final class VanillaBlocks{
 		self::register("structure_void", new Transparent(new BID(Ids::STRUCTURE_VOID), "Strcture Void", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("structure_block", new StructureBlock(new BID(Ids::STRUCTURE_BLOCK), "Strcture Block", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("sniffer_egg", new SnifferEgg(new BID(Ids::SNIFFER_EGG), "Sniffer Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
+		self::register("allow", new Opaque(new BID(Ids::ALLOW), "Allow", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("deny", new Opaque(new BID(Ids::DENY), "Deny", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

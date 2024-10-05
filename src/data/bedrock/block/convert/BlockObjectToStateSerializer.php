@@ -2046,5 +2046,8 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::SNIFFER_EGG)
 				->writeCrackedState($block->getEggCrackedState());
 		});
+		$this->mapSimple(Blocks::ALLOW(), Ids::ALLOW);
+		$this->mapSimple(Blocks::DENY(), Ids::DENY);
+
 	}
 }

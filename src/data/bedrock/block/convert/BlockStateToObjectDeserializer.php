@@ -1926,6 +1926,9 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::SNIFFER_EGG()
 				->setEggCrackedState($in->readCrackedState());
 		});
+		$this->mapSimple(Ids::ALLOW, fn() => Blocks::ALLOW());
+		$this->mapSimple(Ids::DENY, fn() => Blocks::DENY());
+
 	}
 
 	/** @throws BlockStateDeserializeException */

@@ -827,8 +827,10 @@ final class BlockTypeIds{
 	public const STRUCTURE_VOID = 10797;
 	public const STRUCTURE_BLOCK = 10798;
 	public const SNIFFER_EGG = 10799;
+	public const ALLOW = 10800;
+	public const DENY = 10801;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10800;
+	public const FIRST_UNUSED_BLOCK_ID = 10802;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
