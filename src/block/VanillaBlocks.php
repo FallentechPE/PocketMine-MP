@@ -708,7 +708,10 @@ use function strtolower;
  * @method static Wall SANDSTONE_WALL()
  * @method static Scaffolding SCAFFOLDING()
  * @method static Sculk SCULK()
+ * @method static SculkCatalyst SCULK_CATALYST()
  * @method static SculkSensor SCULK_SENSOR()
+ * @method static SculkShrieker SCULK_SHRIEKER()
+ * @method static SculkVein SCULK_VEIN()
  * @method static SeaLantern SEA_LANTERN()
  * @method static SeaPickle SEA_PICKLE()
  * @method static Opaque SHROOMLIGHT()
@@ -1339,6 +1342,9 @@ final class VanillaBlocks{
 		self::register("honey_block", new Honey(new BID(Ids::HONEY_BLOCK), "Honey Block", new Info(BreakInfo::instant())));
 		self::register("lodestone", new Lodestone(new BID(Ids::LODESTONE), "Lodestone", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
 		self::register("respawn_anchor", new RespawnAnchor(new BID(Ids::RESPAWN_ANCHOR), "Respawn Anchor", new Info(BreakInfo::pickaxe((50), ToolTier::DIAMOND, 1200))));
+		self::register("sculk_catalyst", new SculkCatalyst(new BID(Ids::SCULK_CATALYST), "Sculk Catalyst", new Info(BreakInfo::hoe(3, null, 3))));
+		self::register("sculk_shrieker", new SculkShrieker(new BID(Ids::SCULK_SHRIEKER), "Sculk Shrieker", new Info(BreakInfo::hoe(3, null, 3))));
+		self::register("sculk_vein", new SculkVein(new BID(Ids::SCULK_VEIN), "Sculk Vein", new Info(BreakInfo::hoe(0.2, null, 0.2))));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

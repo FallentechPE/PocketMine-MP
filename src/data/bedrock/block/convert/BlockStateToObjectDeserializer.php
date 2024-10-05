@@ -1787,6 +1787,19 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			return Blocks::RESPAWN_ANCHOR()
 				->setCharge($in->readInt(StateNames::RESPAWN_ANCHOR_CHARGE));
 		});
+		$this->map(Ids::SCULK_CATALYST, function(Reader $in) : Block {
+			return Blocks::SCULK_CATALYST()
+				->setBloom($in->readBool(StateNames::BLOOM));
+		});
+		$this->map(Ids::SCULK_SHRIEKER, function(Reader $in) : Block {
+			return Blocks::SCULK_SHRIEKER()
+				->setActive($in->readBool(StateNames::ACTIVE))
+				->setSummon($in->readBool(StateNames::CAN_SUMMON));
+		});
+		$this->map(Ids::SCULK_VEIN, function(Reader $in) : Block {
+			return Blocks::SCULK_VEIN()
+				->setFaces($in->readFacingFlags());
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

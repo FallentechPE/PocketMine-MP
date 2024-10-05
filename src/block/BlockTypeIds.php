@@ -797,8 +797,11 @@ final class BlockTypeIds{
 	public const HONEY_BLOCK = 10767;
 	public const LODESTONE = 10768;
 	public const RESPAWN_ANCHOR = 10769;
+	public const SCULK_CATALYST = 10770;
+	public const SCULK_SHRIEKER = 10771;
+	public const SCULK_VEIN = 10772;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10770;
+	public const FIRST_UNUSED_BLOCK_ID = 10773;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

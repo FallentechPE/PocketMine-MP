@@ -131,7 +131,10 @@ use pocketmine\block\RespawnAnchor;
 use pocketmine\block\RuntimeBlockStateRegistry;
 use pocketmine\block\Sapling;
 use pocketmine\block\Scaffolding;
+use pocketmine\block\SculkCatalyst;
 use pocketmine\block\SculkSensor;
+use pocketmine\block\SculkShrieker;
+use pocketmine\block\SculkVein;
 use pocketmine\block\SeaPickle;
 use pocketmine\block\SimplePillar;
 use pocketmine\block\SimplePressurePlate;
@@ -1870,6 +1873,19 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::RESPAWN_ANCHOR(), function(RespawnAnchor $block) : Writer {
 			return Writer::create(Ids::RESPAWN_ANCHOR)
 				->writeInt(StateNames::RESPAWN_ANCHOR_CHARGE, $block->getCharge());
+		});
+		$this->map(Blocks::SCULK_CATALYST(), function(SculkCatalyst $block) : Writer {
+			return Writer::create(Ids::SCULK_CATALYST)
+				->writeBool(StateNames::BLOOM, $block->getBloom());
+		});
+		$this->map(Blocks::SCULK_SHRIEKER(), function(SculkShrieker $block) : Writer {
+			return Writer::create(Ids::SCULK_SHRIEKER)
+				->writeBool(StateNames::ACTIVE, $block->isActive())
+				->writeBool(StateNames::CAN_SUMMON, $block->canSummon());
+		});
+		$this->map(Blocks::SCULK_VEIN(), function(SculkVein $block) : Writer {
+			return Writer::create(Ids::SCULK_VEIN)
+				->writeFacingFlags($block->getFaces());
 		});
 	}
 }
