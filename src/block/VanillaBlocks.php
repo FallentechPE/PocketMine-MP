@@ -536,6 +536,7 @@ use function strtolower;
  * @method static Flower LILY_OF_THE_VALLEY()
  * @method static WaterLily LILY_PAD()
  * @method static LitPumpkin LIT_PUMPKIN()
+ * @method static Lodestone LODESTONE()
  * @method static Loom LOOM()
  * @method static Magma MAGMA()
  * @method static WoodenButton MANGROVE_BUTTON()
@@ -698,6 +699,7 @@ use function strtolower;
  * @method static Flower RED_TULIP()
  * @method static Opaque REINFORCED_DEEPSLATE()
  * @method static Reserved6 RESERVED6()
+ * @method static RespawnAnchor RESPAWN_ANCHOR()
  * @method static DoublePlant ROSE_BUSH()
  * @method static Sand SAND()
  * @method static Opaque SANDSTONE()
@@ -1335,6 +1337,8 @@ final class VanillaBlocks{
 		self::register("grindstone", new Grindstone(new BID(Ids::GRINDSTONE), "Grindstone", new Info(BreakInfo::pickaxe(2, ToolTier::WOOD, 6))));
 		self::register("heavy_core", new Transparent(new BID(Ids::HEAVY_CORE), "Heavy Core", new Info(BreakInfo::pickaxe(10, null, 30)))); // todo waterloggable
 		self::register("honey_block", new Honey(new BID(Ids::HONEY_BLOCK), "Honey Block", new Info(BreakInfo::instant())));
+		self::register("lodestone", new Lodestone(new BID(Ids::LODESTONE), "Lodestone", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD, 3.5))));
+		self::register("respawn_anchor", new RespawnAnchor(new BID(Ids::RESPAWN_ANCHOR), "Respawn Anchor", new Info(BreakInfo::pickaxe((50), ToolTier::DIAMOND, 1200))));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

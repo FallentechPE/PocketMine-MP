@@ -1780,8 +1780,13 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setFacing($in->readLegacyHorizontalFacing())
 				->setAttachmentType($in->readBellAttachmentType());
 		});
-		$this->map(Ids::HEAVY_CORE, fn() => Blocks::HEAVY_CORE());
-		$this->map(Ids::HONEY_BLOCK, fn() => Blocks::HONEY_BLOCK());
+		$this->mapSimple(Ids::HEAVY_CORE, fn() => Blocks::HEAVY_CORE());
+		$this->mapSimple(Ids::HONEY_BLOCK, fn() => Blocks::HONEY_BLOCK());
+		$this->mapSimple(Ids::LODESTONE, fn() => Blocks::LODESTONE());
+		$this->map(Ids::RESPAWN_ANCHOR, function(Reader $in) : Block {
+			return Blocks::RESPAWN_ANCHOR()
+				->setCharge($in->readInt(StateNames::RESPAWN_ANCHOR_CHARGE));
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

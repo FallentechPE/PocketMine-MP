@@ -127,6 +127,7 @@ use pocketmine\block\RedstoneOre;
 use pocketmine\block\RedstoneRepeater;
 use pocketmine\block\RedstoneTorch;
 use pocketmine\block\RedstoneWire;
+use pocketmine\block\RespawnAnchor;
 use pocketmine\block\RuntimeBlockStateRegistry;
 use pocketmine\block\Sapling;
 use pocketmine\block\Scaffolding;
@@ -1865,5 +1866,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		});
 		$this->mapSimple(Blocks::HEAVY_CORE(), Ids::HEAVY_CORE);
 		$this->mapSimple(Blocks::HONEY_BLOCK(), Ids::HONEY_BLOCK);
+		$this->mapSimple(Blocks::LODESTONE(), Ids::LODESTONE);
+		$this->map(Blocks::RESPAWN_ANCHOR(), function(RespawnAnchor $block) : Writer {
+			return Writer::create(Ids::RESPAWN_ANCHOR)
+				->writeInt(StateNames::RESPAWN_ANCHOR_CHARGE, $block->getCharge());
+		});
 	}
 }
