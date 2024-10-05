@@ -27,6 +27,7 @@ use pocketmine\block\BlockBreakInfo as BreakInfo;
 use pocketmine\block\BlockIdentifier as BID;
 use pocketmine\block\BlockToolType as ToolType;
 use pocketmine\block\BlockTypeIds as Ids;
+use pocketmine\block\tile\Campfire as TileCampfire;
 use pocketmine\block\BlockTypeInfo as Info;
 use pocketmine\block\BlockTypeTags as Tags;
 use pocketmine\block\tile\Banner as TileBanner;
@@ -162,6 +163,7 @@ use function strtolower;
  * @method static CakeWithDyedCandle CAKE_WITH_DYED_CANDLE()
  * @method static Opaque CALCITE()
  * @method static CalibratedSculkSensor CALIBRATED_SCULK_SENSOR()
+ * @method static Campfire CAMPFIRE()
  * @method static Candle CANDLE()
  * @method static Carpet CARPET()
  * @method static Carrot CARROTS()
@@ -734,6 +736,7 @@ use function strtolower;
  * @method static Slab SMOOTH_STONE_SLAB()
  * @method static Snow SNOW()
  * @method static SnowLayer SNOW_LAYER()
+ * @method static SoulCampfire SOUL_CAMPFIRE()
  * @method static SoulFire SOUL_FIRE()
  * @method static Lantern SOUL_LANTERN()
  * @method static SoulSand SOUL_SAND()
@@ -1345,6 +1348,10 @@ final class VanillaBlocks{
 		self::register("sculk_catalyst", new SculkCatalyst(new BID(Ids::SCULK_CATALYST), "Sculk Catalyst", new Info(BreakInfo::hoe(3, null, 3))));
 		self::register("sculk_shrieker", new SculkShrieker(new BID(Ids::SCULK_SHRIEKER), "Sculk Shrieker", new Info(BreakInfo::hoe(3, null, 3))));
 		self::register("sculk_vein", new SculkVein(new BID(Ids::SCULK_VEIN), "Sculk Vein", new Info(BreakInfo::hoe(0.2, null, 0.2))));
+
+		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
+		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));
+		self::register("soul_campfire", new SoulCampfire(new BID(Ids::SOUL_CAMPFIRE, TileCampfire::class), "Soul Campfire", $campfireBreakInfo));
 
 		self::registerBlocksR13();
 		self::registerBlocksR14();

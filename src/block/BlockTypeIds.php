@@ -800,8 +800,10 @@ final class BlockTypeIds{
 	public const SCULK_CATALYST = 10770;
 	public const SCULK_SHRIEKER = 10771;
 	public const SCULK_VEIN = 10772;
+	public const CAMPFIRE = 10773;
+	public const SOUL_CAMPFIRE = 10774;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10773;
+	public const FIRST_UNUSED_BLOCK_ID = 10775;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

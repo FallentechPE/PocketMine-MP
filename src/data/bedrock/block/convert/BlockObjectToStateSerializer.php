@@ -36,6 +36,8 @@ use pocketmine\block\Bell;
 use pocketmine\block\BigDripleafHead;
 use pocketmine\block\BigDripleafStem;
 use pocketmine\block\Block;
+use pocketmine\block\Campfire;
+use pocketmine\block\SoulCampfire;
 use pocketmine\block\BoneBlock;
 use pocketmine\block\BrewingStand;
 use pocketmine\block\BrownMushroomBlock;
@@ -1252,6 +1254,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(StateNames::SCULK_SENSOR_PHASE, $block->getPhase())
 				->writeCardinalHorizontalFacing($block->getFacing());
 		});
+		$this->map(Blocks::CAMPFIRE(), function(Campfire $block) : Writer{
+			return Writer::create(Ids::CAMPFIRE)
+				->writeCardinalHorizontalFacing($block->getFacing())
+				->writeBool(StateNames::EXTINGUISHED, !$block->isLit());
+		});
 		$this->map(Blocks::CARROTS(), fn(Carrot $block) => Helper::encodeCrops($block, new Writer(Ids::CARROTS)));
 		$this->map(Blocks::CARVED_PUMPKIN(), function(CarvedPumpkin $block) : Writer{
 			return Writer::create(Ids::CARVED_PUMPKIN)
@@ -1724,6 +1731,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::SNOW_LAYER)
 				->writeBool(StateNames::COVERED_BIT, false)
 				->writeInt(StateNames::HEIGHT, $block->getLayers() - 1);
+		});
+		$this->map(Blocks::SOUL_CAMPFIRE(), function(SoulCampfire $block) : Writer{
+			return Writer::create(Ids::SOUL_CAMPFIRE)
+				->writeCardinalHorizontalFacing($block->getFacing())
+				->writeBool(StateNames::EXTINGUISHED, !$block->isLit());
 		});
 		$this->map(Blocks::SOUL_FIRE(), function() : Writer{
 			return Writer::create(Ids::SOUL_FIRE)
