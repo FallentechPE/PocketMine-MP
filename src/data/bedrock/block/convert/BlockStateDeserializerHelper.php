@@ -27,6 +27,7 @@ use pocketmine\block\Block;
 use pocketmine\block\Button;
 use pocketmine\block\Candle;
 use pocketmine\block\CeilingHangingSign;
+use pocketmine\block\CommandBlock;
 use pocketmine\block\Copper;
 use pocketmine\block\CopperSlab;
 use pocketmine\block\CopperStairs;
@@ -321,5 +322,11 @@ final class BlockStateDeserializerHelper{
 	public static function decodeWeightedPressurePlate(WeightedPressurePlate $block, BlockStateReader $in) : WeightedPressurePlate{
 		return $block
 			->setOutputSignalStrength($in->readBoundedInt(BlockStateNames::REDSTONE_SIGNAL, 0, 15));
+	}
+
+	public static function decodeCommandBlock(CommandBlock $block, BlockStateReader $in) : CommandBlock{
+		return $block
+			->setFacing($in->readFacingDirection())
+			->setConditional($in->readBool(StateNames::CONDITIONAL_BIT));
 	}
 }

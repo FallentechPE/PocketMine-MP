@@ -27,6 +27,7 @@ use pocketmine\block\Button;
 use pocketmine\block\Candle;
 use pocketmine\block\CeilingHangingSign;
 use pocketmine\block\ChemistryTable;
+use pocketmine\block\CommandBlock;
 use pocketmine\block\Crops;
 use pocketmine\block\Door;
 use pocketmine\block\DoublePlant;
@@ -245,4 +246,11 @@ final class BlockStateSerializerHelper{
 		return $out
 			->writeHorizontalFacing($block->getFacing());
 	}
+
+	public static function encodeCommandBlock(CommandBlock $block, Writer $out) : Writer{
+		return $out
+			->writeFacingDirection($block->getFacing())
+			->writeBool(StateNames::CONDITIONAL_BIT, $block->isConditional());
+	}
+
 }

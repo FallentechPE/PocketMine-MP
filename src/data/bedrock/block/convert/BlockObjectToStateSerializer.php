@@ -38,6 +38,7 @@ use pocketmine\block\BigDripleafStem;
 use pocketmine\block\Block;
 use pocketmine\block\BubbleColumn;
 use pocketmine\block\Campfire;
+use pocketmine\block\CommandBlock;
 use pocketmine\block\SnifferEgg;
 use pocketmine\block\SoulCampfire;
 use pocketmine\block\BoneBlock;
@@ -2054,5 +2055,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::DRAG_DOWN, $block->isDragDown());
 		});
 		$this->mapSimple(Blocks::CAMERA(), Ids::CAMERA);
+		$this->map(Blocks::COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::COMMAND_BLOCK)));
+		$this->map(Blocks::CHAIN_COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::CHAIN_COMMAND_BLOCK)));
+		$this->map(Blocks::REPEATING_COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::REPEATING_COMMAND_BLOCK)));
+
+
 	}
 }

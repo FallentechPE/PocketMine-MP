@@ -175,6 +175,7 @@ use function strtolower;
  * @method static Cauldron CAULDRON()
  * @method static CaveVines CAVE_VINES()
  * @method static Chain CHAIN()
+ * @method static CommandBlock CHAIN_COMMAND_BLOCK()
  * @method static ChemicalHeat CHEMICAL_HEAT()
  * @method static WoodenButton CHERRY_BUTTON()
  * @method static CeilingHangingSign CHERRY_CEILING_HANGING_SIGN()
@@ -220,6 +221,7 @@ use function strtolower;
  * @method static Wall COBBLESTONE_WALL()
  * @method static Cobweb COBWEB()
  * @method static CocoaBlock COCOA_POD()
+ * @method static CommandBlock COMMAND_BLOCK()
  * @method static Composter COMPOSTER()
  * @method static ChemistryTable COMPOUND_CREATOR()
  * @method static Concrete CONCRETE()
@@ -715,6 +717,7 @@ use function strtolower;
  * @method static Torch RED_TORCH()
  * @method static Flower RED_TULIP()
  * @method static Opaque REINFORCED_DEEPSLATE()
+ * @method static CommandBlock REPEATING_COMMAND_BLOCK()
  * @method static Reserved6 RESERVED6()
  * @method static RespawnAnchor RESPAWN_ANCHOR()
  * @method static DoublePlant ROSE_BUSH()
@@ -1389,6 +1392,9 @@ final class VanillaBlocks{
 		self::register("deny", new Opaque(new BID(Ids::DENY), "Deny", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("bubble_column", new BubbleColumn(new BID(Ids::BUBBLE_COLUMN), "Bubble Column", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("camera", new Opaque(new BID(Ids::CAMERA), "Camera", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("command_block", new CommandBlock(new BID(Ids::COMMAND_BLOCK), "Command Block", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("chain_command_block", new CommandBlock(new BID(Ids::CHAIN_COMMAND_BLOCK), "Repeating Command Block", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("repeating_command_block", new CommandBlock(new BID(Ids::REPEATING_COMMAND_BLOCK), "Repeating Command Block", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
