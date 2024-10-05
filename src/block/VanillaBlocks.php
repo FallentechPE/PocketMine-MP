@@ -789,6 +789,8 @@ use function strtolower;
  * @method static Stair STONE_STAIRS()
  * @method static Sugarcane SUGARCANE()
  * @method static DoublePlant SUNFLOWER()
+ * @method static Suspicious SUSPICIOUS_GRAVEL()
+ * @method static Suspicious SUSPICIOUS_SAND()
  * @method static SweetBerryBush SWEET_BERRY_BUSH()
  * @method static TallGrass TALL_GRASS()
  * @method static Target TARGET()
@@ -1370,6 +1372,9 @@ final class VanillaBlocks{
 		self::register("sculk_vein", new SculkVein(new BID(Ids::SCULK_VEIN), "Sculk Vein", new Info(BreakInfo::hoe(0.2, null, 0.2))));
 		self::register("vault", new Vault(new BID(Ids::VAULT), "Vault", new Info(new BreakInfo(50, ToolType::NONE, 0, 50))));
 		self::register("trial_spawner", new TrialSpawner(new BID(Ids::TRIAL_SPAWNER), "Trial Spawner", new Info(new BreakInfo(50, ToolType::NONE, 0, 50))));
+		$suspiciousBreakInfo = new Info(BreakInfo::shovel(0.25, null, 0.25));
+		self::register("suspicious_sand", new Suspicious(new BID(Ids::SUSPICIOUS_SAND), "Suspicious Sand", $suspiciousBreakInfo));
+		self::register("suspicious_gravel", new Suspicious(new BID(Ids::SUSPICIOUS_GRAVEL), "Suspicious Gravel", $suspiciousBreakInfo));
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
 		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));

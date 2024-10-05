@@ -158,6 +158,7 @@ use pocketmine\block\StoneButton;
 use pocketmine\block\Stonecutter;
 use pocketmine\block\StonePressurePlate;
 use pocketmine\block\Sugarcane;
+use pocketmine\block\Suspicious;
 use pocketmine\block\SweetBerryBush;
 use pocketmine\block\TNT;
 use pocketmine\block\Torch;
@@ -2023,6 +2024,16 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeCardinalHorizontalFacing($block->getFacing())
 				->writeBool(StateNames::OMINOUS, $block->isOminous())
 				->writeVaultState($block->getState());
+		});
+		$this->map(Blocks::SUSPICIOUS_GRAVEL(), function(Suspicious $block) : Writer {
+			return Writer::create(Ids::SUSPICIOUS_GRAVEL)
+				->writeInt(StateNames::BRUSHED_PROGRESS, $block->getProgress())
+				->writeBool(StateNames::HANGING, $block->isHanging());
+		});
+		$this->map(Blocks::SUSPICIOUS_SAND(), function(Suspicious $block) : Writer {
+			return Writer::create(Ids::SUSPICIOUS_SAND)
+				->writeInt(StateNames::BRUSHED_PROGRESS, $block->getProgress())
+				->writeBool(StateNames::HANGING, $block->isHanging());
 		});
 	}
 }

@@ -1907,6 +1907,16 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setFacing($in->readCardinalHorizontalFacing())
 				->setState($in->readVaultState());
 		});
+		$this->map(Ids::SUSPICIOUS_GRAVEL, function(Reader $in) : Block {
+			return Blocks::SUSPICIOUS_GRAVEL()
+				->setHanging($in->readBool(StateNames::HANGING))
+				->setProgress($in->readInt(StateNames::BRUSHED_PROGRESS));
+		});
+		$this->map(Ids::SUSPICIOUS_SAND, function(Reader $in) : Block {
+			return Blocks::SUSPICIOUS_SAND()
+				->setHanging($in->readBool(StateNames::HANGING))
+				->setProgress($in->readInt(StateNames::BRUSHED_PROGRESS));
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

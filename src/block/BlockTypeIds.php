@@ -822,8 +822,10 @@ final class BlockTypeIds{
 	public const COPPER_GRATE = 10792;
 	public const VAULT = 10793;
 	public const TRIAL_SPAWNER = 10794;
+	public const SUSPICIOUS_SAND = 10795;
+	public const SUSPICIOUS_GRAVEL = 10796;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10795;
+	public const FIRST_UNUSED_BLOCK_ID = 10797;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
