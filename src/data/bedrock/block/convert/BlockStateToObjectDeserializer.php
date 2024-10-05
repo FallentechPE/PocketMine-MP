@@ -1928,7 +1928,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		});
 		$this->mapSimple(Ids::ALLOW, fn() => Blocks::ALLOW());
 		$this->mapSimple(Ids::DENY, fn() => Blocks::DENY());
-
+		$this->map(Ids::BUBBLE_COLUMN, function(Reader $in) : Block {
+			return Blocks::BUBBLE_COLUMN()
+				->setDragDown($in->readBool(StateNames::DRAG_DOWN));
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

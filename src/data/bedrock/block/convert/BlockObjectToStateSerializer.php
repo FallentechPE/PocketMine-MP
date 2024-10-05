@@ -36,6 +36,7 @@ use pocketmine\block\Bell;
 use pocketmine\block\BigDripleafHead;
 use pocketmine\block\BigDripleafStem;
 use pocketmine\block\Block;
+use pocketmine\block\BubbleColumn;
 use pocketmine\block\Campfire;
 use pocketmine\block\SnifferEgg;
 use pocketmine\block\SoulCampfire;
@@ -2048,6 +2049,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		});
 		$this->mapSimple(Blocks::ALLOW(), Ids::ALLOW);
 		$this->mapSimple(Blocks::DENY(), Ids::DENY);
+		$this->map(Blocks::BUBBLE_COLUMN(), function(BubbleColumn $block) : Writer {
+			return Writer::create(Ids::BUBBLE_COLUMN)
+				->writeBool(StateNames::DRAG_DOWN, $block->isDragDown());
+		});
 
 	}
 }

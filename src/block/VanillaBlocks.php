@@ -157,6 +157,7 @@ use function strtolower;
  * @method static Wall BRICK_WALL()
  * @method static BrownMushroom BROWN_MUSHROOM()
  * @method static BrownMushroomBlock BROWN_MUSHROOM_BLOCK()
+ * @method static BubbleColumn BUBBLE_COLUMN()
  * @method static BuddingAmethyst BUDDING_AMETHYST()
  * @method static Cactus CACTUS()
  * @method static Cake CAKE()
@@ -1385,6 +1386,7 @@ final class VanillaBlocks{
 		self::register("sniffer_egg", new SnifferEgg(new BID(Ids::SNIFFER_EGG), "Sniffer Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
 		self::register("allow", new Opaque(new BID(Ids::ALLOW), "Allow", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("deny", new Opaque(new BID(Ids::DENY), "Deny", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("bubble_column", new BubbleColumn(new BID(Ids::BUBBLE_COLUMN), "Bubble Column", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

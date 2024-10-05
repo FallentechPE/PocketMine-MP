@@ -1220,6 +1220,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("sniffer_egg", fn() => Blocks::SNIFFER_EGG());
 		$result->registerBlock("allow", fn() => Blocks::ALLOW());
 		$result->registerBlock("deny", fn() => Blocks::DENY());
+		$result->registerBlock("bubble_column", fn() => Blocks::BUBBLE_COLUMN());
 
 	}
 
