@@ -29,7 +29,7 @@ use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\StructureType;
 use pocketmine\block\utils\TurtleEggCount;
-use pocketmine\block\utils\TurtleEggCrackedState;
+use pocketmine\block\utils\CrackedState;
 use pocketmine\block\utils\VaultState;
 use pocketmine\block\utils\WallConnectionType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
@@ -337,11 +337,11 @@ final class BlockStateReader{
 	}
 
 	/** @throws BlockStateDeserializeException */
-	public function readTurtleEggCrackedState() : TurtleEggCrackedState{
+	public function readCrackedState() : CrackedState{
 		return match ($count = $this->readString(BlockStateNames::CRACKED_STATE)) {
-			StringValues::CRACKED_STATE_NO_CRACKS => TurtleEggCrackedState::NO_CRACKS,
-			StringValues::CRACKED_STATE_CRACKED => TurtleEggCrackedState::CRACKED,
-			StringValues::CRACKED_STATE_MAX_CRACKED => TurtleEggCrackedState::MAX_CRACKED,
+			StringValues::CRACKED_STATE_NO_CRACKS => CrackedState::NO_CRACKS,
+			StringValues::CRACKED_STATE_CRACKED => CrackedState::CRACKED,
+			StringValues::CRACKED_STATE_MAX_CRACKED => CrackedState::MAX_CRACKED,
 			default => throw $this->badValueException(BlockStateNames::CRACKED_STATE, $count)
 		};
 	}

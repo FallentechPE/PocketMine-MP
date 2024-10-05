@@ -37,6 +37,7 @@ use pocketmine\block\BigDripleafHead;
 use pocketmine\block\BigDripleafStem;
 use pocketmine\block\Block;
 use pocketmine\block\Campfire;
+use pocketmine\block\SnifferEgg;
 use pocketmine\block\SoulCampfire;
 use pocketmine\block\BoneBlock;
 use pocketmine\block\BrewingStand;
@@ -1909,7 +1910,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::TURTLE_EGG(), function(TurtleEgg $block) : Writer {
 			return Writer::create(Ids::TURTLE_EGG)
 				->writeTurtleEggCount($block->getEggCount())
-				->writeTurtleEggCrackedState($block->getEggCrackedState());
+				->writeCrackedState($block->getEggCrackedState());
 		});
 		$this->mapSlab(Blocks::TUFF_BRICK_SLAB(), Ids::TUFF_BRICK_SLAB, Ids::TUFF_BRICK_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::TUFF_BRICK_STAIRS(), Ids::TUFF_BRICK_STAIRS);
@@ -2040,6 +2041,10 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::STRUCTURE_BLOCK(), function(StructureBlock $block) : Writer {
 			return Writer::create(Ids::STRUCTURE_BLOCK)
 				->writeStructureBlockType($block->getStructureType());
+		});
+		$this->map(Blocks::SNIFFER_EGG(), function(SnifferEgg $block) : Writer {
+			return Writer::create(Ids::SNIFFER_EGG)
+				->writeCrackedState($block->getEggCrackedState());
 		});
 	}
 }

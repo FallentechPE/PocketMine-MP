@@ -29,7 +29,7 @@ use pocketmine\block\utils\Orientation;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\StructureType;
 use pocketmine\block\utils\TurtleEggCount;
-use pocketmine\block\utils\TurtleEggCrackedState;
+use pocketmine\block\utils\CrackedState;
 use pocketmine\block\utils\VaultState;
 use pocketmine\block\utils\WallConnectionType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
@@ -284,11 +284,11 @@ final class BlockStateWriter{
 	}
 
 	/** @return $this */
-	public function writeTurtleEggCrackedState(TurtleEggCrackedState $crackedState) : self {
+	public function writeCrackedState(CrackedState $crackedState) : self {
 		$this->writeString(BlockStateNames::CRACKED_STATE, match ($crackedState) {
-			TurtleEggCrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
-			TurtleEggCrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
-			TurtleEggCrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
+			CrackedState::NO_CRACKS => StringValues::CRACKED_STATE_NO_CRACKS,
+			CrackedState::CRACKED => StringValues::CRACKED_STATE_CRACKED,
+			CrackedState::MAX_CRACKED => StringValues::CRACKED_STATE_MAX_CRACKED,
 		});
 		return $this;
 	}

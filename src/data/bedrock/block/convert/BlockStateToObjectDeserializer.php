@@ -1688,7 +1688,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::TURTLE_EGG, function(Reader $in) : Block {
 			return Blocks::TURTLE_EGG()
 				->setEggCount($in->readTurtleEggCount())
-				->setEggCrackedState($in->readTurtleEggCrackedState());
+				->setEggCrackedState($in->readCrackedState());
 		});
 		$this->mapSlab(Ids::TUFF_BRICK_SLAB, Ids::TUFF_BRICK_DOUBLE_SLAB, fn() => Blocks::TUFF_BRICK_SLAB());
 		$this->mapStairs(Ids::TUFF_BRICK_STAIRS, fn() => Blocks::TUFF_BRICK_STAIRS());
@@ -1921,6 +1921,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::STRUCTURE_BLOCK, function(Reader $in) : Block {
 			return Blocks::STRUCTURE_BLOCK()
 				->setStructureType($in->readStructureBlockType());
+		});
+		$this->map(Ids::SNIFFER_EGG, function(Reader $in) : Block {
+			return Blocks::SNIFFER_EGG()
+				->setEggCrackedState($in->readCrackedState());
 		});
 	}
 

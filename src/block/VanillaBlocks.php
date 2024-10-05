@@ -745,6 +745,7 @@ use function strtolower;
  * @method static Stair SMOOTH_SANDSTONE_STAIRS()
  * @method static Opaque SMOOTH_STONE()
  * @method static Slab SMOOTH_STONE_SLAB()
+ * @method static SnifferEgg SNIFFER_EGG()
  * @method static Snow SNOW()
  * @method static SnowLayer SNOW_LAYER()
  * @method static SoulCampfire SOUL_CAMPFIRE()
@@ -1379,6 +1380,7 @@ final class VanillaBlocks{
 		self::register("suspicious_gravel", new Suspicious(new BID(Ids::SUSPICIOUS_GRAVEL), "Suspicious Gravel", $suspiciousBreakInfo));
 		self::register("structure_void", new Transparent(new BID(Ids::STRUCTURE_VOID), "Strcture Void", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("structure_block", new StructureBlock(new BID(Ids::STRUCTURE_BLOCK), "Strcture Block", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("sniffer_egg", new SnifferEgg(new BID(Ids::SNIFFER_EGG), "Sniffer Egg", new Info(new BreakInfo(0.5, blastResistance: 0.5))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

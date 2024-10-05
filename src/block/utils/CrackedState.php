@@ -8,12 +8,11 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
  *  These are retained for backwards compatibility only.
  *
- * @method static TurtleEggCrackedState NO_CRACKS()
- * @method static TurtleEggCrackedState CRACKED()
- * @method static TurtleEggCrackedState MAX_CRACKED()
- * @method static TurtleEggCrackedState TWO_WALLS()
+ * @method static CrackedState NO_CRACKS()
+ * @method static CrackedState CRACKED()
+ * @method static CrackedState MAX_CRACKED()
  */
-enum TurtleEggCrackedState{
+enum CrackedState{
 	use LegacyEnumShimTrait;
 
 	case NO_CRACKS;

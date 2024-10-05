@@ -826,8 +826,9 @@ final class BlockTypeIds{
 	public const SUSPICIOUS_GRAVEL = 10796;
 	public const STRUCTURE_VOID = 10797;
 	public const STRUCTURE_BLOCK = 10798;
+	public const SNIFFER_EGG = 10799;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10799;
+	public const FIRST_UNUSED_BLOCK_ID = 10800;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

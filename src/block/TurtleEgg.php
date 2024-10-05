@@ -2,8 +2,9 @@
 
 namespace pocketmine\block;
 
+use pocketmine\block\utils\EggTrait;
 use pocketmine\block\utils\TurtleEggCount;
-use pocketmine\block\utils\TurtleEggCrackedState;
+use pocketmine\block\utils\CrackedState;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\item\Item;
 use pocketmine\math\Vector3;
@@ -11,13 +12,15 @@ use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 
 class TurtleEgg extends Flowable{
+	use EggTrait {
+		describeBlockOnlyState as describeCrackedState;
+	}
 
 	protected TurtleEggCount $eggCount = TurtleEggCount::ONE_EGG;
-	protected TurtleEggCrackedState $crackedState = TurtleEggCrackedState::NO_CRACKS;
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
 		$w->enum($this->eggCount);
-		$w->enum($this->crackedState);
+		$this->describeCrackedState($w);
 	}
 
 	public function getEggCount() : TurtleEggCount{ return $this->eggCount; }
@@ -25,14 +28,6 @@ class TurtleEgg extends Flowable{
 	/** @return $this */
 	public function setEggCount(TurtleEggCount $eggCount) : self{
 		$this->eggCount = $eggCount;
-		return $this;
-	}
-
-	public function getEggCrackedState() : TurtleEggCrackedState{ return $this->crackedState; }
-
-	/** @return $this */
-	public function setEggCrackedState(TurtleEggCrackedState $crackedState) : self{
-		$this->crackedState = $crackedState;
 		return $this;
 	}
 
