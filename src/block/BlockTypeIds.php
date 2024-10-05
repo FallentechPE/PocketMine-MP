@@ -802,8 +802,21 @@ final class BlockTypeIds{
 	public const SCULK_VEIN = 10772;
 	public const CAMPFIRE = 10773;
 	public const SOUL_CAMPFIRE = 10774;
+	public const TUFF_SLAB = 10775;
+	public const TUFF_STAIRS = 10776;
+	public const TUFF_WALL = 10777;
+	public const CHISELED_TUFF = 10778;
+	public const TUFF_BRICKS = 10779;
+	public const TUFF_BRICK_SLAB = 10780;
+	public const TUFF_BRICK_STAIRS = 10781;
+	public const TUFF_BRICK_WALL = 10782;
+	public const CHISELED_TUFF_BRICKS = 10783;
+	public const POLISHED_TUFF = 10784;
+	public const POLISHED_TUFF_SLAB = 10785;
+	public const POLISHED_TUFF_STAIRS = 10786;
+	public const POLISHED_TUFF_WALL = 10787;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10775;
+	public const FIRST_UNUSED_BLOCK_ID = 10788;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
