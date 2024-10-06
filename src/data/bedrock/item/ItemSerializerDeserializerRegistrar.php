@@ -43,6 +43,7 @@ use pocketmine\item\Balloon;
 use pocketmine\item\Banner;
 use pocketmine\item\Dye;
 use pocketmine\item\FireworkStar;
+use pocketmine\item\GlowStick;
 use pocketmine\item\GoatHorn;
 use pocketmine\item\Item;
 use pocketmine\item\LingeringPotion;
@@ -451,8 +452,9 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::MUSIC_DISC_CREATOR_MUSIC_BOX, Items::RECORD_CREATOR_MUSIC_BOX());
 		$this->map1to1Item(Ids::MACE, Items::MACE());
 		$this->map1to1Item(Ids::LEAD, Items::LEAD());
-
-
+		$this->map1to1Item(Ids::EMPTY_MAP, Items::EMPTY_MAP());
+		$this->map1to1Item(Ids::ELYTRA, Items::ELYTRA());
+		$this->map1to1Item(Ids::DEBUG_STICK, Items::DEBUG_STICK());
 	}
 
 	/**
@@ -553,6 +555,14 @@ final class ItemSerializerDeserializerRegistrar{
 				$item->setColor(DyeColorIdMap::getInstance()->fromInvertedId($meta) ?? throw new ItemTypeDeserializeException("Unknown balloon meta $meta"));
 			},
 			fn(Balloon $item) => DyeColorIdMap::getInstance()->toInvertedId($item->getColor())
+		);
+		$this->map1to1ItemWithMeta(
+			Ids::GLOW_STICK,
+			Items::GLOW_STICK(),
+			function(GlowStick $item, int $meta) : void {
+				$item->setColor(DyeColorIdMap::getInstance()->fromInvertedId($meta) ?? throw new ItemTypeDeserializeException("Unknown balloon meta $meta"));
+			},
+			fn(GlowStick $item) => DyeColorIdMap::getInstance()->toInvertedId($item->getColor())
 		);
 		$this->map1to1ItemWithMeta(
 			Ids::GOAT_HORN,

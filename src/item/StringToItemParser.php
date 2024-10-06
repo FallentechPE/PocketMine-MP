@@ -1638,7 +1638,10 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("record_precipice", fn() => Items::RECORD_PRECIPICE());
 		$result->register("mace", fn() => Items::MACE());
 		$result->register("lead", fn() => Items::LEAD());
-
+		$result->register("glow_stick", fn() => Items::GLOW_STICK());
+		$result->register("empty_map", fn() => Items::EMPTY_MAP());
+		$result->register("elytra", fn() => Items::ELYTRA());
+		$result->register("debug_stick", fn() => Items::DEBUG_STICK());
 
 	}
 

@@ -370,8 +370,12 @@ final class ItemTypeIds{
 	public const RECORD_CREATOR_MUSIC_BOX = 20331;
 	public const MACE = 20332;
 	public const LEAD = 20333;
+	public const GLOW_STICK = 20334;
+	public const EMPTY_MAP = 20335;
+	public const ELYTRA = 20336;
+	public const DEBUG_STICK = 20337;
 
-	public const FIRST_UNUSED_ITEM_ID = 20334;
+	public const FIRST_UNUSED_ITEM_ID = 20338;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 

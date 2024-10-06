@@ -152,6 +152,7 @@ use function strtolower;
  * @method static Boat DARK_OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
+ * @method static Item DEBUG_STICK()
  * @method static Item DIAMOND()
  * @method static Axe DIAMOND_AXE()
  * @method static Armor DIAMOND_BOOTS()
@@ -169,7 +170,9 @@ use function strtolower;
  * @method static Dye DYE()
  * @method static Item ECHO_SHARD()
  * @method static Egg EGG()
+ * @method static Elytra ELYTRA()
  * @method static Item EMERALD()
+ * @method static Map EMPTY_MAP()
  * @method static EnchantedBook ENCHANTED_BOOK()
  * @method static GoldenAppleEnchanted ENCHANTED_GOLDEN_APPLE()
  * @method static Item ENDER_EYE()
@@ -191,6 +194,7 @@ use function strtolower;
  * @method static Item GLOWSTONE_DUST()
  * @method static GlowBerries GLOW_BERRIES()
  * @method static Item GLOW_INK_SAC()
+ * @method static GlowStick GLOW_STICK()
  * @method static GoatHorn GOAT_HORN()
  * @method static GoldenApple GOLDEN_APPLE()
  * @method static Axe GOLDEN_AXE()
@@ -684,7 +688,10 @@ final class VanillaItems{
 		self::register("record_creator_music_box", new Record(new IID(Ids::RECORD_CREATOR_MUSIC_BOX), RecordType::DISK_CREATOR_MUSIC_BOX, "Record Creator (Music Box)"));
 		self::register("mace", new Mace(new IID(Ids::MACE), "Mace"));
 		self::register("lead", new Lead(new IID(Ids::LEAD), "Lead"));
-
+		self::register("glow_stick", new GlowStick(new IID(Ids::GLOW_STICK), "Glow Stick"));
+		self::register("empty_map", new Map(new IID(Ids::EMPTY_MAP), "Empty Map"));
+		self::register("elytra", new Elytra(new IID(Ids::ELYTRA), "Elytra"));
+		self::register("debug_stick", new Item(new IID(Ids::DEBUG_STICK), "Debug Stick"));
 	}
 
 	private static function registerSpawnEggs() : void{
