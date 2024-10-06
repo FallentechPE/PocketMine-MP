@@ -1637,6 +1637,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("record_relic", fn() => Items::RECORD_RELIC());
 		$result->register("record_precipice", fn() => Items::RECORD_PRECIPICE());
 		$result->register("mace", fn() => Items::MACE());
+		$result->register("lead", fn() => Items::LEAD());
 
 
 	}

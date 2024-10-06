@@ -228,6 +228,7 @@ use function strtolower;
  * @method static ItemBlockWallOrFloor JUNGLE_SIGN()
  * @method static Item LAPIS_LAZULI()
  * @method static LiquidBucket LAVA_BUCKET()
+ * @method static Lead LEAD()
  * @method static Item LEATHER()
  * @method static Armor LEATHER_BOOTS()
  * @method static Armor LEATHER_CAP()
@@ -682,6 +683,7 @@ final class VanillaItems{
 		self::register("record_creator", new Record(new IID(Ids::RECORD_CREATOR), RecordType::DISK_CREATOR, "Record Creator"));
 		self::register("record_creator_music_box", new Record(new IID(Ids::RECORD_CREATOR_MUSIC_BOX), RecordType::DISK_CREATOR_MUSIC_BOX, "Record Creator (Music Box)"));
 		self::register("mace", new Mace(new IID(Ids::MACE), "Mace"));
+		self::register("lead", new Lead(new IID(Ids::LEAD), "Lead"));
 
 	}
 
