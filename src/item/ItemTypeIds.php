@@ -365,8 +365,9 @@ final class ItemTypeIds{
 	public const OMINOUS_TRIAL_KEY = 20326;
 	public const OMINOUS_BOTTLE = 20327;
 	public const RECORD_RELIC = 20328;
+	public const RECORD_PRECIPICE = 20329;
 
-	public const FIRST_UNUSED_ITEM_ID = 20329;
+	public const FIRST_UNUSED_ITEM_ID = 20330;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 

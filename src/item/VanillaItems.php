@@ -308,6 +308,7 @@ use function strtolower;
  * @method static Record RECORD_MELLOHI()
  * @method static Record RECORD_OTHERSIDE()
  * @method static Record RECORD_PIGSTEP()
+ * @method static Record RECORD_PRECIPICE()
  * @method static Record RECORD_RELIC()
  * @method static Record RECORD_STAL()
  * @method static Record RECORD_STRAD()
@@ -674,6 +675,7 @@ final class VanillaItems{
 		self::register("super_fertilizer", new SuperFertilizer(new IID(Ids::SUPER_FERTILIZER), "Super Fertilizer"));
 		self::register("ominous_bottle", new OminousBottle(new IID(Ids::OMINOUS_BOTTLE), "Ominous Bottle"));
 		self::register("record_relic", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_OTHERSIDE, "Record Otherside"));
+		self::register("record_precipice", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_PRECIPICE, "Record Otherside"));
 
 
 	}

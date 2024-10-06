@@ -70,6 +70,7 @@ enum RecordType{
 	case DISK_11;
 	case DISK_WAIT;
 	case DISK_RELIC;
+	case DISK_PRECIPICE;
 
 	/**
 	 * @phpstan-return TMetadata
@@ -94,7 +95,8 @@ enum RecordType{
 			self::DISK_WARD => ["C418 - ward", LevelSoundEvent::RECORD_WARD, KnownTranslationFactory::item_record_ward_desc()],
 			self::DISK_11 => ["C418 - 11", LevelSoundEvent::RECORD_11, KnownTranslationFactory::item_record_11_desc()],
 			self::DISK_WAIT => ["C418 - wait", LevelSoundEvent::RECORD_WAIT, KnownTranslationFactory::item_record_wait_desc()],
-			self::DISK_RELIC => ["Aaron Cherof - Relic", LevelSoundEvent::RECORD_RELIC, KnownTranslationFactory::item_record_wait_desc()] // todo
+			self::DISK_RELIC => ["Aaron Cherof - Relic", LevelSoundEvent::RECORD_RELIC, KnownTranslationFactory::item_record_wait_desc()], // todo
+			self::DISK_PRECIPICE => ["Aaron Cherof - Precipice", LevelSoundEvent::RECORD_PRECIPICE, KnownTranslationFactory::item_record_wait_desc()], // todo
 		};
 	}
 

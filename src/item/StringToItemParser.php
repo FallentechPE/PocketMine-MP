@@ -1635,6 +1635,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("ominous_trial_key", fn() => Items::OMINOUS_TRIAL_KEY());
 		$result->register("ominous_bottle", fn() => Items::OMINOUS_BOTTLE());
 		$result->register("record_relic", fn() => Items::RECORD_RELIC());
+		$result->register("record_precipice", fn() => Items::RECORD_PRECIPICE());
 
 
 	}
