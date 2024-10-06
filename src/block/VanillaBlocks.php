@@ -518,6 +518,7 @@ use function strtolower;
  * @method static IronOre IRON_ORE()
  * @method static Trapdoor IRON_TRAPDOOR()
  * @method static ItemFrame ITEM_FRAME()
+ * @method static Jigsaw JIGSAW()
  * @method static Jukebox JUKEBOX()
  * @method static WoodenButton JUNGLE_BUTTON()
  * @method static CeilingHangingSign JUNGLE_CEILING_HANGING_SIGN()
@@ -1399,6 +1400,7 @@ final class VanillaBlocks{
 		self::register("repeating_command_block", new CommandBlock(new BID(Ids::REPEATING_COMMAND_BLOCK), "Repeating Command Block", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("end_gateway", new EndGateway(new BID(Ids::END_GATEWAY), "End Gateway", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("end_portal", new EndPortal(new BID(Ids::END_PORTAL), "End Portal", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("jigsaw", new Jigsaw(new BID(Ids::JIGSAW), "Jigsaw", new Info(BreakInfo::indestructible(-1.0))));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

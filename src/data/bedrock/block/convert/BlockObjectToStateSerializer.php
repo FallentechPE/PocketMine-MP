@@ -39,6 +39,7 @@ use pocketmine\block\Block;
 use pocketmine\block\BubbleColumn;
 use pocketmine\block\Campfire;
 use pocketmine\block\CommandBlock;
+use pocketmine\block\Jigsaw;
 use pocketmine\block\SnifferEgg;
 use pocketmine\block\SoulCampfire;
 use pocketmine\block\BoneBlock;
@@ -2060,6 +2061,11 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::REPEATING_COMMAND_BLOCK(), fn(CommandBlock $block) => Helper::encodeCommandBlock($block, new Writer(Ids::REPEATING_COMMAND_BLOCK)));
 		$this->mapSimple(Blocks::END_GATEWAY(), Ids::END_GATEWAY);
 		$this->mapSimple(Blocks::END_PORTAL(), Ids::END_PORTAL);
+		$this->map(Blocks::JIGSAW(), function(Jigsaw $block) : Writer {
+			return Writer::create(Ids::JIGSAW)
+				->writeInt(StateNames::ROTATION, $block->getRotation())
+				->writeFacingDirection($block->getFacing());
+		});
 
 
 	}

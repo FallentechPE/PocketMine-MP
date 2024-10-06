@@ -1938,6 +1938,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::REPEATING_COMMAND_BLOCK, fn(Reader $in) => Helper::decodeCommandBlock(Blocks::REPEATING_COMMAND_BLOCK(), $in));
 		$this->mapSimple(Ids::END_GATEWAY, fn() => Blocks::END_GATEWAY());
 		$this->mapSimple(Ids::END_PORTAL, fn() => Blocks::END_PORTAL());
+		$this->map(Ids::JIGSAW, function(Reader $in) : Block {
+			return Blocks::JIGSAW()
+				->setFacing($in->readFacingDirection())
+				->setRotation($in->readInt(StateNames::ROTATION));
+		});
 
 	}
 
