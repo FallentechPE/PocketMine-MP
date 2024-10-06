@@ -350,6 +350,7 @@ use function strtolower;
  * @method static Item VEX_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static SpawnEgg VILLAGER_SPAWN_EGG()
  * @method static Item WARD_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static WarpedFungusOnAStick WARPED_FUNGUS_ON_A_STICK()
  * @method static ItemBlockWallOrFloor WARPED_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor WARPED_SIGN()
  * @method static LiquidBucket WATER_BUCKET()
@@ -658,7 +659,7 @@ final class VanillaItems{
 		self::register("nether_sprouts", new Item(new IID(Ids::NETHER_SPROUTS), "Nether Sprouts"));
 		self::register("armadillo_shute", new ArmadilloShute(new IID(Ids::ARMADILLO_SHUTE), "Armadillo Shute"));
 		self::register("balloon", new Balloon(new IID(Ids::BALLOON), "Balloon"));
-
+		self::register("warped_fungus_on_a_stick", new WarpedFungusOnAStick(new IID(Ids::WARPED_FUNGUS_ON_A_STICK), "Warped Fungus on a Stick"));
 	}
 
 	private static function registerSpawnEggs() : void{
