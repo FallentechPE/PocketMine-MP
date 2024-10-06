@@ -53,8 +53,10 @@ use function strtolower;
  * @method static ItemBlock AIR()
  * @method static Item AMETHYST_SHARD()
  * @method static Apple APPLE()
+ * @method static ArmadilloShute ARMADILLO_SHUTE()
  * @method static Arrow ARROW()
  * @method static BakedPotato BAKED_POTATO()
+ * @method static Balloon BALLOON()
  * @method static Bamboo BAMBOO()
  * @method static Boat BAMBOO_CHEST_RAFT()
  * @method static ItemBlockWallOrFloor BAMBOO_HANGING_SIGN()
@@ -259,7 +261,7 @@ use function strtolower;
  * @method static Item NETHERITE_UPGRADE_SMITHING_TEMPLATE()
  * @method static Item NETHER_BRICK()
  * @method static Item NETHER_QUARTZ()
- * @method static WrittenBook NETHER_SPROUTS()
+ * @method static Item NETHER_SPROUTS()
  * @method static Item NETHER_STAR()
  * @method static Boat OAK_BOAT()
  * @method static Boat OAK_CHEST_BOAT()
@@ -653,6 +655,10 @@ final class VanillaItems{
 				BoatType::BAMBOO => Ids::BAMBOO_CHEST_RAFT
 			}), $type->getDisplayName() . " Chest " . ($type === BoatType::BAMBOO ? "Raft" : "Boat"), $type));
 		}
+		self::register("nether_sprouts", new Item(new IID(Ids::NETHER_SPROUTS), "Nether Sprouts"));
+		self::register("armadillo_shute", new ArmadilloShute(new IID(Ids::ARMADILLO_SHUTE), "Armadillo Shute"));
+		self::register("balloon", new Balloon(new IID(Ids::BALLOON), "Balloon"));
+
 	}
 
 	private static function registerSpawnEggs() : void{
@@ -671,9 +677,6 @@ final class VanillaItems{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
-
-		self::register("nether_sprouts", new WrittenBook(new IID(Ids::WRITTEN_BOOK), "Written Book"));
-
 	}
 
 	private static function registerTierToolItems() : void{

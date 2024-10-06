@@ -355,8 +355,10 @@ final class ItemTypeIds{
 	public const MANGROVE_CHEST_BOAT = 20316;
 	public const CHERRY_CHEST_BOAT = 20317;
 	public const BAMBOO_CHEST_RAFT = 20318;
+	public const ARMADILLO_SHUTE = 20319;
+	public const BALLOON = 20320;
 
-	public const FIRST_UNUSED_ITEM_ID = 20310;
+	public const FIRST_UNUSED_ITEM_ID = 20321;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 

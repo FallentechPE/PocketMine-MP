@@ -39,6 +39,7 @@ use pocketmine\data\bedrock\MedicineTypeIdMap;
 use pocketmine\data\bedrock\MobHeadTypeIdMap;
 use pocketmine\data\bedrock\PotionTypeIdMap;
 use pocketmine\data\bedrock\SuspiciousStewTypeIdMap;
+use pocketmine\item\Balloon;
 use pocketmine\item\Banner;
 use pocketmine\item\Dye;
 use pocketmine\item\FireworkStar;
@@ -436,6 +437,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::BAMBOO_CHEST_RAFT, Items::BAMBOO_CHEST_RAFT());
 		$this->map1to1Item(Ids::CHERRY_BOAT, Items::CHERRY_BOAT());
 		$this->map1to1Item(Ids::BAMBOO_RAFT, Items::BAMBOO_RAFT());
+		$this->map1to1Item(Ids::ARMADILLO_SCUTE, Items::ARMADILLO_SHUTE());
 	}
 
 	/**
@@ -528,6 +530,14 @@ final class ItemSerializerDeserializerRegistrar{
 				$item->setColor(DyeColorIdMap::getInstance()->fromInvertedId($meta) ?? throw new ItemTypeDeserializeException("Unknown banner meta $meta"));
 			},
 			fn(Banner $item) => DyeColorIdMap::getInstance()->toInvertedId($item->getColor())
+		);
+		$this->map1to1ItemWithMeta(
+			Ids::BALLOON,
+			Items::BALLOON(),
+			function(Balloon $item, int $meta) : void {
+				$item->setColor(DyeColorIdMap::getInstance()->fromInvertedId($meta) ?? throw new ItemTypeDeserializeException("Unknown balloon meta $meta"));
+			},
+			fn(Balloon $item) => DyeColorIdMap::getInstance()->toInvertedId($item->getColor())
 		);
 		$this->map1to1ItemWithMeta(
 			Ids::GOAT_HORN,
