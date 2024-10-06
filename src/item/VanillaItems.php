@@ -267,6 +267,7 @@ use function strtolower;
  * @method static Boat OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor OAK_SIGN()
+ * @method static TrialKey OMINOUS_TRIAL_KEY()
  * @method static PaintingItem PAINTING()
  * @method static Item PAPER()
  * @method static Item PHANTOM_MEMBRANE()
@@ -314,6 +315,7 @@ use function strtolower;
  * @method static Redstone REDSTONE_DUST()
  * @method static Item RIB_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static RottenFlesh ROTTEN_FLESH()
+ * @method static Saddle SADDLE()
  * @method static Item SCUTE()
  * @method static Item SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE()
@@ -341,11 +343,14 @@ use function strtolower;
  * @method static Sword STONE_SWORD()
  * @method static StringItem STRING()
  * @method static Item SUGAR()
+ * @method static SuperFertilizer SUPER_FERTILIZER()
  * @method static SuspiciousStew SUSPICIOUS_STEW()
  * @method static SweetBerries SWEET_BERRIES()
  * @method static Item TIDE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static TorchflowerSeeds TORCHFLOWER_SEEDS()
  * @method static Totem TOTEM()
+ * @method static TrialKey TRIAL_KEY()
+ * @method static Trident TRIDENT()
  * @method static TurtleHelmet TURTLE_HELMET()
  * @method static Item VEX_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static SpawnEgg VILLAGER_SPAWN_EGG()
@@ -660,6 +665,12 @@ final class VanillaItems{
 		self::register("armadillo_shute", new ArmadilloShute(new IID(Ids::ARMADILLO_SHUTE), "Armadillo Shute"));
 		self::register("balloon", new Balloon(new IID(Ids::BALLOON), "Balloon"));
 		self::register("warped_fungus_on_a_stick", new WarpedFungusOnAStick(new IID(Ids::WARPED_FUNGUS_ON_A_STICK), "Warped Fungus on a Stick"));
+		self::register("trident", new Trident(new IID(Ids::TRIDENT), "Trident"));
+		self::register("trial_key", new TrialKey(new IID(Ids::TRIAL_KEY), "Trial Key"));
+		self::register("ominous_trial_key", new TrialKey(new IID(Ids::OMINOUS_TRIAL_KEY), "Ominous Trial Key"));
+		self::register("saddle", new Saddle(new IID(Ids::SADDLE), "Saddle"));
+		self::register("super_fertilizer", new SuperFertilizer(new IID(Ids::SUPER_FERTILIZER), "Super Fertilizer"));
+
 	}
 
 	private static function registerSpawnEggs() : void{

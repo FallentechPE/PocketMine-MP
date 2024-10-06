@@ -439,6 +439,12 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::BAMBOO_RAFT, Items::BAMBOO_RAFT());
 		$this->map1to1Item(Ids::ARMADILLO_SCUTE, Items::ARMADILLO_SHUTE());
 		$this->map1to1Item(Ids::WARPED_FUNGUS_ON_A_STICK, Items::WARPED_FUNGUS_ON_A_STICK());
+		$this->map1to1Item(Ids::TRIDENT, Items::TRIDENT());
+		$this->map1to1Item(Ids::TRIAL_KEY, Items::TRIAL_KEY());
+		$this->map1to1Item(Ids::SADDLE, Items::SADDLE());
+		$this->map1to1Item(Ids::RAPID_FERTILIZER, Items::SUPER_FERTILIZER());
+		$this->map1to1Item(Ids::OMINOUS_TRIAL_KEY, Items::OMINOUS_TRIAL_KEY());
+
 	}
 
 	/**

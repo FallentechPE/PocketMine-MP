@@ -1628,6 +1628,13 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("bamboo_raft", fn() => Items::BAMBOO_RAFT());
 		$result->register("armadillo_scute", fn() => Items::ARMADILLO_SHUTE());
 		$result->register("warped_fungus_on_a_stick", fn() => Items::WARPED_FUNGUS_ON_A_STICK());
+		$result->register("trident", fn() => Items::TRIDENT());
+		$result->register("trial_key", fn() => Items::TRIAL_KEY());
+		$result->register("saddle", fn() => Items::SADDLE());
+		$result->register("super_fertilizer", fn() => Items::SUPER_FERTILIZER());
+		$result->register("ominous_trial_key", fn() => Items::OMINOUS_TRIAL_KEY());
+
+
 	}
 
 	/**
