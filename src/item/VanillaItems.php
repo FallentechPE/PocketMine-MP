@@ -303,6 +303,8 @@ use function strtolower;
  * @method static Record RECORD_BLOCKS()
  * @method static Record RECORD_CAT()
  * @method static Record RECORD_CHIRP()
+ * @method static Record RECORD_CREATOR()
+ * @method static Record RECORD_CREATOR_MUSIC_BOX()
  * @method static Record RECORD_FAR()
  * @method static Record RECORD_MALL()
  * @method static Record RECORD_MELLOHI()
@@ -676,6 +678,8 @@ final class VanillaItems{
 		self::register("ominous_bottle", new OminousBottle(new IID(Ids::OMINOUS_BOTTLE), "Ominous Bottle"));
 		self::register("record_relic", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_OTHERSIDE, "Record Otherside"));
 		self::register("record_precipice", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_PRECIPICE, "Record Otherside"));
+		self::register("record_creator", new Record(new IID(Ids::RECORD_CREATOR), RecordType::DISK_CREATOR, "Record Creator"));
+		self::register("record_creator_music_box", new Record(new IID(Ids::RECORD_CREATOR_MUSIC_BOX), RecordType::DISK_CREATOR_MUSIC_BOX, "Record Creator (Music Box)"));
 
 
 	}

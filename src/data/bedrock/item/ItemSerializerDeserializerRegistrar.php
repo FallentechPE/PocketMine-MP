@@ -447,6 +447,9 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::OMINOUS_BOTTLE, Items::OMINOUS_BOTTLE());
 		$this->map1to1Item(Ids::MUSIC_DISC_RELIC, Items::RECORD_RELIC());
 		$this->map1to1Item(Ids::MUSIC_DISC_PRECIPICE, Items::RECORD_PRECIPICE());
+		$this->map1to1Item(Ids::MUSIC_DISC_CREATOR, Items::RECORD_CREATOR());
+		$this->map1to1Item(Ids::MUSIC_DISC_CREATOR_MUSIC_BOX, Items::RECORD_CREATOR_MUSIC_BOX());
+
 
 	}
 

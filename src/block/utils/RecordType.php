@@ -71,6 +71,8 @@ enum RecordType{
 	case DISK_WAIT;
 	case DISK_RELIC;
 	case DISK_PRECIPICE;
+	case DISK_CREATOR;
+	case DISK_CREATOR_MUSIC_BOX;
 
 	/**
 	 * @phpstan-return TMetadata
@@ -97,6 +99,9 @@ enum RecordType{
 			self::DISK_WAIT => ["C418 - wait", LevelSoundEvent::RECORD_WAIT, KnownTranslationFactory::item_record_wait_desc()],
 			self::DISK_RELIC => ["Aaron Cherof - Relic", LevelSoundEvent::RECORD_RELIC, KnownTranslationFactory::item_record_wait_desc()], // todo
 			self::DISK_PRECIPICE => ["Aaron Cherof - Precipice", LevelSoundEvent::RECORD_PRECIPICE, KnownTranslationFactory::item_record_wait_desc()], // todo
+			self::DISK_CREATOR => ["Lena Raine - Creator", LevelSoundEvent::RECORD_CREATOR, KnownTranslationFactory::item_record_wait_desc()], // todo
+			self::DISK_CREATOR_MUSIC_BOX => ["Lena Raine - Creator (Music Box)", LevelSoundEvent::RECORD_CREATOR_MUSIC_BOX, KnownTranslationFactory::item_record_wait_desc()], // todo
+
 		};
 	}
 
