@@ -367,9 +367,10 @@ final class ItemTypeIds{
 	public const RECORD_RELIC = 20328;
 	public const RECORD_PRECIPICE = 20329;
 	public const RECORD_CREATOR = 20330;
-	public const RECORD_CREATOR_MUSIC_BOX = 30331;
+	public const RECORD_CREATOR_MUSIC_BOX = 20331;
+	public const MACE = 30332;
 
-	public const FIRST_UNUSED_ITEM_ID = 20332;
+	public const FIRST_UNUSED_ITEM_ID = 20333;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 

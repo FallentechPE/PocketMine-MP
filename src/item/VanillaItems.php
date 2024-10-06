@@ -234,6 +234,7 @@ use function strtolower;
  * @method static Armor LEATHER_PANTS()
  * @method static Armor LEATHER_TUNIC()
  * @method static LingeringPotion LINGERING_POTION()
+ * @method static Mace MACE()
  * @method static Item MAGMA_CREAM()
  * @method static Boat MANGROVE_BOAT()
  * @method static Boat MANGROVE_CHEST_BOAT()
@@ -677,10 +678,10 @@ final class VanillaItems{
 		self::register("super_fertilizer", new SuperFertilizer(new IID(Ids::SUPER_FERTILIZER), "Super Fertilizer"));
 		self::register("ominous_bottle", new OminousBottle(new IID(Ids::OMINOUS_BOTTLE), "Ominous Bottle"));
 		self::register("record_relic", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_OTHERSIDE, "Record Otherside"));
-		self::register("record_precipice", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_PRECIPICE, "Record Otherside"));
+		self::register("record_precipice", new Record(new IID(Ids::RECORD_PRECIPICE), RecordType::DISK_PRECIPICE, "Record Otherside"));
 		self::register("record_creator", new Record(new IID(Ids::RECORD_CREATOR), RecordType::DISK_CREATOR, "Record Creator"));
 		self::register("record_creator_music_box", new Record(new IID(Ids::RECORD_CREATOR_MUSIC_BOX), RecordType::DISK_CREATOR_MUSIC_BOX, "Record Creator (Music Box)"));
-
+		self::register("mace", new Mace(new IID(Ids::MACE), "Mace"));
 
 	}
 
