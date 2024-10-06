@@ -837,8 +837,26 @@ final class BlockTypeIds{
 	public const END_GATEWAY = 10807;
 	public const END_PORTAL = 10808;
 	public const JIGSAW = 10809;
+	public const STRIPPED_BAMBOO_BLOCK = 10810;
+	public const BAMBOO_BLOCK = 10811;
+	public const BAMBOO_BUTTON = 10812;
+	public const BAMBOO_DOOR = 10813;
+	public const BAMBOO_FENCE = 10814;
+	public const BAMBOO_FENCE_GATE = 10815;
+	public const BAMBOO_HANGING_SIGN = 10816;
+	public const BAMBOO_MOSAIC = 10817;
+	public const BAMBOO_MOSAIC_SLAB = 10818;
+	public const BAMBOO_MOSAIC_STAIRS = 10819;
+	public const BAMBOO_PLANKS = 10820;
+	public const BAMBOO_PRESSURE_PLATE = 10821;
+	public const BAMBOO_SLAB = 10822;
+	public const BAMBOO_STAIRS = 10823;
+	public const BAMBOO_CEILING_SIGN = 10824;
+	public const BAMBOO_TRAPDOOR = 10825;
+	public const BAMBOO_WALL_SIGN = 10826;
+	public const BAMBOO_SIGN = 10827;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10810;
+	public const FIRST_UNUSED_BLOCK_ID = 10828;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

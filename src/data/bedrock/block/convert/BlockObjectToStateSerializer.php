@@ -27,6 +27,7 @@ use pocketmine\block\ActivatorRail;
 use pocketmine\block\AmethystCluster;
 use pocketmine\block\Anvil;
 use pocketmine\block\Bamboo;
+use pocketmine\block\BambooBlock;
 use pocketmine\block\BambooSapling;
 use pocketmine\block\Barrel;
 use pocketmine\block\Bed;
@@ -2066,6 +2067,31 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(StateNames::ROTATION, $block->getRotation())
 				->writeFacingDirection($block->getFacing());
 		});
+
+		$this->map(Blocks::BAMBOO_BUTTON(), fn(WoodenButton $block) => Helper::encodeButton($block, new Writer(Ids::BAMBOO_BUTTON)));
+		$this->map(Blocks::BAMBOO_CEILING_HANGING_SIGN(), fn(CeilingHangingSign $block) => Helper::encodeCeilingHangingSign($block, new Writer(Ids::BAMBOO_HANGING_SIGN)));
+		$this->map(Blocks::BAMBOO_DOOR(), fn(WoodenDoor $block) => Helper::encodeDoor($block, new Writer(Ids::BAMBOO_DOOR)));
+		$this->map(Blocks::BAMBOO_FENCE_GATE(), fn(FenceGate $block) => Helper::encodeFenceGate($block, new Writer(Ids::BAMBOO_FENCE_GATE)));
+		$this->map(Blocks::BAMBOO_PRESSURE_PLATE(), fn(WoodenPressurePlate $block) => Helper::encodeSimplePressurePlate($block, new Writer(Ids::BAMBOO_PRESSURE_PLATE)));
+		$this->map(Blocks::BAMBOO_SIGN(), fn(FloorSign $block) => Helper::encodeFloorSign($block, new Writer(Ids::BAMBOO_STANDING_SIGN)));
+		$this->map(Blocks::BAMBOO_STAIRS(), fn(WoodenStairs $block) => Helper::encodeStairs($block, new Writer(Ids::BAMBOO_STAIRS)));
+		$this->map(Blocks::BAMBOO_TRAPDOOR(), fn(WoodenTrapdoor $block) => Helper::encodeTrapdoor($block, new Writer(Ids::BAMBOO_TRAPDOOR)));
+		$this->map(Blocks::BAMBOO_WALL_HANGING_SIGN(), fn(WallHangingSign $block) => Helper::encodeWallHangingSign($block, new Writer(Ids::BAMBOO_HANGING_SIGN)));
+		$this->map(Blocks::BAMBOO_WALL_SIGN(), fn(WallSign $block) => Helper::encodeWallSign($block, new Writer(Ids::BAMBOO_WALL_SIGN)));
+		$this->map(Blocks::BAMBOO_BLOCK(), function(BambooBlock $block) : Writer {
+			return Writer::create(Ids::BAMBOO_BLOCK)
+				->writePillarAxis($block->getAxis());
+		});
+		$this->map(Blocks::STRIPPED_BAMBOO_BLOCK(), function(BambooBlock $block) : Writer {
+			return Writer::create(Ids::STRIPPED_BAMBOO_BLOCK)
+				->writePillarAxis($block->getAxis());
+		});
+		$this->mapSimple(Blocks::BAMBOO_FENCE(), Ids::BAMBOO_FENCE);
+		$this->mapSimple(Blocks::BAMBOO_PLANKS(), Ids::BAMBOO_PLANKS);
+		$this->mapSlab(Blocks::BAMBOO_SLAB(), Ids::BAMBOO_SLAB, Ids::BAMBOO_DOUBLE_SLAB);
+		$this->mapSimple(Blocks::BAMBOO_MOSAIC(), Ids::BAMBOO_MOSAIC);
+		$this->mapStairs(Blocks::BAMBOO_MOSAIC_STAIRS(), Ids::BAMBOO_MOSAIC_STAIRS);
+		$this->mapSlab(Blocks::BAMBOO_MOSAIC_SLAB(), Ids::BAMBOO_MOSAIC_SLAB, Ids::BAMBOO_MOSAIC_DOUBLE_SLAB);
 
 
 	}

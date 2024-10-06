@@ -153,6 +153,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Block(Ids::HOPPER, Blocks::HOPPER());
 		$this->map1to1Block(Ids::IRON_DOOR, Blocks::IRON_DOOR());
 		$this->map1to1Block(Ids::JUNGLE_DOOR, Blocks::JUNGLE_DOOR());
+		$this->map1to1Block(Ids::BAMBOO_DOOR, Blocks::BAMBOO_DOOR());
 		$this->map1to1Block(Ids::MANGROVE_DOOR, Blocks::MANGROVE_DOOR());
 		$this->map1to1Block(Ids::NETHER_WART, Blocks::NETHER_WART());
 		$this->map1to1Block(Ids::REPEATER, Blocks::REDSTONE_REPEATER());
@@ -168,6 +169,8 @@ final class ItemSerializerDeserializerRegistrar{
 	 * Registers mappings for item IDs which directly correspond to PocketMine-MP items.
 	 */
 	private function register1to1ItemMappings() : void{
+		$this->map1to1Item(Ids::BAMBOO_HANGING_SIGN, Items::BAMBOO_HANGING_SIGN());
+		$this->map1to1Item(Ids::BAMBOO_SIGN, Items::BAMBOO_SIGN());
 		$this->map1to1Item(Ids::ACACIA_BOAT, Items::ACACIA_BOAT());
 		$this->map1to1Item(Ids::ACACIA_HANGING_SIGN, Items::ACACIA_HANGING_SIGN());
 		$this->map1to1Item(Ids::ACACIA_SIGN, Items::ACACIA_SIGN());

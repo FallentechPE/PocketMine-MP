@@ -55,6 +55,8 @@ use function strtolower;
  * @method static Arrow ARROW()
  * @method static BakedPotato BAKED_POTATO()
  * @method static Bamboo BAMBOO()
+ * @method static ItemBlockWallOrFloor BAMBOO_HANGING_SIGN()
+ * @method static ItemBlockWallOrFloor BAMBOO_SIGN()
  * @method static Banner BANNER()
  * @method static Beetroot BEETROOT()
  * @method static BeetrootSeeds BEETROOT_SEEDS()
@@ -382,8 +384,10 @@ final class VanillaItems{
 
 		self::register("air", Blocks::AIR()->asItem()->setCount(0));
 
-		self::register("acacia_sign", new ItemBlockWallOrFloor(new IID(Ids::ACACIA_SIGN), Blocks::ACACIA_SIGN(), Blocks::ACACIA_WALL_SIGN()));
-		self::register("acacia_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::ACACIA_HANGING_SIGN), Blocks::ACACIA_CEILING_HANGING_SIGN(), Blocks::ACACIA_WALL_HANGING_SIGN()));
+		self::register("bamboo_sign", new ItemBlockWallOrFloor(new IID(Ids::BAMBOO_SIGN), Blocks::BAMBOO_SIGN(), Blocks::BAMBOO_WALL_SIGN()));
+		self::register("bamboo_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::BAMBOO_HANGING_SIGN), Blocks::BAMBOO_CEILING_HANGING_SIGN(), Blocks::BAMBOO_WALL_HANGING_SIGN()));
+		self::register("acacia_sign", new ItemBlockWallOrFloor(new IID(Ids::ACACIA_SIGN), Blocks::BAMBOO_SIGN(), Blocks::BAMBOO_WALL_SIGN()));
+		self::register("acacia_hanging_sign", new ItemBlockWallOrFloor(new IID(Ids::ACACIA_HANGING_SIGN), Blocks::BAMBOO_CEILING_HANGING_SIGN(), Blocks::BAMBOO_WALL_HANGING_SIGN()));
 		self::register("amethyst_shard", new Item(new IID(Ids::AMETHYST_SHARD), "Amethyst Shard"));
 		self::register("apple", new Apple(new IID(Ids::APPLE), "Apple"));
 		self::register("arrow", new Arrow(new IID(Ids::ARROW), "Arrow"));

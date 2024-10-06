@@ -64,6 +64,7 @@ use pocketmine\crafting\FurnaceType;
 use pocketmine\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
 use pocketmine\item\Item;
 use pocketmine\item\ToolTier;
+use pocketmine\item\VanillaItems;
 use pocketmine\math\Facing;
 use pocketmine\utils\CloningRegistryTrait;
 use function mb_strtolower;
@@ -109,7 +110,24 @@ use function strtolower;
  * @method static Leaves AZALEA_LEAVES()
  * @method static Flower AZURE_BLUET()
  * @method static Bamboo BAMBOO()
+ * @method static BambooBlock BAMBOO_BLOCK()
+ * @method static WoodenButton BAMBOO_BUTTON()
+ * @method static CeilingHangingSign BAMBOO_CEILING_HANGING_SIGN()
+ * @method static WoodenDoor BAMBOO_DOOR()
+ * @method static WoodenFence BAMBOO_FENCE()
+ * @method static FenceGate BAMBOO_FENCE_GATE()
+ * @method static Planks BAMBOO_MOSAIC()
+ * @method static WoodenSlab BAMBOO_MOSAIC_SLAB()
+ * @method static WoodenStairs BAMBOO_MOSAIC_STAIRS()
+ * @method static Planks BAMBOO_PLANKS()
+ * @method static WoodenPressurePlate BAMBOO_PRESSURE_PLATE()
  * @method static BambooSapling BAMBOO_SAPLING()
+ * @method static FloorSign BAMBOO_SIGN()
+ * @method static WoodenSlab BAMBOO_SLAB()
+ * @method static WoodenStairs BAMBOO_STAIRS()
+ * @method static WoodenTrapdoor BAMBOO_TRAPDOOR()
+ * @method static WallHangingSign BAMBOO_WALL_HANGING_SIGN()
+ * @method static WallSign BAMBOO_WALL_SIGN()
  * @method static FloorBanner BANNER()
  * @method static Barrel BARREL()
  * @method static Transparent BARRIER()
@@ -798,6 +816,7 @@ use function strtolower;
  * @method static StonePressurePlate STONE_PRESSURE_PLATE()
  * @method static Slab STONE_SLAB()
  * @method static Stair STONE_STAIRS()
+ * @method static BambooBlock STRIPPED_BAMBOO_BLOCK()
  * @method static StructureBlock STRUCTURE_BLOCK()
  * @method static Transparent STRUCTURE_VOID()
  * @method static Sugarcane SUGARCANE()
@@ -1401,6 +1420,25 @@ final class VanillaBlocks{
 		self::register("end_gateway", new EndGateway(new BID(Ids::END_GATEWAY), "End Gateway", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("end_portal", new EndPortal(new BID(Ids::END_PORTAL), "End Portal", new Info(BreakInfo::indestructible(-1.0))));
 		self::register("jigsaw", new Jigsaw(new BID(Ids::JIGSAW), "Jigsaw", new Info(BreakInfo::indestructible(-1.0))));
+		self::register("bamboo_planks", new Planks(new BID(Ids::BAMBOO_PLANKS), "Bamboo Planks", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_pressure_plate", new WoodenPressurePlate(new BID(Ids::BAMBOO_PRESSURE_PLATE), "Bamboo Pressure Plate", new Info(BreakInfo::axe(0.5, null, 0.5)), WoodType::BAMBOO));
+		self::register("bamboo_slab", new WoodenSlab(new BID(Ids::BAMBOO_SLAB), "Bamboo Slab", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_stairs", new WoodenStairs(new BID(Ids::BAMBOO_STAIRS), "Bamboo Stairs", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_trapdoor", new WoodenTrapdoor(new BID(Ids::BAMBOO_TRAPDOOR), "Bamboo Trapdoor", new Info(BreakInfo::axe(3, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_block", new BambooBlock(new BID(Ids::BAMBOO_BLOCK), "Bamboo Block", new Info(BreakInfo::axe(2, null, 2))));
+		self::register("stripped_bamboo_block", new BambooBlock(new BID(Ids::STRIPPED_BAMBOO_BLOCK), "Stripped Bamboo Block", new Info(BreakInfo::axe(2, null, 2))));
+		self::register("bamboo_button", new WoodenButton(new BID(Ids::BAMBOO_BUTTON), "Bamboo Button", new Info(BreakInfo::axe(0.5, null, 0.5)), WoodType::BAMBOO));
+		self::register("bamboo_door", new WoodenDoor(new BID(Ids::BAMBOO_DOOR), "Bamboo ", new Info(BreakInfo::axe(3, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_fence", new WoodenFence(new BID(Ids::BAMBOO_FENCE), "Bamboo Fence", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_fence_gate", new FenceGate(new BID(Ids::BAMBOO_FENCE_GATE), "Bamboo Fence Gate", new Info(BreakInfo::axe(3, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_mosaic", new Planks(new BID(Ids::BAMBOO_MOSAIC), "Bamboo Mosaic", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_mosaic_slab", new WoodenSlab(new BID(Ids::BAMBOO_MOSAIC_SLAB), "Bamboo Mosaic Slab", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		self::register("bamboo_mosaic_stairs", new WoodenStairs(new BID(Ids::BAMBOO_MOSAIC_STAIRS), "Bamboo Mosaic Stairs", new Info(BreakInfo::axe(2, null, 3)), WoodType::BAMBOO));
+		$signBreakInfo = new Info(BreakInfo::axe(1.0));
+		self::register("bamboo_sign", new FloorSign(new BID(Ids::BAMBOO_SIGN), "Bamboo Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
+		self::register("bamboo_wall_sign", new WallSign(new BID(Ids::BAMBOO_WALL_SIGN), "Bamboo Wall Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
+		self::register("bamboo_ceiling_hanging_sign", new CeilingHangingSign(new BID(Ids::BAMBOO_CEILING_SIGN), "Bamboo Ceiling Hanging Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
+		self::register("bamboo_wall_hanging_sign", new WallHangingSign(new BID(Ids::BAMBOO_HANGING_SIGN), "Bamboo Wall Hanging Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
@@ -1431,6 +1469,9 @@ final class VanillaBlocks{
 		$woodenPressurePlateBreakInfo = new Info(BreakInfo::axe(0.5));
 
 		foreach(WoodType::cases() as $woodType){
+			if ($woodType === WoodType::BAMBOO) {
+				continue;
+			}
 			$name = $woodType->getDisplayName();
 			$idName = fn(string $suffix) => strtolower($woodType->name) . "_" . $suffix;
 

@@ -1228,7 +1228,23 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("end_gateway", fn() => Blocks::END_GATEWAY());
 		$result->registerBlock("end_portal", fn() => Blocks::END_PORTAL());
 		$result->registerBlock("jigsaw", fn() => Blocks::JIGSAW());
-
+		$result->registerBlock("bamboo_planks", fn() => Blocks::BAMBOO_PLANKS());
+		$result->registerBlock("bamboo_pressure_plate", fn() => Blocks::BAMBOO_PRESSURE_PLATE());
+		$result->registerBlock("bamboo_slab", fn() => Blocks::BAMBOO_SLAB());
+		$result->registerBlock("bamboo_stairs", fn() => Blocks::BAMBOO_STAIRS());
+		$result->registerBlock("bamboo_trapdoor", fn() => Blocks::BAMBOO_TRAPDOOR());
+		$result->registerBlock("bamboo_block", fn() => Blocks::BAMBOO_BLOCK());
+		$result->registerBlock("stripped_bamboo_block", fn() => Blocks::STRIPPED_BAMBOO_BLOCK());
+		$result->registerBlock("bamboo_button", fn() => Blocks::BAMBOO_BUTTON());
+		$result->registerBlock("bamboo_door", fn() => Blocks::BAMBOO_DOOR());
+		$result->registerBlock("bamboo_fence", fn() => Blocks::BAMBOO_FENCE());
+		$result->registerBlock("bamboo_fence_gate", fn() => Blocks::BAMBOO_FENCE_GATE());
+		$result->registerBlock("bamboo_mosaic", fn() => Blocks::BAMBOO_MOSAIC());
+		$result->registerBlock("bamboo_mosiac_slab", fn() => Blocks::BAMBOO_MOSAIC_SLAB());
+		$result->registerBlock("bamboo_mosaic_stairs", fn() => Blocks::BAMBOO_MOSAIC_STAIRS());
+		$result->registerBlock("bamboo_sign", fn() => Blocks::BAMBOO_SIGN());
+		$result->registerBlock("bamboo_standing_sign", fn() => Blocks::BAMBOO_SIGN());
+		$result->registerBlock("bamboo_wall_sign", fn() => Blocks::BAMBOO_SIGN());
 	}
 
 	private static function registerDynamicItems(self $result) : void{
