@@ -424,6 +424,18 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::WRITABLE_BOOK, Items::WRITABLE_BOOK());
 		$this->map1to1Item(Ids::WRITTEN_BOOK, Items::WRITTEN_BOOK());
 		$this->map1to1Item(Ids::ZOMBIE_SPAWN_EGG, Items::ZOMBIE_SPAWN_EGG());
+
+		$this->map1to1Item(Ids::OAK_CHEST_BOAT, Items::OAK_CHEST_BOAT());
+		$this->map1to1Item(Ids::SPRUCE_CHEST_BOAT, Items::SPRUCE_CHEST_BOAT());
+		$this->map1to1Item(Ids::BIRCH_CHEST_BOAT, Items::BIRCH_CHEST_BOAT());
+		$this->map1to1Item(Ids::JUNGLE_CHEST_BOAT, Items::JUNGLE_CHEST_BOAT());
+		$this->map1to1Item(Ids::ACACIA_CHEST_BOAT, Items::ACACIA_CHEST_BOAT());
+		$this->map1to1Item(Ids::DARK_OAK_CHEST_BOAT, Items::DARK_OAK_CHEST_BOAT());
+		$this->map1to1Item(Ids::MANGROVE_CHEST_BOAT, Items::MANGROVE_CHEST_BOAT());
+		$this->map1to1Item(Ids::CHERRY_CHEST_BOAT, Items::CHERRY_CHEST_BOAT());
+		$this->map1to1Item(Ids::BAMBOO_CHEST_RAFT, Items::BAMBOO_CHEST_RAFT());
+		$this->map1to1Item(Ids::CHERRY_BOAT, Items::CHERRY_BOAT());
+		$this->map1to1Item(Ids::BAMBOO_RAFT, Items::BAMBOO_RAFT());
 	}
 
 	/**

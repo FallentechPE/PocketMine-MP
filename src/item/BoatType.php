@@ -37,6 +37,8 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * @method static BoatType MANGROVE()
  * @method static BoatType OAK()
  * @method static BoatType SPRUCE()
+ * @method static BoatType CHERRY()
+ * @method static BoatType BAMBOO()
  */
 enum BoatType{
 	use LegacyEnumShimTrait;
@@ -48,6 +50,8 @@ enum BoatType{
 	case ACACIA;
 	case DARK_OAK;
 	case MANGROVE;
+	case CHERRY;
+	case BAMBOO;
 
 	public function getWoodType() : WoodType{
 		return match($this){
@@ -58,6 +62,8 @@ enum BoatType{
 			self::ACACIA => WoodType::ACACIA,
 			self::DARK_OAK => WoodType::DARK_OAK,
 			self::MANGROVE => WoodType::MANGROVE,
+			self::CHERRY => WoodType::CHERRY,
+			self::BAMBOO => WoodType::BAMBOO
 		};
 	}
 

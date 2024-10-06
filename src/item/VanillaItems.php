@@ -47,6 +47,7 @@ use function strtolower;
  * @generate-registry-docblock
  *
  * @method static Boat ACACIA_BOAT()
+ * @method static Boat ACACIA_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor ACACIA_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor ACACIA_SIGN()
  * @method static ItemBlock AIR()
@@ -55,13 +56,16 @@ use function strtolower;
  * @method static Arrow ARROW()
  * @method static BakedPotato BAKED_POTATO()
  * @method static Bamboo BAMBOO()
+ * @method static Boat BAMBOO_CHEST_RAFT()
  * @method static ItemBlockWallOrFloor BAMBOO_HANGING_SIGN()
+ * @method static Boat BAMBOO_RAFT()
  * @method static ItemBlockWallOrFloor BAMBOO_SIGN()
  * @method static Banner BANNER()
  * @method static Beetroot BEETROOT()
  * @method static BeetrootSeeds BEETROOT_SEEDS()
  * @method static BeetrootSoup BEETROOT_SOUP()
  * @method static Boat BIRCH_BOAT()
+ * @method static Boat BIRCH_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor BIRCH_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor BIRCH_SIGN()
  * @method static Item BLAZE_POWDER()
@@ -119,6 +123,8 @@ use function strtolower;
  * @method static Item CHEMICAL_SULPHATE()
  * @method static Item CHEMICAL_TUNGSTEN_CHLORIDE()
  * @method static Item CHEMICAL_WATER()
+ * @method static Boat CHERRY_BOAT()
+ * @method static Boat CHERRY_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor CHERRY_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CHERRY_SIGN()
  * @method static ChorusFruit CHORUS_FRUIT()
@@ -141,6 +147,7 @@ use function strtolower;
  * @method static ItemBlockWallOrFloor CRIMSON_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Boat DARK_OAK_BOAT()
+ * @method static Boat DARK_OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
  * @method static Item DIAMOND()
@@ -214,6 +221,7 @@ use function strtolower;
  * @method static Shovel IRON_SHOVEL()
  * @method static Sword IRON_SWORD()
  * @method static Boat JUNGLE_BOAT()
+ * @method static Boat JUNGLE_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor JUNGLE_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor JUNGLE_SIGN()
  * @method static Item LAPIS_LAZULI()
@@ -226,6 +234,7 @@ use function strtolower;
  * @method static LingeringPotion LINGERING_POTION()
  * @method static Item MAGMA_CREAM()
  * @method static Boat MANGROVE_BOAT()
+ * @method static Boat MANGROVE_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor MANGROVE_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor MANGROVE_SIGN()
  * @method static Medicine MEDICINE()
@@ -253,6 +262,7 @@ use function strtolower;
  * @method static WrittenBook NETHER_SPROUTS()
  * @method static Item NETHER_STAR()
  * @method static Boat OAK_BOAT()
+ * @method static Boat OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor OAK_SIGN()
  * @method static PaintingItem PAINTING()
@@ -315,6 +325,7 @@ use function strtolower;
  * @method static Item SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static SplashPotion SPLASH_POTION()
  * @method static Boat SPRUCE_BOAT()
+ * @method static Boat SPRUCE_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor SPRUCE_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor SPRUCE_SIGN()
  * @method static Spyglass SPYGLASS()
@@ -615,7 +626,7 @@ final class VanillaItems{
 
 		foreach(BoatType::cases() as $type){
 			//boat type is static, because different types of wood may have different properties
-			self::register(strtolower($type->name) . "_boat", new Boat(new IID(match($type){
+			self::register(strtolower($type->name) . "_" . ($type === BoatType::BAMBOO ? "raft" : "boat"), new Boat(new IID(match($type){
 				BoatType::OAK => Ids::OAK_BOAT,
 				BoatType::SPRUCE => Ids::SPRUCE_BOAT,
 				BoatType::BIRCH => Ids::BIRCH_BOAT,
@@ -623,7 +634,24 @@ final class VanillaItems{
 				BoatType::ACACIA => Ids::ACACIA_BOAT,
 				BoatType::DARK_OAK => Ids::DARK_OAK_BOAT,
 				BoatType::MANGROVE => Ids::MANGROVE_BOAT,
-			}), $type->getDisplayName() . " Boat", $type));
+				BoatType::CHERRY => Ids::CHERRY_BOAT,
+				BoatType::BAMBOO => Ids::BAMBOO_RAFT
+			}), $type->getDisplayName() . " " . ($type === BoatType::BAMBOO ? "Raft" : "Boat"), $type));
+		}
+
+		foreach(BoatType::cases() as $type){
+			//boat type is static, because different types of wood may have different properties
+			self::register(strtolower($type->name) . "_chest_" . ($type === BoatType::BAMBOO ? "raft" : "boat"), new Boat(new IID(match($type){
+				BoatType::OAK => Ids::OAK_CHEST_BOAT,
+				BoatType::SPRUCE => Ids::SPRUCE_CHEST_BOAT,
+				BoatType::BIRCH => Ids::BIRCH_CHEST_BOAT,
+				BoatType::JUNGLE => Ids::JUNGLE_CHEST_BOAT,
+				BoatType::ACACIA => Ids::ACACIA_CHEST_BOAT,
+				BoatType::DARK_OAK => Ids::DARK_OAK_CHEST_BOAT,
+				BoatType::MANGROVE => Ids::MANGROVE_CHEST_BOAT,
+				BoatType::CHERRY => Ids::CHERRY_CHEST_BOAT,
+				BoatType::BAMBOO => Ids::BAMBOO_CHEST_RAFT
+			}), $type->getDisplayName() . " Chest " . ($type === BoatType::BAMBOO ? "Raft" : "Boat"), $type));
 		}
 	}
 

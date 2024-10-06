@@ -344,8 +344,19 @@ final class ItemTypeIds{
 	public const NETHER_SPROUTS = 20305;
 	public const BAMBOO_SIGN = 20306;
 	public const BAMBOO_HANGING_SIGN = 20307;
+	public const CHERRY_BOAT = 20308;
+	public const BAMBOO_RAFT = 20309;
+	public const OAK_CHEST_BOAT = 20310;
+	public const SPRUCE_CHEST_BOAT = 20311;
+	public const BIRCH_CHEST_BOAT = 20312;
+	public const JUNGLE_CHEST_BOAT = 20313;
+	public const ACACIA_CHEST_BOAT = 20314;
+	public const DARK_OAK_CHEST_BOAT = 20315;
+	public const MANGROVE_CHEST_BOAT = 20316;
+	public const CHERRY_CHEST_BOAT = 20317;
+	public const BAMBOO_CHEST_RAFT = 20318;
 
-	public const FIRST_UNUSED_ITEM_ID = 20308;
+	public const FIRST_UNUSED_ITEM_ID = 20310;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
