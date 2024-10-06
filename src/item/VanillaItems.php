@@ -267,6 +267,7 @@ use function strtolower;
  * @method static Boat OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor OAK_SIGN()
+ * @method static OminousBottle OMINOUS_BOTTLE()
  * @method static TrialKey OMINOUS_TRIAL_KEY()
  * @method static PaintingItem PAINTING()
  * @method static Item PAPER()
@@ -307,6 +308,7 @@ use function strtolower;
  * @method static Record RECORD_MELLOHI()
  * @method static Record RECORD_OTHERSIDE()
  * @method static Record RECORD_PIGSTEP()
+ * @method static Record RECORD_RELIC()
  * @method static Record RECORD_STAL()
  * @method static Record RECORD_STRAD()
  * @method static Record RECORD_WAIT()
@@ -670,6 +672,9 @@ final class VanillaItems{
 		self::register("ominous_trial_key", new TrialKey(new IID(Ids::OMINOUS_TRIAL_KEY), "Ominous Trial Key"));
 		self::register("saddle", new Saddle(new IID(Ids::SADDLE), "Saddle"));
 		self::register("super_fertilizer", new SuperFertilizer(new IID(Ids::SUPER_FERTILIZER), "Super Fertilizer"));
+		self::register("ominous_bottle", new OminousBottle(new IID(Ids::OMINOUS_BOTTLE), "Ominous Bottle"));
+		self::register("record_relic", new Record(new IID(Ids::RECORD_RELIC), RecordType::DISK_OTHERSIDE, "Record Otherside"));
+
 
 	}
 
