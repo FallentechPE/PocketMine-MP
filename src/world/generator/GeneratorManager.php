@@ -53,15 +53,15 @@ final class GeneratorManager{
 				return $e;
 			}
 		});
-//		$this->addGenerator(OverworldGenerator::class, "normal", fn() => null);
-//		$this->addAlias("normal", "default");
-//		$this->addAlias("normal", "overworld");
-//		$this->addGenerator(NetherGenerator::class, "nether", fn() => null);
-//		$this->addAlias("nether", "hell");
-		$this->addGenerator(Normal::class, "normal", fn() => null);
+		$this->addGenerator(OverworldGenerator::class, "normal", fn() => null);
 		$this->addAlias("normal", "default");
-		$this->addGenerator(Nether::class, "nether", fn() => null);
+		$this->addAlias("normal", "overworld");
+		$this->addGenerator(NetherGenerator::class, "nether", fn() => null);
 		$this->addAlias("nether", "hell");
+//		$this->addGenerator(Normal::class, "normal", fn() => null);
+//		$this->addAlias("normal", "default");
+//		$this->addGenerator(Nether::class, "nether", fn() => null);
+//		$this->addAlias("nether", "hell");
 	}
 
 	/**
