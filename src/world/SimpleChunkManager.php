@@ -50,7 +50,7 @@ class SimpleChunkManager implements ChunkManager{
 	public function setBlockAt(int $x, int $y, int $z, Block $block) : void{
 		if(($chunk = $this->getChunk($x >> Chunk::COORD_BIT_SIZE, $z >> Chunk::COORD_BIT_SIZE)) !== null){
 			$xMasked = $x & Chunk::COORD_MASK;
-			$zMasked = $z * Chunk::COORD_MASK;
+			$zMasked = $z & Chunk::COORD_MASK;
 			$chunk->setBlockStateId($xMasked, $y, $zMasked, $block->getStateId());
 			if ($block instanceof Waterloggable) {
 				$chunk->setWaterStateId($xMasked, $y, $zMasked, $block->getWaterState()?->getStateId());
