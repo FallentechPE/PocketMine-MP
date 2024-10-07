@@ -60,7 +60,24 @@ final class StringToEnchantmentParser extends StringToTParser{
 		$result->register("thorns", fn() => VanillaEnchantments::THORNS());
 		$result->register("unbreaking", fn() => VanillaEnchantments::UNBREAKING());
 		$result->register("vanishing", fn() => VanillaEnchantments::VANISHING());
-
+		$result->register("smite", fn() => VanillaEnchantments::SMITE());
+		$result->register("bane_of_arthropods", fn() => VanillaEnchantments::BANE_OF_ARTHROPODS());
+		$result->register("breach", fn() => VanillaEnchantments::BREACH());
+		$result->register("channeling", fn() => VanillaEnchantments::CHANNELING());
+		$result->register("curse_of_binding", fn() => VanillaEnchantments::CURSE_OF_BINDING());
+		$result->register("density", fn() => VanillaEnchantments::DENSITY());
+		$result->register("impaling", fn() => VanillaEnchantments::IMPALING());
+		$result->register("looting", fn() => VanillaEnchantments::LOOTING());
+		$result->register("loyalty", fn() => VanillaEnchantments::LOYALTY());
+		$result->register("lure", fn() => VanillaEnchantments::LURE());
+		$result->register("luck_of_the_sea", fn() => VanillaEnchantments::LUCK_OF_THE_SEA());
+		$result->register("multishot", fn() => VanillaEnchantments::MULTISHOT());
+		$result->register("piercing", fn() => VanillaEnchantments::PIERCING());
+		$result->register("quick_charge", fn() => VanillaEnchantments::QUICK_CHARGE());
+		$result->register("riptide", fn() => VanillaEnchantments::RIPTIDE());
+		$result->register("wind_burst", fn() => VanillaEnchantments::WIND_BURST());
+		$result->register("soul_speed", fn() => VanillaEnchantments::SOUL_SPEED());
+		$result->register("depth_strider", fn() => VanillaEnchantments::DEPTH_STRIDER());
 		return $result;
 	}
 

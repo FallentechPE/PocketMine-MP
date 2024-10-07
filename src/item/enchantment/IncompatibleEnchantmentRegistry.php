@@ -47,6 +47,11 @@ final class IncompatibleEnchantmentRegistry{
 		$this->register(Groups::PROTECTION, [Enchantments::PROTECTION(), Enchantments::FIRE_PROTECTION(), Enchantments::BLAST_PROTECTION(), Enchantments::PROJECTILE_PROTECTION()]);
 		$this->register(Groups::BOW_INFINITE, [Enchantments::INFINITY(), Enchantments::MENDING()]);
 		$this->register(Groups::BLOCK_DROPS, [Enchantments::FORTUNE(), Enchantments::SILK_TOUCH()]);
+		$this->register(Groups::SHARPNESS, [Enchantments::SHARPNESS(), Enchantments::SMITE(), Enchantments::BANE_OF_ARTHROPODS(), Enchantments::BREACH(), Enchantments::DENSITY()]);
+		$this->register(Groups::WALKER, [Enchantments::DEPTH_STRIDER(), Enchantments::FROST_WALKER()]);
+		$this->register(Groups::TRIDENT, [Enchantments::CHANNELING(), Enchantments::RIPTIDE()]);
+		$this->register(Groups::TRIDENT2, [Enchantments::LOYALTY(), Enchantments::RIPTIDE()]);
+		$this->register(Groups::CROSSBOW, [Enchantments::PIERCING(), Enchantments::MULTISHOT()]);
 	}
 
 	/**

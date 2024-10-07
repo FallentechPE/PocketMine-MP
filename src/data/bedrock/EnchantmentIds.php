@@ -67,4 +67,7 @@ final class EnchantmentIds{
 	public const QUICK_CHARGE = 35;
 	public const SOUL_SPEED = 36;
 	public const SWIFT_SNEAK = 37;
+	public const BREACH = 38;
+	public const DENSITY = 39;
+	public const WIND_BURST = 40;
 }

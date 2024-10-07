@@ -58,6 +58,8 @@ final class AvailableEnchantmentRegistry{
 		$this->register(Enchantments::RESPIRATION(), [Tags::HELMET], []);
 		$this->register(Enchantments::AQUA_AFFINITY(), [Tags::HELMET], []);
 		$this->register(Enchantments::SHARPNESS(), [Tags::SWORD, Tags::AXE], []);
+		$this->register(Enchantments::BANE_OF_ARTHROPODS(), [Tags::SWORD, Tags::AXE], []);
+		$this->register(Enchantments::SMITE(), [Tags::SWORD, Tags::AXE], []);
 		$this->register(Enchantments::KNOCKBACK(), [Tags::SWORD], []);
 		$this->register(Enchantments::FIRE_ASPECT(), [Tags::SWORD], []);
 		$this->register(Enchantments::EFFICIENCY(), [Tags::BLOCK_TOOLS], [Tags::SHEARS]);
@@ -80,6 +82,24 @@ final class AvailableEnchantmentRegistry{
 		);
 		$this->register(Enchantments::VANISHING(), [], [Tags::ALL]);
 		$this->register(Enchantments::SWIFT_SNEAK(), [], [Tags::LEGGINGS]);
+
+		$this->register(Enchantments::FROST_WALKER(), [], [Tags::BOOTS]);
+		$this->register(Enchantments::BREACH(), [Tags::MACE], []);
+		$this->register(Enchantments::CHANNELING(), [Tags::TRIDENT], []);
+		$this->register(Enchantments::CURSE_OF_BINDING(), [], [Tags::ARMOR, Tags::ELYTRA, Tags::MASK]);
+		$this->register(Enchantments::DENSITY(), [Tags::MACE], []);
+		$this->register(Enchantments::IMPALING(), [Tags::TRIDENT], []);
+		$this->register(Enchantments::LOOTING(), [Tags::SWORD], []); // todo maybe axe as secondary?
+		$this->register(Enchantments::LOYALTY(), [Tags::TRIDENT], []);
+		$this->register(Enchantments::LURE(), [Tags::FISHING_ROD], []);
+		$this->register(Enchantments::LUCK_OF_THE_SEA(), [Tags::FISHING_ROD], []);
+		$this->register(Enchantments::MULTISHOT(), [Tags::CROSSBOW], []);
+		$this->register(Enchantments::PIERCING(), [Tags::CROSSBOW], []);
+		$this->register(Enchantments::QUICK_CHARGE(), [Tags::CROSSBOW], []);
+		$this->register(Enchantments::RIPTIDE(), [Tags::TRIDENT], []);
+		$this->register(Enchantments::WIND_BURST(), [], [Tags::MACE]);
+		$this->register(Enchantments::SOUL_SPEED(), [], [Tags::BOOTS]);
+		$this->register(Enchantments::DEPTH_STRIDER(), [Tags::BOOTS], []);
 	}
 
 	/**

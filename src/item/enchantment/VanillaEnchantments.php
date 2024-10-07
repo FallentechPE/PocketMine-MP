@@ -34,7 +34,13 @@ use pocketmine\utils\RegistryTrait;
  * @generate-registry-docblock
  *
  * @method static Enchantment AQUA_AFFINITY()
+ * @method static SharpnessEnchantment BANE_OF_ARTHROPODS()
  * @method static ProtectionEnchantment BLAST_PROTECTION()
+ * @method static Enchantment BREACH()
+ * @method static Enchantment CHANNELING()
+ * @method static Enchantment CURSE_OF_BINDING()
+ * @method static Enchantment DENSITY()
+ * @method static Enchantment DEPTH_STRIDER()
  * @method static Enchantment EFFICIENCY()
  * @method static ProtectionEnchantment FEATHER_FALLING()
  * @method static FireAspectEnchantment FIRE_ASPECT()
@@ -42,20 +48,32 @@ use pocketmine\utils\RegistryTrait;
  * @method static Enchantment FLAME()
  * @method static Enchantment FORTUNE()
  * @method static Enchantment FROST_WALKER()
+ * @method static Enchantment IMPALING()
  * @method static Enchantment INFINITY()
  * @method static KnockbackEnchantment KNOCKBACK()
+ * @method static Enchantment LOOTING()
+ * @method static Enchantment LOYALTY()
+ * @method static Enchantment LUCK_OF_THE_SEA()
+ * @method static Enchantment LURE()
  * @method static Enchantment MENDING()
+ * @method static Enchantment MULTISHOT()
+ * @method static Enchantment PIERCING()
  * @method static Enchantment POWER()
  * @method static ProtectionEnchantment PROJECTILE_PROTECTION()
  * @method static ProtectionEnchantment PROTECTION()
  * @method static Enchantment PUNCH()
+ * @method static Enchantment QUICK_CHARGE()
  * @method static Enchantment RESPIRATION()
+ * @method static Enchantment RIPTIDE()
  * @method static SharpnessEnchantment SHARPNESS()
  * @method static Enchantment SILK_TOUCH()
+ * @method static SharpnessEnchantment SMITE()
+ * @method static Enchantment SOUL_SPEED()
  * @method static Enchantment SWIFT_SNEAK()
  * @method static Enchantment THORNS()
  * @method static Enchantment UNBREAKING()
  * @method static Enchantment VANISHING()
+ * @method static Enchantment WIND_BURST()
  */
 final class VanillaEnchantments{
 	use RegistryTrait;
@@ -194,7 +212,25 @@ final class VanillaEnchantments{
 			fn(int $level) : int => 20 * ($level - 1) + 10,
 			50
 		));
-		//TODO: smite, bane of arthropods, looting (these don't make sense now because their applicable mobs don't exist yet)
+		self::register("SMITE", new SharpnessEnchantment(
+			KnownTranslationFactory::enchantment_damage_undead(),
+			Rarity::COMMON,
+			0,
+			0,
+			5,
+			fn(int $level) : int => 11 * ($level - 1) + 1,
+			20
+		));
+		self::register("BANE_OF_ARTHROPODS", new SharpnessEnchantment(
+			KnownTranslationFactory::enchantment_damage_arthropods(),
+			Rarity::COMMON,
+			0,
+			0,
+			5,
+			fn(int $level) : int => 11 * ($level - 1) + 1,
+			20
+		));
+		//TODO: looting (these don't make sense now because their applicable mobs don't exist yet)
 
 		self::register("EFFICIENCY", new Enchantment(
 			KnownTranslationFactory::enchantment_digging(),
@@ -292,6 +328,151 @@ final class VanillaEnchantments{
 
 		self::register("SWIFT_SNEAK", new Enchantment(
 			KnownTranslationFactory::enchantment_swift_sneak(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+
+		self::register("BREACH", new Enchantment(
+			"Breach", // todo key
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("CHANNELING", new Enchantment(
+			KnownTranslationFactory::enchantment_tridentChanneling(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("CURSE_OF_BINDING", new Enchantment(
+			KnownTranslationFactory::enchantment_curse_binding(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("DENSITY", new Enchantment(
+			"Density",
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("IMPALING", new Enchantment(
+			KnownTranslationFactory::enchantment_tridentImpaling(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("LOOTING", new Enchantment(
+			KnownTranslationFactory::enchantment_lootBonus(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("LOYALTY", new Enchantment(
+			KnownTranslationFactory::enchantment_tridentLoyalty(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("LURE", new Enchantment(
+			KnownTranslationFactory::enchantment_fishingSpeed(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("LUCK_OF_THE_SEA", new Enchantment(
+			KnownTranslationFactory::enchantment_lootBonusFishing(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("MULTISHOT", new Enchantment(
+			KnownTranslationFactory::enchantment_crossbowMultishot(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("PIERCING", new Enchantment(
+			KnownTranslationFactory::enchantment_crossbowPiercing(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("QUICK_CHARGE", new Enchantment(
+			KnownTranslationFactory::enchantment_crossbowQuickCharge(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("RIPTIDE", new Enchantment(
+			KnownTranslationFactory::enchantment_tridentRiptide(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("WIND_BURST", new Enchantment(
+			"Wind Burst",
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("SOUL_SPEED", new Enchantment(
+			KnownTranslationFactory::enchantment_soul_speed(),
+			Rarity::MYTHIC,
+			0,
+			0,
+			3,
+			fn(int $level) : int => 10 * $level,
+			5
+		));
+		self::register("DEPTH_STRIDER", new Enchantment(
+			KnownTranslationFactory::enchantment_waterWalker(),
 			Rarity::MYTHIC,
 			0,
 			0,
