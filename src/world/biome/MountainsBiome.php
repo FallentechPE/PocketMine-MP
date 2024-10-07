@@ -24,7 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\world\biome;
 
 use pocketmine\block\VanillaBlocks;
-use pocketmine\world\generator\object\OreType;
+use pocketmine\world\generator\object\OreTypeOld;
 use pocketmine\world\generator\populator\Ore;
 use pocketmine\world\generator\populator\TallGrass;
 use pocketmine\world\generator\populator\Tree;
@@ -45,7 +45,7 @@ class MountainsBiome extends GrassyBiome{
 
 		$ores = new Ore();
 		$ores->setOreTypes([
-			new OreType(VanillaBlocks::EMERALD_ORE(), VanillaBlocks::STONE(), 11, 1, 0, 32)
+			new OreTypeOld(VanillaBlocks::EMERALD_ORE(), VanillaBlocks::STONE(), 11, 1, 0, 32)
 		]);
 
 		$this->addPopulator($ores);

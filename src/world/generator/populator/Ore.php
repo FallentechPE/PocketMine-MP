@@ -27,10 +27,10 @@ use pocketmine\utils\Random;
 use pocketmine\world\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\object\Ore as ObjectOre;
-use pocketmine\world\generator\object\OreType;
+use pocketmine\world\generator\object\OreTypeOld;
 
-class Ore implements Populator{
-	/** @var OreType[] */
+class Ore implements PopulatorOld{
+	/** @var OreTypeOld[] */
 	private array $oreTypes = [];
 
 	public function populate(ChunkManager $world, int $chunkX, int $chunkZ, Random $random) : void{
@@ -48,7 +48,7 @@ class Ore implements Populator{
 	}
 
 	/**
-	 * @param OreType[] $types
+	 * @param OreTypeOld[] $types
 	 */
 	public function setOreTypes(array $types) : void{
 		$this->oreTypes = $types;

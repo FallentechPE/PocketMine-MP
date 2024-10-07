@@ -28,6 +28,7 @@ use pocketmine\utils\Random;
 use pocketmine\world\BlockTransaction;
 use pocketmine\world\ChunkManager;
 
+/** @deprecated */
 class BirchTree extends Tree{
 	public function __construct(
 		protected bool $superBirch = false

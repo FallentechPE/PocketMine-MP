@@ -32,10 +32,10 @@ use const M_PI;
 class Ore{
 	public function __construct(
 		private Random $random,
-		public OreType $type
+		public OreTypeOld $type
 	){}
 
-	public function getType() : OreType{
+	public function getType() : OreTypeOld{
 		return $this->type;
 	}
 

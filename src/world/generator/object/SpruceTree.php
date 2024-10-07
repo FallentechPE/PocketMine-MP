@@ -29,6 +29,7 @@ use pocketmine\world\BlockTransaction;
 use pocketmine\world\ChunkManager;
 use function abs;
 
+/** @deprecated */
 class SpruceTree extends Tree{
 
 	public function __construct(){

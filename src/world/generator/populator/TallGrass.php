@@ -30,7 +30,7 @@ use pocketmine\utils\Random;
 use pocketmine\world\ChunkManager;
 use pocketmine\world\format\Chunk;
 
-class TallGrass implements Populator{
+class TallGrass implements PopulatorOld{
 	private int $randomAmount = 1;
 	private int $baseAmount = 0;
 

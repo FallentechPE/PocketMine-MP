@@ -31,7 +31,7 @@ use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\object\TreeFactory;
 use pocketmine\world\generator\object\TreeType;
 
-class Tree implements Populator{
+class Tree implements PopulatorOld{
 	private int $randomAmount = 1;
 	private int $baseAmount = 0;
 	private TreeType $type;

@@ -33,7 +33,7 @@ use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\utils\Random;
-use pocketmine\world\generator\object\TallGrass as TallGrassObject;
+use pocketmine\world\generator\object\TallGrassOld as TallGrassObject;
 use pocketmine\world\sound\ItemUseOnBlockSound;
 use function mt_rand;
 

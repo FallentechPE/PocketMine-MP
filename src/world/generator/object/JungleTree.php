@@ -25,6 +25,7 @@ namespace pocketmine\world\generator\object;
 
 use pocketmine\block\VanillaBlocks;
 
+/** @deprecated */
 class JungleTree extends Tree{
 
 	public function __construct(){

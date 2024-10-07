@@ -26,7 +26,9 @@ namespace pocketmine\world\generator;
 use pocketmine\utils\SingletonTrait;
 use pocketmine\utils\Utils;
 use pocketmine\world\generator\hell\Nether;
+use pocketmine\world\generator\hell\NetherGenerator;
 use pocketmine\world\generator\normal\Normal;
+use pocketmine\world\generator\overworld\OverworldGenerator;
 use function array_keys;
 use function strtolower;
 
@@ -51,6 +53,11 @@ final class GeneratorManager{
 				return $e;
 			}
 		});
+//		$this->addGenerator(OverworldGenerator::class, "normal", fn() => null);
+//		$this->addAlias("normal", "default");
+//		$this->addAlias("normal", "overworld");
+//		$this->addGenerator(NetherGenerator::class, "nether", fn() => null);
+//		$this->addAlias("nether", "hell");
 		$this->addGenerator(Normal::class, "normal", fn() => null);
 		$this->addAlias("normal", "default");
 		$this->addGenerator(Nether::class, "nether", fn() => null);

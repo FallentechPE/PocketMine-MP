@@ -26,7 +26,7 @@ namespace pocketmine\world\biome;
 use pocketmine\block\Block;
 use pocketmine\utils\Random;
 use pocketmine\world\ChunkManager;
-use pocketmine\world\generator\populator\Populator;
+use pocketmine\world\generator\populator\PopulatorOld;
 
 abstract class Biome{
 
@@ -35,7 +35,7 @@ abstract class Biome{
 	private int $id;
 	private bool $registered = false;
 
-	/** @var Populator[] */
+	/** @var PopulatorOld[] */
 	private array $populators = [];
 
 	private int $minElevation;
@@ -51,7 +51,7 @@ abstract class Biome{
 		$this->populators = [];
 	}
 
-	public function addPopulator(Populator $populator) : void{
+	public function addPopulator(PopulatorOld $populator) : void{
 		$this->populators[] = $populator;
 	}
 
@@ -62,7 +62,7 @@ abstract class Biome{
 	}
 
 	/**
-	 * @return Populator[]
+	 * @return PopulatorOld[]
 	 */
 	public function getPopulators() : array{
 		return $this->populators;

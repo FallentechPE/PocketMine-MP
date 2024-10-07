@@ -31,6 +31,7 @@ use pocketmine\world\BlockTransaction;
 use function abs;
 use function array_rand;
 
+/** @deprecated */
 final class AcaciaTree extends Tree{
 	private const MIN_HEIGHT = 5;
 

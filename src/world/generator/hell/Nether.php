@@ -31,12 +31,13 @@ use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\Generator;
 use pocketmine\world\generator\InvalidGeneratorOptionsException;
 use pocketmine\world\generator\noise\Simplex;
-use pocketmine\world\generator\object\OreType;
+use pocketmine\world\generator\object\OreTypeOld;
 use pocketmine\world\generator\populator\Ore;
-use pocketmine\world\generator\populator\Populator;
+use pocketmine\world\generator\populator\PopulatorOld;
 use pocketmine\world\World;
 use function abs;
 
+/** @deprecated */
 class Nether extends Generator{
 
 	private int $waterHeight = 32;
@@ -44,9 +45,9 @@ class Nether extends Generator{
 	private int $emptyAmplitude = 1;
 	private float $density = 0.5;
 
-	/** @var Populator[] */
+	/** @var PopulatorOld[] */
 	private array $populators = [];
-	/** @var Populator[] */
+	/** @var PopulatorOld[] */
 	private array $generationPopulators = [];
 	private Simplex $noiseBase;
 
@@ -61,7 +62,7 @@ class Nether extends Generator{
 
 		$ores = new Ore();
 		$ores->setOreTypes([
-			new OreType(VanillaBlocks::NETHER_QUARTZ_ORE(), VanillaBlocks::NETHERRACK(), 16, 14, 10, 117)
+			new OreTypeOld(VanillaBlocks::NETHER_QUARTZ_ORE(), VanillaBlocks::NETHERRACK(), 16, 14, 10, 117)
 		]);
 		$this->populators[] = $ores;
 	}
