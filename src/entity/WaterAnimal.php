@@ -23,11 +23,12 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\mob\Mob;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 
-abstract class WaterAnimal extends Living implements Ageable{
+abstract class WaterAnimal extends Mob implements Ageable{
 	protected bool $baby = false;
 
 	public function isBaby() : bool{

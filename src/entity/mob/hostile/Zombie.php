@@ -21,19 +21,23 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace pocketmine\entity\mob\hostile;
 
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\mob\Mob;
 use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use function mt_rand;
 
-class Zombie extends Living{
+class Zombie extends Mob{
 
-	public static function getNetworkTypeId() : string{ return EntityIds::ZOMBIE; }
+	public static function getNetworkTypeId() : string{
+		return EntityIds::ZOMBIE;
+	}
 
 	protected function getInitialSizeInfo() : EntitySizeInfo{
-		return new EntitySizeInfo(1.8, 0.6); //TODO: eye height ??
+		return new EntitySizeInfo(1.9, 0.6); //TODO: eye height ??
 	}
 
 	public function getName() : string{

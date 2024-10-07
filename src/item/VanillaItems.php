@@ -27,9 +27,9 @@ use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
-use pocketmine\entity\Squid;
-use pocketmine\entity\Villager;
-use pocketmine\entity\Zombie;
+use pocketmine\entity\mob\hostile\Zombie;
+use pocketmine\entity\mob\passive\Squid;
+use pocketmine\entity\mob\passive\Villager;
 use pocketmine\inventory\ArmorInventory;
 use pocketmine\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
 use pocketmine\item\ItemIdentifier as IID;
@@ -38,6 +38,82 @@ use pocketmine\item\VanillaArmorMaterials as ArmorMaterials;
 use pocketmine\math\Vector3;
 use pocketmine\utils\CloningRegistryTrait;
 use pocketmine\world\World;
+use pocketmine\entity\mob\boss\EnderDragon;
+use pocketmine\entity\mob\boss\Wither;
+use pocketmine\entity\mob\hostile\Blaze;
+use pocketmine\entity\mob\hostile\Bogged;
+use pocketmine\entity\mob\hostile\Breeze;
+use pocketmine\entity\mob\hostile\Creeper;
+use pocketmine\entity\mob\hostile\ElderGuardian;
+use pocketmine\entity\mob\hostile\Endermite;
+use pocketmine\entity\mob\hostile\Evoker;
+use pocketmine\entity\mob\hostile\Ghast;
+use pocketmine\entity\mob\hostile\Guardian;
+use pocketmine\entity\mob\hostile\Hoglin;
+use pocketmine\entity\mob\hostile\Husk;
+use pocketmine\entity\mob\hostile\MagmaCube;
+use pocketmine\entity\mob\hostile\Phantom;
+use pocketmine\entity\mob\hostile\PiglinBrute;
+use pocketmine\entity\mob\hostile\Pillager;
+use pocketmine\entity\mob\hostile\Ravager;
+use pocketmine\entity\mob\hostile\Shulker;
+use pocketmine\entity\mob\hostile\Silverfish;
+use pocketmine\entity\mob\hostile\Skeleton;
+use pocketmine\entity\mob\hostile\Slime;
+use pocketmine\entity\mob\hostile\Stray;
+use pocketmine\entity\mob\hostile\Vex;
+use pocketmine\entity\mob\hostile\Vindicator;
+use pocketmine\entity\mob\hostile\Warden;
+use pocketmine\entity\mob\hostile\Witch;
+use pocketmine\entity\mob\hostile\WitherSkeleton;
+use pocketmine\entity\mob\hostile\Zoglin;
+use pocketmine\entity\mob\hostile\ZombieVillager;
+use pocketmine\entity\mob\neutral\Bee;
+use pocketmine\entity\mob\neutral\CaveSpider;
+use pocketmine\entity\mob\neutral\Dolphin;
+use pocketmine\entity\mob\neutral\Drowned;
+use pocketmine\entity\mob\neutral\Enderman;
+use pocketmine\entity\mob\neutral\Fox;
+use pocketmine\entity\mob\neutral\Goat;
+use pocketmine\entity\mob\neutral\IronGolem;
+use pocketmine\entity\mob\neutral\Llama;
+use pocketmine\entity\mob\neutral\Panda;
+use pocketmine\entity\mob\neutral\Piglin;
+use pocketmine\entity\mob\neutral\PolarBear;
+use pocketmine\entity\mob\neutral\Spider;
+use pocketmine\entity\mob\neutral\TraderLlama;
+use pocketmine\entity\mob\neutral\Wolf;
+use pocketmine\entity\mob\neutral\ZombifiedPiglin;
+use pocketmine\entity\mob\passive\Allay;
+use pocketmine\entity\mob\passive\Armadillo;
+use pocketmine\entity\mob\passive\Axolotl;
+use pocketmine\entity\mob\passive\Bat;
+use pocketmine\entity\mob\passive\Camel;
+use pocketmine\entity\mob\passive\Cat;
+use pocketmine\entity\mob\passive\Chicken;
+use pocketmine\entity\mob\passive\Cod;
+use pocketmine\entity\mob\passive\Cow;
+use pocketmine\entity\mob\passive\Donkey;
+use pocketmine\entity\mob\passive\Frog;
+use pocketmine\entity\mob\passive\GlowSquid;
+use pocketmine\entity\mob\passive\Horse;
+use pocketmine\entity\mob\passive\Mooshroom;
+use pocketmine\entity\mob\passive\Mule;
+use pocketmine\entity\mob\passive\Ocelot;
+use pocketmine\entity\mob\passive\Parrot;
+use pocketmine\entity\mob\passive\Pig;
+use pocketmine\entity\mob\passive\Pufferfish as EntityPufferfish;
+use pocketmine\entity\mob\passive\Rabbit;
+use pocketmine\entity\mob\passive\Salmon;
+use pocketmine\entity\mob\passive\Sheep;
+use pocketmine\entity\mob\passive\SkeletonHorse;
+use pocketmine\entity\mob\passive\Sniffer;
+use pocketmine\entity\mob\passive\SnowGolem;
+use pocketmine\entity\mob\passive\Strider;
+use pocketmine\entity\mob\passive\Tadpole;
+use pocketmine\entity\mob\passive\TropicalFish;
+use pocketmine\entity\mob\passive\Turtle;
+use pocketmine\entity\mob\passive\WanderingTrader;
 use function strtolower;
 
 /**
@@ -51,14 +127,17 @@ use function strtolower;
  * @method static ItemBlockWallOrFloor ACACIA_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor ACACIA_SIGN()
  * @method static ItemBlock AIR()
+ * @method static SpawnEgg ALLAY_SPAWN_EGG()
  * @method static Item AMETHYST_SHARD()
  * @method static PotterySherd ANGLER_POTTERY_SHERD()
  * @method static Apple APPLE()
  * @method static PotterySherd ARCHER_POTTERY_SHERD()
  * @method static ArmadilloShute ARMADILLO_SHUTE()
+ * @method static SpawnEgg ARMADILLO_SPAWN_EGG()
  * @method static ArmorStand ARMOR_STAND()
  * @method static PotterySherd ARMS_UP_POTTERY_SHERD()
  * @method static Arrow ARROW()
+ * @method static SpawnEgg AXOLOTL_SPAWN_EGG()
  * @method static BakedPotato BAKED_POTATO()
  * @method static Balloon BALLOON()
  * @method static Bamboo BAMBOO()
@@ -67,9 +146,11 @@ use function strtolower;
  * @method static Boat BAMBOO_RAFT()
  * @method static ItemBlockWallOrFloor BAMBOO_SIGN()
  * @method static Banner BANNER()
+ * @method static SpawnEgg BAT_SPAWN_EGG()
  * @method static Beetroot BEETROOT()
  * @method static BeetrootSeeds BEETROOT_SEEDS()
  * @method static BeetrootSoup BEETROOT_SOUP()
+ * @method static SpawnEgg BEE_SPAWN_EGG()
  * @method static Boat BIRCH_BOAT()
  * @method static Boat BIRCH_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor BIRCH_HANGING_SIGN()
@@ -77,7 +158,9 @@ use function strtolower;
  * @method static PotterySherd BLADE_POTTERY_SHERD()
  * @method static Item BLAZE_POWDER()
  * @method static BlazeRod BLAZE_ROD()
+ * @method static SpawnEgg BLAZE_SPAWN_EGG()
  * @method static Item BLEACH()
+ * @method static SpawnEgg BOGGED_SPAWN_EGG()
  * @method static Item BOLT_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item BONE()
  * @method static Fertilizer BONE_MEAL()
@@ -87,14 +170,18 @@ use function strtolower;
  * @method static Bowl BOWL()
  * @method static Bread BREAD()
  * @method static BreezeRod BREEZE_ROD()
+ * @method static SpawnEgg BREEZE_SPAWN_EGG()
  * @method static PotterySherd BREWER_POTTERY_SHERD()
  * @method static Item BRICK()
  * @method static Brush BRUSH()
  * @method static Bucket BUCKET()
  * @method static Bundle BUNDLE()
  * @method static PotterySherd BURN_POTTERY_SHERD()
+ * @method static SpawnEgg CAMEL_SPAWN_EGG()
  * @method static Carrot CARROT()
  * @method static CarrotOnAStick CARROT_ON_A_STICK()
+ * @method static SpawnEgg CAT_SPAWN_EGG()
+ * @method static SpawnEgg CAVE_SPIDER_SPAWN_EGG()
  * @method static Armor CHAINMAIL_BOOTS()
  * @method static Armor CHAINMAIL_CHESTPLATE()
  * @method static Armor CHAINMAIL_HELMET()
@@ -143,6 +230,7 @@ use function strtolower;
  * @method static ItemBlockWallOrFloor CHERRY_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CHERRY_SIGN()
  * @method static Minecart CHEST_MINECART()
+ * @method static SpawnEgg CHICKEN_SPAWN_EGG()
  * @method static ChorusFruit CHORUS_FRUIT()
  * @method static Item CLAY()
  * @method static Clock CLOCK()
@@ -150,6 +238,7 @@ use function strtolower;
  * @method static Coal COAL()
  * @method static Item COAST_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static CocoaBeans COCOA_BEANS()
+ * @method static SpawnEgg COD_SPAWN_EGG()
  * @method static Compass COMPASS()
  * @method static CookedChicken COOKED_CHICKEN()
  * @method static CookedFish COOKED_FISH()
@@ -160,7 +249,9 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
+ * @method static SpawnEgg COW_SPAWN_EGG()
  * @method static BannerPattern CREEPER_CHARGE_BANNER_PATTERN()
+ * @method static SpawnEgg CREEPER_SPAWN_EGG()
  * @method static ItemBlockWallOrFloor CRIMSON_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Crossbow CROSSBOW()
@@ -181,20 +272,27 @@ use function strtolower;
  * @method static Shovel DIAMOND_SHOVEL()
  * @method static Sword DIAMOND_SWORD()
  * @method static Item DISC_FRAGMENT_5()
+ * @method static SpawnEgg DOLPHIN_SPAWN_EGG()
+ * @method static SpawnEgg DONKEY_SPAWN_EGG()
  * @method static Item DRAGON_BREATH()
  * @method static DriedKelp DRIED_KELP()
+ * @method static SpawnEgg DROWNED_SPAWN_EGG()
  * @method static Item DUNE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Dye DYE()
  * @method static Item ECHO_SHARD()
  * @method static Egg EGG()
+ * @method static SpawnEgg ELDER_GUARDIAN_SPAWN_EGG()
  * @method static Elytra ELYTRA()
  * @method static Item EMERALD()
  * @method static Map EMPTY_MAP()
  * @method static EnchantedBook ENCHANTED_BOOK()
  * @method static GoldenAppleEnchanted ENCHANTED_GOLDEN_APPLE()
+ * @method static SpawnEgg ENDERMAN_SPAWN_EGG()
+ * @method static SpawnEgg ENDERMITE_SPAWN_EGG()
  * @method static Item ENDER_EYE()
  * @method static EnderPearl ENDER_PEARL()
  * @method static EndCrystal END_CRYSTAL()
+ * @method static SpawnEgg EVOKER_SPAWN_EGG()
  * @method static ExperienceBottle EXPERIENCE_BOTTLE()
  * @method static PotterySherd EXPLORER_POTTERY_SHERD()
  * @method static Item EYE_ARMOR_TRIM_SMITHING_TEMPLATE()
@@ -211,7 +309,10 @@ use function strtolower;
  * @method static Item FLOW_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static BannerPattern FLOW_BANNER_PATTERN()
  * @method static PotterySherd FLOW_POTTERY_SHERD()
+ * @method static SpawnEgg FOX_SPAWN_EGG()
  * @method static PotterySherd FRIEND_POTTERY_SHERD()
+ * @method static SpawnEgg FROG_SPAWN_EGG()
+ * @method static SpawnEgg GHAST_SPAWN_EGG()
  * @method static Item GHAST_TEAR()
  * @method static GlassBottle GLASS_BOTTLE()
  * @method static Item GLISTERING_MELON()
@@ -219,8 +320,10 @@ use function strtolower;
  * @method static Item GLOWSTONE_DUST()
  * @method static GlowBerries GLOW_BERRIES()
  * @method static Item GLOW_INK_SAC()
+ * @method static SpawnEgg GLOW_SQUID_SPAWN_EGG()
  * @method static GlowStick GLOW_STICK()
  * @method static GoatHorn GOAT_HORN()
+ * @method static SpawnEgg GOAT_SPAWN_EGG()
  * @method static GoldenApple GOLDEN_APPLE()
  * @method static Axe GOLDEN_AXE()
  * @method static Armor GOLDEN_BOOTS()
@@ -234,22 +337,27 @@ use function strtolower;
  * @method static Sword GOLDEN_SWORD()
  * @method static Item GOLD_INGOT()
  * @method static Item GOLD_NUGGET()
+ * @method static SpawnEgg GUARDIAN_SPAWN_EGG()
  * @method static Item GUNPOWDER()
  * @method static BannerPattern GUSTER_BANNER_PATTERN()
  * @method static PotterySherd GUSTER_POTTERY_SHERD()
  * @method static PotterySherd HEARTBREAK_POTTERY_SHERD()
  * @method static Item HEART_OF_THE_SEA()
  * @method static PotterySherd HEART_POTTERY_SHERD()
+ * @method static SpawnEgg HOGLIN_SPAWN_EGG()
  * @method static Item HONEYCOMB()
  * @method static HoneyBottle HONEY_BOTTLE()
  * @method static Minecart HOPPER_MINECART()
+ * @method static SpawnEgg HORSE_SPAWN_EGG()
  * @method static Item HOST_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static PotterySherd HOWL_POTTERY_SHERD()
+ * @method static SpawnEgg HUSK_SPAWN_EGG()
  * @method static IceBomb ICE_BOMB()
  * @method static Item INK_SAC()
  * @method static Axe IRON_AXE()
  * @method static Armor IRON_BOOTS()
  * @method static Armor IRON_CHESTPLATE()
+ * @method static SpawnEgg IRON_GOLEM_SPAWN_EGG()
  * @method static Armor IRON_HELMET()
  * @method static Hoe IRON_HOE()
  * @method static Item IRON_INGOT()
@@ -271,8 +379,10 @@ use function strtolower;
  * @method static Armor LEATHER_PANTS()
  * @method static Armor LEATHER_TUNIC()
  * @method static LingeringPotion LINGERING_POTION()
+ * @method static SpawnEgg LLAMA_SPAWN_EGG()
  * @method static Mace MACE()
  * @method static Item MAGMA_CREAM()
+ * @method static SpawnEgg MAGMA_CUBE_SPAWN_EGG()
  * @method static Boat MANGROVE_BOAT()
  * @method static Boat MANGROVE_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor MANGROVE_HANGING_SIGN()
@@ -284,7 +394,9 @@ use function strtolower;
  * @method static Minecart MINECART()
  * @method static PotterySherd MINER_POTTERY_SHERD()
  * @method static BannerPattern MOJANG_BANNER_PATTERN()
+ * @method static SpawnEgg MOOSHROOM_SPAWN_EGG()
  * @method static PotterySherd MOURNER_POTTERY_SHERD()
+ * @method static SpawnEgg MULE_SPAWN_EGG()
  * @method static MushroomStew MUSHROOM_STEW()
  * @method static NameTag NAME_TAG()
  * @method static Item NAUTILUS_SHELL()
@@ -308,15 +420,24 @@ use function strtolower;
  * @method static Boat OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor OAK_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor OAK_SIGN()
+ * @method static SpawnEgg OCELOT_SPAWN_EGG()
  * @method static OminousBottle OMINOUS_BOTTLE()
  * @method static TrialKey OMINOUS_TRIAL_KEY()
  * @method static PaintingItem PAINTING()
+ * @method static SpawnEgg PANDA_SPAWN_EGG()
  * @method static Item PAPER()
+ * @method static SpawnEgg PARROT_SPAWN_EGG()
  * @method static Item PHANTOM_MEMBRANE()
+ * @method static SpawnEgg PHANTOM_SPAWN_EGG()
  * @method static BannerPattern PIGLIN_BANNER_PATTERN()
+ * @method static SpawnEgg PIGLIN_BRUTE_SPAWN_EGG()
+ * @method static SpawnEgg PIGLIN_SPAWN_EGG()
+ * @method static SpawnEgg PIG_SPAWN_EGG()
+ * @method static SpawnEgg PILLAGER_SPAWN_EGG()
  * @method static PitcherPod PITCHER_POD()
  * @method static PotterySherd PLENTY_POTTERY_SHERD()
  * @method static PoisonousPotato POISONOUS_POTATO()
+ * @method static SpawnEgg POLAR_BEAR_SPAWN_EGG()
  * @method static Item POPPED_CHORUS_FRUIT()
  * @method static Potato POTATO()
  * @method static Potion POTION()
@@ -325,12 +446,15 @@ use function strtolower;
  * @method static Item PRISMARINE_SHARD()
  * @method static PotterySherd PRIZE_POTTERY_SHERD()
  * @method static Pufferfish PUFFERFISH()
+ * @method static SpawnEgg PUFFERFISH_SPAWN_EGG()
  * @method static PumpkinPie PUMPKIN_PIE()
  * @method static PumpkinSeeds PUMPKIN_SEEDS()
  * @method static Item RABBIT_FOOT()
  * @method static Item RABBIT_HIDE()
+ * @method static SpawnEgg RABBIT_SPAWN_EGG()
  * @method static RabbitStew RABBIT_STEW()
  * @method static Item RAISER_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static SpawnEgg RAVAGER_SPAWN_EGG()
  * @method static RawBeef RAW_BEEF()
  * @method static RawChicken RAW_CHICKEN()
  * @method static Item RAW_COPPER()
@@ -365,23 +489,33 @@ use function strtolower;
  * @method static Item RIB_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static RottenFlesh ROTTEN_FLESH()
  * @method static Saddle SADDLE()
+ * @method static SpawnEgg SALMON_SPAWN_EGG()
  * @method static PotterySherd SCRAPE_POTTERY_SHERD()
  * @method static Item SCUTE()
  * @method static Item SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static PotterySherd SHEAF_POTTERY_SHERD()
  * @method static Shears SHEARS()
+ * @method static SpawnEgg SHEEP_SPAWN_EGG()
  * @method static PotterySherd SHELTER_POTTERY_SHERD()
  * @method static Item SHULKER_SHELL()
+ * @method static SpawnEgg SHULKER_SPAWN_EGG()
  * @method static Item SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static SpawnEgg SILVERFISH_SPAWN_EGG()
+ * @method static SpawnEgg SKELETON_HORSE_SPAWN_EGG()
+ * @method static SpawnEgg SKELETON_SPAWN_EGG()
  * @method static BannerPattern SKULL_CHARGE_BANNER_PATTERN()
  * @method static PotterySherd SKULL_POTTERY_SHERD()
  * @method static Item SLIMEBALL()
+ * @method static SpawnEgg SLIME_SPAWN_EGG()
+ * @method static SpawnEgg SNIFFER_SPAWN_EGG()
  * @method static PotterySherd SNORT_POTTERY_SHERD()
  * @method static Item SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Snowball SNOWBALL()
+ * @method static SpawnEgg SNOW_GOLEM_SPAWN_EGG()
  * @method static Sparkler SPARKLER()
  * @method static SpiderEye SPIDER_EYE()
+ * @method static SpawnEgg SPIDER_SPAWN_EGG()
  * @method static Item SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static SplashPotion SPLASH_POTION()
  * @method static Boat SPRUCE_BOAT()
@@ -397,20 +531,30 @@ use function strtolower;
  * @method static Pickaxe STONE_PICKAXE()
  * @method static Shovel STONE_SHOVEL()
  * @method static Sword STONE_SWORD()
+ * @method static SpawnEgg STRAY_SPAWN_EGG()
+ * @method static SpawnEgg STRIDER_SPAWN_EGG()
  * @method static StringItem STRING()
  * @method static Item SUGAR()
  * @method static SuperFertilizer SUPER_FERTILIZER()
  * @method static SuspiciousStew SUSPICIOUS_STEW()
  * @method static SweetBerries SWEET_BERRIES()
+ * @method static SpawnEgg TADPOLE_SPAWN_EGG()
  * @method static Item TIDE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Minecart TNT_MINECART()
  * @method static TorchflowerSeeds TORCHFLOWER_SEEDS()
  * @method static Totem TOTEM()
+ * @method static SpawnEgg TRADER_LLAMA_SPAWN_EGG()
  * @method static TrialKey TRIAL_KEY()
  * @method static Trident TRIDENT()
+ * @method static SpawnEgg TROPICAL_FISH_SPAWN_EGG()
  * @method static TurtleHelmet TURTLE_HELMET()
+ * @method static SpawnEgg TURTLE_SPAWN_EGG()
  * @method static Item VEX_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static SpawnEgg VEX_SPAWN_EGG()
  * @method static SpawnEgg VILLAGER_SPAWN_EGG()
+ * @method static SpawnEgg VINDICATOR_SPAWN_EGG()
+ * @method static SpawnEgg WANDERING_TRADER_SPAWN_EGG()
+ * @method static SpawnEgg WARDEN_SPAWN_EGG()
  * @method static Item WARD_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static WarpedFungusOnAStick WARPED_FUNGUS_ON_A_STICK()
  * @method static ItemBlockWallOrFloor WARPED_HANGING_SIGN()
@@ -421,7 +565,10 @@ use function strtolower;
  * @method static WheatSeeds WHEAT_SEEDS()
  * @method static Item WILD_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static WindCharge WIND_CHARGE()
+ * @method static SpawnEgg WITCH_SPAWN_EGG()
+ * @method static SpawnEgg WITHER_SKELETON_SPAWN_EGG()
  * @method static WolfArmor WOLF_ARMOR()
+ * @method static SpawnEgg WOLF_SPAWN_EGG()
  * @method static Axe WOODEN_AXE()
  * @method static Hoe WOODEN_HOE()
  * @method static Pickaxe WOODEN_PICKAXE()
@@ -429,7 +576,10 @@ use function strtolower;
  * @method static Sword WOODEN_SWORD()
  * @method static WritableBook WRITABLE_BOOK()
  * @method static WrittenBook WRITTEN_BOOK()
+ * @method static SpawnEgg ZOGLIN_SPAWN_EGG()
  * @method static SpawnEgg ZOMBIE_SPAWN_EGG()
+ * @method static SpawnEgg ZOMBIE_VILLAGER_SPAWN_EGG()
+ * @method static SpawnEgg ZOMBIFIED_PIGLIN_SPAWN_EGG()
  */
 final class VanillaItems{
 	use CloningRegistryTrait;
@@ -811,6 +961,449 @@ final class VanillaItems{
 		self::register("villager_spawn_egg", new class(new IID(Ids::VILLAGER_SPAWN_EGG), "Villager Spawn Egg") extends SpawnEgg{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("allay_spawn_egg", new class(new IID(Ids::ALLAY_SPAWN_EGG), "Allay Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Allay(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("armadillo_spawn_egg", new class(new IID(Ids::ARMADILLO_SPAWN_EGG), "Armadillo Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Armadillo(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("axolotl_spawn_egg", new class(new IID(Ids::AXOLOTL_SPAWN_EGG), "Axolotl Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Axolotl(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("bat_spawn_egg", new class(new IID(Ids::BAT_SPAWN_EGG), "Bat Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Bat(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("camel_spawn_egg", new class(new IID(Ids::CAMEL_SPAWN_EGG), "Camel Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Camel(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("cat_spawn_egg", new class(new IID(Ids::CAT_SPAWN_EGG), "Cat Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Cat(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Chicken(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("cod_spawn_egg", new class(new IID(Ids::COD_SPAWN_EGG), "Cod Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Cod(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("donkey_spawn_egg", new class(new IID(Ids::DONKEY_SPAWN_EGG), "Donkey Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Donkey(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("frog_spawn_egg", new class(new IID(Ids::FROG_SPAWN_EGG), "Frog Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Frog(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("glow_squid_spawn_egg", new class(new IID(Ids::GLOW_SQUID_SPAWN_EGG), "Glow Squid Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new GlowSquid(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("horse_spawn_egg", new class(new IID(Ids::HORSE_SPAWN_EGG), "Horse Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Horse(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("mooshroom_spawn_egg", new class(new IID(Ids::MOOSHROOM_SPAWN_EGG), "Mooshroom Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Mooshroom(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("mule_spawn_egg", new class(new IID(Ids::MULE_SPAWN_EGG), "Mule Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Mule(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("ocelot_spawn_egg", new class(new IID(Ids::OCELOT_SPAWN_EGG), "Ocelot Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Ocelot(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("parrot_spawn_egg", new class(new IID(Ids::PARROT_SPAWN_EGG), "Parrot Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Parrot(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("pig_spawn_egg", new class(new IID(Ids::PIG_SPAWN_EGG), "Pig Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Pig(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("pufferfish_spawn_egg", new class(new IID(Ids::PUFFERFISH_SPAWN_EGG), "Pufferfish Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new EntityPufferfish(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("rabbit_spawn_egg", new class(new IID(Ids::RABBIT_SPAWN_EGG), "Rabbit Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Rabbit(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("salmon_spawn_egg", new class(new IID(Ids::SALMON_SPAWN_EGG), "Salmon Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Salmon(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("sheep_spawn_egg", new class(new IID(Ids::SHEEP_SPAWN_EGG), "Sheep Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Sheep(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("skeleton_horse_spawn_egg", new class(new IID(Ids::SKELETON_HORSE_SPAWN_EGG), "Skeleton Horse Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new SkeletonHorse(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("sniffer_spawn_egg", new class(new IID(Ids::SNIFFER_SPAWN_EGG), "Sniffer Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Sniffer(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("snow_golem_spawn_egg", new class(new IID(Ids::SNOW_GOLEM_SPAWN_EGG), "Snow Golem Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new SnowGolem(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("strider_spawn_egg", new class(new IID(Ids::STRIDER_SPAWN_EGG), "Strider Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Strider(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("tadpole_spawn_egg", new class(new IID(Ids::TADPOLE_SPAWN_EGG), "Tadpole Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Tadpole(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("tropical_fish_spawn_egg", new class(new IID(Ids::TROPICAL_FISH_SPAWN_EGG), "Tropical Fish Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new TropicalFish(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("turtle_spawn_egg", new class(new IID(Ids::TURTLE_SPAWN_EGG), "Turtle Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Turtle(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("wandering_trader_spawn_egg", new class(new IID(Ids::WANDERING_TRADER_SPAWN_EGG), "Wandering Trader Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new WanderingTrader(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("bee_spawn_egg", new class(new IID(Ids::BEE_SPAWN_EGG), "Bee Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Bee(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("cave_spider_spawn_egg", new class(new IID(Ids::CAVE_SPIDER_SPAWN_EGG), "Cave Spider Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new CaveSpider(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("dolphin_spawn_egg", new class(new IID(Ids::DOLPHIN_SPAWN_EGG), "Dolphin Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Dolphin(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("drowned_spawn_egg", new class(new IID(Ids::DROWNED_SPAWN_EGG), "Drowned Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Drowned(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("enderman_spawn_egg", new class(new IID(Ids::ENDERMAN_SPAWN_EGG), "Enderman Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Enderman(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("fox_spawn_egg", new class(new IID(Ids::FOX_SPAWN_EGG), "Fox Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Fox(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("goat_spawn_egg", new class(new IID(Ids::GOAT_SPAWN_EGG), "Goat Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Goat(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("iron_golem_spawn_egg", new class(new IID(Ids::IRON_GOLEM_SPAWN_EGG), "Iron Golem Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new IronGolem(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("llama_spawn_egg", new class(new IID(Ids::LLAMA_SPAWN_EGG), "Llama Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Llama(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("panda_spawn_egg", new class(new IID(Ids::PANDA_SPAWN_EGG), "Panda Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Panda(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("piglin_spawn_egg", new class(new IID(Ids::PIGLIN_SPAWN_EGG), "Piglin Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Piglin(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("polar_bear_spawn_egg", new class(new IID(Ids::POLAR_BEAR_SPAWN_EGG), "Polar Bear Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new PolarBear(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("spider_spawn_egg", new class(new IID(Ids::SPIDER_SPAWN_EGG), "Spider Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Spider(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("trader_llama_spawn_egg", new class(new IID(Ids::TRADER_LLAMA_SPAWN_EGG), "Trader Llama Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new TraderLlama(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("wolf_spawn_egg", new class(new IID(Ids::WOLF_SPAWN_EGG), "Wolf Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Wolf(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("zombified_piglin_spawn_egg", new class(new IID(Ids::ZOMBIFIED_PIGLIN_SPAWN_EGG), "Zombified Piglin Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new ZombifiedPiglin(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("blaze_spawn_egg", new class(new IID(Ids::BLAZE_SPAWN_EGG), "Blaze Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Blaze(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("bogged_spawn_egg", new class(new IID(Ids::BOGGED_SPAWN_EGG), "Bogged Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Bogged(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("breeze_spawn_egg", new class(new IID(Ids::BREEZE_SPAWN_EGG), "Breeze Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Breeze(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("creeper_spawn_egg", new class(new IID(Ids::CREEPER_SPAWN_EGG), "Creeper Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Creeper(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("elder_guardian_spawn_egg", new class(new IID(Ids::ELDER_GUARDIAN_SPAWN_EGG), "Elder Guardian Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new ElderGuardian(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("endermite_spawn_egg", new class(new IID(Ids::ENDERMITE_SPAWN_EGG), "Endermite Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Endermite(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("evoker_spawn_egg", new class(new IID(Ids::EVOKER_SPAWN_EGG), "Evoker Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Evoker(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("ghast_spawn_egg", new class(new IID(Ids::GHAST_SPAWN_EGG), "Ghast Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Ghast(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("guardian_spawn_egg", new class(new IID(Ids::GUARDIAN_SPAWN_EGG), "Guardian Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Guardian(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("hoglin_spawn_egg", new class(new IID(Ids::HOGLIN_SPAWN_EGG), "Hoglin Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Hoglin(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("husk_spawn_egg", new class(new IID(Ids::HUSK_SPAWN_EGG), "Husk Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Husk(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("magma_cube_spawn_egg", new class(new IID(Ids::MAGMA_CUBE_SPAWN_EGG), "Magma Cube Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new MagmaCube(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("phantom_spawn_egg", new class(new IID(Ids::PHANTOM_SPAWN_EGG), "Phantom Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Phantom(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("piglin_brute_spawn_egg", new class(new IID(Ids::PIGLIN_BRUTE_SPAWN_EGG), "Piglin Brute Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new PiglinBrute(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("pillager_spawn_egg", new class(new IID(Ids::PILLAGER_SPAWN_EGG), "Pillager Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Pillager(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("ravager_spawn_egg", new class(new IID(Ids::RAVAGER_SPAWN_EGG), "Ravager Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Ravager(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("shulker_spawn_egg", new class(new IID(Ids::SHULKER_SPAWN_EGG), "Shulker Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Shulker(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("silverfish_spawn_egg", new class(new IID(Ids::SILVERFISH_SPAWN_EGG), "Silverfish Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Silverfish(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("skeleton_spawn_egg", new class(new IID(Ids::SKELETON_SPAWN_EGG), "Skeleton Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Skeleton(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("slime_spawn_egg", new class(new IID(Ids::SLIME_SPAWN_EGG), "Slime Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Slime(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("stray_spawn_egg", new class(new IID(Ids::STRAY_SPAWN_EGG), "Stray Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Stray(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("vex_spawn_egg", new class(new IID(Ids::VEX_SPAWN_EGG), "Vex Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Vex(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("vindicator_spawn_egg", new class(new IID(Ids::VINDICATOR_SPAWN_EGG), "Vindicator Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Vindicator(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("warden_spawn_egg", new class(new IID(Ids::WARDEN_SPAWN_EGG), "Warden Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Warden(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("witch_spawn_egg", new class(new IID(Ids::WITCH_SPAWN_EGG), "Witch Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Witch(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("wither_skeleton_spawn_egg", new class(new IID(Ids::WITHER_SKELETON_SPAWN_EGG), "Wither Skeleton Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new WitherSkeleton(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("zoglin_spawn_egg", new class(new IID(Ids::ZOGLIN_SPAWN_EGG), "Zoglin Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Zoglin(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+
+		self::register("zombie_villager_spawn_egg", new class(new IID(Ids::ZOMBIE_VILLAGER_SPAWN_EGG), "Zombie Villager Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new ZombieVillager(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
