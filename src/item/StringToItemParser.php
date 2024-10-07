@@ -1642,7 +1642,53 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("empty_map", fn() => Items::EMPTY_MAP());
 		$result->register("elytra", fn() => Items::ELYTRA());
 		$result->register("debug_stick", fn() => Items::DEBUG_STICK());
-
+		$result->register("tnt_minecart", fn() => Items::TNT_MINECART());
+		$result->register("hopper_minecart", fn() => Items::HOPPER_MINECART());
+		$result->register("chest_minecart", fn() => Items::CHEST_MINECART());
+		$result->register("bolt_armor_trim_smithing_template", fn() => Items::BOLT_ARMOR_TRIM_SMITHING_TEMPLATE());
+		$result->register("flow_armor_trim_smithing_template", fn() => Items::FLOW_ARMOR_TRIM_SMITHING_TEMPLATE());
+		$result->register("wolf_armor", fn() => Items::WOLF_ARMOR());
+		$result->register("ice_bomb", fn() => Items::ICE_BOMB());
+		$result->register("crossbow", fn() => Items::CROSSBOW());
+		$result->register("carrot_on_a_stick", fn() => Items::CARROT_ON_A_STICK());
+		$result->register("bundle", fn() => Items::BUNDLE());
+		$result->register("brush", fn() => Items::BRUSH());
+		$result->register("breeze_rod", fn() => Items::BREEZE_ROD());
+		$result->register("armor_stand", fn() => Items::ARMOR_STAND());
+		$result->register("flower_charge_banner_pattern", fn() => Items::FLOWER_CHARGE_BANNER_PATTERN());
+		$result->register("creeper_charge_banner_pattern", fn() => Items::CREEPER_CHARGE_BANNER_PATTERN());
+		$result->register("skull_charge_banner_pattern", fn() => Items::SKULL_CHARGE_BANNER_PATTERN());
+		$result->register("mojang_banner_pattern", fn() => Items::MOJANG_BANNER_PATTERN());
+		$result->register("globe_banner_pattern", fn() => Items::GLOBE_BANNER_PATTERN());
+		$result->register("piglin_banner_pattern", fn() => Items::PIGLIN_BANNER_PATTERN());
+		$result->register("flow_banner_pattern", fn() => Items::FLOW_BANNER_PATTERN());
+		$result->register("guster_banner_pattern", fn() => Items::GUSTER_BANNER_PATTERN());
+		$result->register("field_masoned_banner_pattern", fn() => Items::FIELD_MASONED_BANNER_PATTERN());
+		$result->register("bordure_indented_banner_pattern", fn() => Items::BORDURE_INDENTED_BANNER_PATTERN());
+		$result->register("angler_pottery_sherd", fn() => Items::ANGLER_POTTERY_SHERD());
+		$result->register("archer_pottery_sherd", fn() => Items::ARCHER_POTTERY_SHERD());
+		$result->register("arms_up_pottery_sherd", fn() => Items::ARMS_UP_POTTERY_SHERD());
+		$result->register("blade_pottery_sherd", fn() => Items::BLADE_POTTERY_SHERD());
+		$result->register("brewer_pottery_sherd", fn() => Items::BREWER_POTTERY_SHERD());
+		$result->register("burn_pottery_sherd", fn() => Items::BURN_POTTERY_SHERD());
+		$result->register("danger_pottery_sherd", fn() => Items::DANGER_POTTERY_SHERD());
+		$result->register("explorer_pottery_sherd", fn() => Items::EXPLORER_POTTERY_SHERD());
+		$result->register("flow_pottery_sherd", fn() => Items::FLOW_POTTERY_SHERD());
+		$result->register("friend_pottery_sherd", fn() => Items::FRIEND_POTTERY_SHERD());
+		$result->register("guster_pottery_sherd", fn() => Items::GUSTER_POTTERY_SHERD());
+		$result->register("heart_pottery_sherd", fn() => Items::HEART_POTTERY_SHERD());
+		$result->register("heartbreak_pottery_sherd", fn() => Items::HEARTBREAK_POTTERY_SHERD());
+		$result->register("howl_pottery_sherd", fn() => Items::HOWL_POTTERY_SHERD());
+		$result->register("miner_pottery_sherd", fn() => Items::MINER_POTTERY_SHERD());
+		$result->register("mourner_pottery_sherd", fn() => Items::MOURNER_POTTERY_SHERD());
+		$result->register("plenty_pottery_sherd", fn() => Items::PLENTY_POTTERY_SHERD());
+		$result->register("prize_pottery_sherd", fn() => Items::PRIZE_POTTERY_SHERD());
+		$result->register("scrape_pottery_sherd", fn() => Items::SCRAPE_POTTERY_SHERD());
+		$result->register("sheaf_pottery_sherd", fn() => Items::SHEAF_POTTERY_SHERD());
+		$result->register("shelter_pottery_sherd", fn() => Items::SHELTER_POTTERY_SHERD());
+		$result->register("skull_pottery_sherd", fn() => Items::SKULL_POTTERY_SHERD());
+		$result->register("snort_pottery_sherd", fn() => Items::SNORT_POTTERY_SHERD());
+		$result->register("sparkler", fn() => Items::SPARKLER());
 	}
 
 	/**

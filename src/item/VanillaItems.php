@@ -52,8 +52,12 @@ use function strtolower;
  * @method static ItemBlockWallOrFloor ACACIA_SIGN()
  * @method static ItemBlock AIR()
  * @method static Item AMETHYST_SHARD()
+ * @method static PotterySherd ANGLER_POTTERY_SHERD()
  * @method static Apple APPLE()
+ * @method static PotterySherd ARCHER_POTTERY_SHERD()
  * @method static ArmadilloShute ARMADILLO_SHUTE()
+ * @method static ArmorStand ARMOR_STAND()
+ * @method static PotterySherd ARMS_UP_POTTERY_SHERD()
  * @method static Arrow ARROW()
  * @method static BakedPotato BAKED_POTATO()
  * @method static Balloon BALLOON()
@@ -70,18 +74,27 @@ use function strtolower;
  * @method static Boat BIRCH_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor BIRCH_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor BIRCH_SIGN()
+ * @method static PotterySherd BLADE_POTTERY_SHERD()
  * @method static Item BLAZE_POWDER()
  * @method static BlazeRod BLAZE_ROD()
  * @method static Item BLEACH()
+ * @method static Item BOLT_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item BONE()
  * @method static Fertilizer BONE_MEAL()
  * @method static Book BOOK()
+ * @method static BannerPattern BORDURE_INDENTED_BANNER_PATTERN()
  * @method static Bow BOW()
  * @method static Bowl BOWL()
  * @method static Bread BREAD()
+ * @method static BreezeRod BREEZE_ROD()
+ * @method static PotterySherd BREWER_POTTERY_SHERD()
  * @method static Item BRICK()
+ * @method static Brush BRUSH()
  * @method static Bucket BUCKET()
+ * @method static Bundle BUNDLE()
+ * @method static PotterySherd BURN_POTTERY_SHERD()
  * @method static Carrot CARROT()
+ * @method static CarrotOnAStick CARROT_ON_A_STICK()
  * @method static Armor CHAINMAIL_BOOTS()
  * @method static Armor CHAINMAIL_CHESTPLATE()
  * @method static Armor CHAINMAIL_HELMET()
@@ -129,6 +142,7 @@ use function strtolower;
  * @method static Boat CHERRY_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor CHERRY_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CHERRY_SIGN()
+ * @method static Minecart CHEST_MINECART()
  * @method static ChorusFruit CHORUS_FRUIT()
  * @method static Item CLAY()
  * @method static Clock CLOCK()
@@ -146,8 +160,11 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
+ * @method static BannerPattern CREEPER_CHARGE_BANNER_PATTERN()
  * @method static ItemBlockWallOrFloor CRIMSON_HANGING_SIGN()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
+ * @method static Crossbow CROSSBOW()
+ * @method static PotterySherd DANGER_POTTERY_SHERD()
  * @method static Boat DARK_OAK_BOAT()
  * @method static Boat DARK_OAK_CHEST_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_HANGING_SIGN()
@@ -179,18 +196,26 @@ use function strtolower;
  * @method static EnderPearl ENDER_PEARL()
  * @method static EndCrystal END_CRYSTAL()
  * @method static ExperienceBottle EXPERIENCE_BOTTLE()
+ * @method static PotterySherd EXPLORER_POTTERY_SHERD()
  * @method static Item EYE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item FEATHER()
  * @method static Item FERMENTED_SPIDER_EYE()
+ * @method static BannerPattern FIELD_MASONED_BANNER_PATTERN()
  * @method static FireworkRocket FIREWORK_ROCKET()
  * @method static FireworkStar FIREWORK_STAR()
  * @method static FireCharge FIRE_CHARGE()
  * @method static FishingRod FISHING_ROD()
  * @method static Item FLINT()
  * @method static FlintSteel FLINT_AND_STEEL()
+ * @method static BannerPattern FLOWER_CHARGE_BANNER_PATTERN()
+ * @method static Item FLOW_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static BannerPattern FLOW_BANNER_PATTERN()
+ * @method static PotterySherd FLOW_POTTERY_SHERD()
+ * @method static PotterySherd FRIEND_POTTERY_SHERD()
  * @method static Item GHAST_TEAR()
  * @method static GlassBottle GLASS_BOTTLE()
  * @method static Item GLISTERING_MELON()
+ * @method static BannerPattern GLOBE_BANNER_PATTERN()
  * @method static Item GLOWSTONE_DUST()
  * @method static GlowBerries GLOW_BERRIES()
  * @method static Item GLOW_INK_SAC()
@@ -210,10 +235,17 @@ use function strtolower;
  * @method static Item GOLD_INGOT()
  * @method static Item GOLD_NUGGET()
  * @method static Item GUNPOWDER()
+ * @method static BannerPattern GUSTER_BANNER_PATTERN()
+ * @method static PotterySherd GUSTER_POTTERY_SHERD()
+ * @method static PotterySherd HEARTBREAK_POTTERY_SHERD()
  * @method static Item HEART_OF_THE_SEA()
+ * @method static PotterySherd HEART_POTTERY_SHERD()
  * @method static Item HONEYCOMB()
  * @method static HoneyBottle HONEY_BOTTLE()
+ * @method static Minecart HOPPER_MINECART()
  * @method static Item HOST_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static PotterySherd HOWL_POTTERY_SHERD()
+ * @method static IceBomb ICE_BOMB()
  * @method static Item INK_SAC()
  * @method static Axe IRON_AXE()
  * @method static Armor IRON_BOOTS()
@@ -250,6 +282,9 @@ use function strtolower;
  * @method static MelonSeeds MELON_SEEDS()
  * @method static MilkBucket MILK_BUCKET()
  * @method static Minecart MINECART()
+ * @method static PotterySherd MINER_POTTERY_SHERD()
+ * @method static BannerPattern MOJANG_BANNER_PATTERN()
+ * @method static PotterySherd MOURNER_POTTERY_SHERD()
  * @method static MushroomStew MUSHROOM_STEW()
  * @method static NameTag NAME_TAG()
  * @method static Item NAUTILUS_SHELL()
@@ -278,7 +313,9 @@ use function strtolower;
  * @method static PaintingItem PAINTING()
  * @method static Item PAPER()
  * @method static Item PHANTOM_MEMBRANE()
+ * @method static BannerPattern PIGLIN_BANNER_PATTERN()
  * @method static PitcherPod PITCHER_POD()
+ * @method static PotterySherd PLENTY_POTTERY_SHERD()
  * @method static PoisonousPotato POISONOUS_POTATO()
  * @method static Item POPPED_CHORUS_FRUIT()
  * @method static Potato POTATO()
@@ -286,6 +323,7 @@ use function strtolower;
  * @method static BlockBucket POWDER_SNOW_BUCKET()
  * @method static Item PRISMARINE_CRYSTALS()
  * @method static Item PRISMARINE_SHARD()
+ * @method static PotterySherd PRIZE_POTTERY_SHERD()
  * @method static Pufferfish PUFFERFISH()
  * @method static PumpkinPie PUMPKIN_PIE()
  * @method static PumpkinSeeds PUMPKIN_SEEDS()
@@ -327,15 +365,22 @@ use function strtolower;
  * @method static Item RIB_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static RottenFlesh ROTTEN_FLESH()
  * @method static Saddle SADDLE()
+ * @method static PotterySherd SCRAPE_POTTERY_SHERD()
  * @method static Item SCUTE()
  * @method static Item SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static PotterySherd SHEAF_POTTERY_SHERD()
  * @method static Shears SHEARS()
+ * @method static PotterySherd SHELTER_POTTERY_SHERD()
  * @method static Item SHULKER_SHELL()
  * @method static Item SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static BannerPattern SKULL_CHARGE_BANNER_PATTERN()
+ * @method static PotterySherd SKULL_POTTERY_SHERD()
  * @method static Item SLIMEBALL()
+ * @method static PotterySherd SNORT_POTTERY_SHERD()
  * @method static Item SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Snowball SNOWBALL()
+ * @method static Sparkler SPARKLER()
  * @method static SpiderEye SPIDER_EYE()
  * @method static Item SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static SplashPotion SPLASH_POTION()
@@ -358,6 +403,7 @@ use function strtolower;
  * @method static SuspiciousStew SUSPICIOUS_STEW()
  * @method static SweetBerries SWEET_BERRIES()
  * @method static Item TIDE_ARMOR_TRIM_SMITHING_TEMPLATE()
+ * @method static Minecart TNT_MINECART()
  * @method static TorchflowerSeeds TORCHFLOWER_SEEDS()
  * @method static Totem TOTEM()
  * @method static TrialKey TRIAL_KEY()
@@ -375,6 +421,7 @@ use function strtolower;
  * @method static WheatSeeds WHEAT_SEEDS()
  * @method static Item WILD_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static WindCharge WIND_CHARGE()
+ * @method static WolfArmor WOLF_ARMOR()
  * @method static Axe WOODEN_AXE()
  * @method static Hoe WOODEN_HOE()
  * @method static Pickaxe WOODEN_PICKAXE()
@@ -692,6 +739,62 @@ final class VanillaItems{
 		self::register("empty_map", new Map(new IID(Ids::EMPTY_MAP), "Empty Map"));
 		self::register("elytra", new Elytra(new IID(Ids::ELYTRA), "Elytra"));
 		self::register("debug_stick", new Item(new IID(Ids::DEBUG_STICK), "Debug Stick"));
+		self::register("tnt_minecart", new Minecart(new IID(Ids::TNT_MINECART), "TNT Minecart"));
+		self::register("hopper_minecart", new Minecart(new IID(Ids::HOPPER_MINECART), "Hopper Minecart"));
+		self::register("chest_minecart", new Minecart(new IID(Ids::CHEST_MINECART), "Chest Minecart"));
+		self::register("wolf_armor", new WolfArmor(new IID(Ids::WOLF_ARMOR), "Wolf Armor"));
+		self::register("ice_bomb", new IceBomb(new IID(Ids::ICE_BOMB), "Ice Bomb"));
+		self::register("crossbow", new Crossbow(new IID(Ids::CROSSBOW), "Crossbow"));
+		self::register("carrot_on_a_stick", new CarrotOnAStick(new IID(Ids::CARROT_ON_A_STICK), "Carrot on a Stick"));
+		self::register("bundle", new Bundle(new IID(Ids::BUNDLE), "Bundle"));
+		self::register("brush", new Brush(new IID(Ids::BRUSH), "Brush"));
+		self::register("breeze_rod", new BreezeRod(new IID(Ids::BREEZE_ROD), "Breeze Rod"));
+		self::register("armor_stand", new ArmorStand(new IID(Ids::ARMOR_STAND), "Armor Stand"));
+
+
+		foreach(BannerPatternType::cases() as $type){
+			self::register(strtolower($type->name) . "_banner_pattern", new BannerPattern(new IID(match($type){
+				BannerPatternType::FLOWER_CHARGE => Ids::FLOWER_CHARGE,
+				BannerPatternType::CREEPER_CHARGE => Ids::CREEPER_CHARGE,
+				BannerPatternType::SKULL_CHARGE => Ids::SKULL_CHARGE,
+				BannerPatternType::MOJANG => Ids::MOJANG,
+				BannerPatternType::GLOBE => Ids::GLOBE,
+				BannerPatternType::PIGLIN => Ids::PIGLIN,
+				BannerPatternType::FLOW => Ids::FLOW,
+				BannerPatternType::GUSTER => Ids::GUSTER,
+				BannerPatternType::FIELD_MASONED => Ids::FIELD_MASONED,
+				BannerPatternType::BORDURE_INDENTED => Ids::BORDURE_INDENTED
+			}), $type->getDisplayName() . " Banner Pattern", $type));
+		}
+
+		foreach(PotterySherdType::cases() as $type){
+			self::register(strtolower($type->name) . "_pottery_sherd", new PotterySherd(new IID(match($type){
+				PotterySherdType::ANGLER => Ids::ANGLER_POTTERY_SHERD,
+				PotterySherdType::ARCHER => Ids::ARCHER_POTTERY_SHERD,
+				PotterySherdType::ARMS_UP => Ids::ARMS_UP_POTTERY_SHERD,
+				PotterySherdType::BLADE => Ids::BLADE_POTTERY_SHERD,
+				PotterySherdType::BREWER => Ids::BREWER_POTTERY_SHERD,
+				PotterySherdType::BURN => Ids::BURN_POTTERY_SHERD,
+				PotterySherdType::DANGER => Ids::DANGER_POTTERY_SHERD,
+				PotterySherdType::EXPLORER => Ids::EXPLORER_POTTERY_SHERD,
+				PotterySherdType::FLOW => Ids::FLOW_POTTERY_SHERD,
+				PotterySherdType::FRIEND => Ids::FRIEND_POTTERY_SHERD,
+				PotterySherdType::GUSTER => Ids::GUSTER_POTTERY_SHERD,
+				PotterySherdType::HEART => Ids::HEART_POTTERY_SHERD,
+				PotterySherdType::HEARTBREAK => Ids::HEARTBREAK_POTTERY_SHERD,
+				PotterySherdType::HOWL => Ids::HOWL_POTTERY_SHERD,
+				PotterySherdType::MINER => Ids::MINER_POTTERY_SHERD,
+				PotterySherdType::MOURNER => Ids::MOURNER_POTTERY_SHERD,
+				PotterySherdType::PLENTY => Ids::PLENTY_POTTERY_SHERD,
+				PotterySherdType::PRIZE => Ids::PRIZE_POTTERY_SHERD,
+				PotterySherdType::SCRAPE => Ids::SCRAPE_POTTERY_SHERD,
+				PotterySherdType::SHEAF => Ids::SHEAF_POTTERY_SHERD,
+				PotterySherdType::SHELTER => Ids::SHELTER_POTTERY_SHERD,
+				PotterySherdType::SKULL => Ids::SKULL_POTTERY_SHERD,
+				PotterySherdType::SNORT => Ids::SNORT_POTTERY_SHERD,
+			}), $type->getDisplayName() . " Pottery Sherd", $type));
+		}
+		self::register("sparkler", new Sparkler(new IID(Ids::SPARKLER), "Sparkler"));
 	}
 
 	private static function registerSpawnEggs() : void{
@@ -794,6 +897,8 @@ final class VanillaItems{
 		self::register("ward_armor_trim_smithing_template", new Item(new IID(Ids::WARD_ARMOR_TRIM_SMITHING_TEMPLATE), "Ward Armor Trim Smithing Template"));
 		self::register("wayfinder_armor_trim_smithing_template", new Item(new IID(Ids::WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE), "Wayfinder Armor Trim Smithing Template"));
 		self::register("wild_armor_trim_smithing_template", new Item(new IID(Ids::WILD_ARMOR_TRIM_SMITHING_TEMPLATE), "Wild Armor Trim Smithing Template"));
+		self::register("bolt_armor_trim_smithing_template", new Item(new IID(Ids::BOLT_ARMOR_TRIM_SMITHING_TEMPLATE), "Bolt Armor Trim Smithing Template"));
+		self::register("flow_armor_trim_smithing_template", new Item(new IID(Ids::FLOW_ARMOR_TRIM_SMITHING_TEMPLATE), "Flow Armor Trim Smithing Template"));
 	}
 
 }
