@@ -12,6 +12,8 @@ use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\player\Player;
 use pocketmine\world\sound\ArmadilloBrushSound;
 use pocketmine\world\sound\ArmadilloScuteDropSound;
@@ -91,5 +93,10 @@ class Armadillo extends Mob implements Ageable{
 
 	public function getName() : string{
 		return "Armadillo";
+	}
+
+	protected function syncNetworkData(EntityMetadataCollection $properties) : void{
+		parent::syncNetworkData($properties);
+		$properties->setGenericFlag(EntityMetadataFlags::BABY, $this->isBaby());
 	}
 }
