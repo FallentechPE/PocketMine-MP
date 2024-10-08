@@ -21,8 +21,14 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace pocketmine\entity\mob;
 
 interface Ageable{
-	public function isBaby() : bool;
+
+	public const BABY_TICKS = 24000; // 20 minutes before adulthood
+	public const RESET_AGE_TICKS = 6000; // 5 minutes into adulthood
+
+	public function getAge() : int;
+
+	public function setAge(int $age) : self;
 }

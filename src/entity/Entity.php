@@ -1338,6 +1338,19 @@ abstract class Entity{
 		return $this->blocksAround;
 	}
 
+	public function getBlocksInRadius(float $radius) : array{
+		$blocks = [];
+		$center =  $this->getPosition()->floor();
+		for ($x = $center->x - $radius; $x <= $center->x + $radius; $x++){
+			for($y = $center->y - $radius; $y <= $center->y + $radius; $y++){
+				for($z = $center->z - $radius; $z <= $center->z + $radius; $z++){
+					$blocks[] = $this->getWorld()->getBlockAt((int) $x, (int) $y, (int) $z, addToCache: false);
+				}
+			}
+		}
+		return $blocks;
+	}
+
 	/**
 	 * Returns whether this entity can be moved by currents in liquids.
 	 */

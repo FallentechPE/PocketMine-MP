@@ -23,20 +23,28 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\mob\Ageable;
+use pocketmine\entity\mob\AgeableTrait;
 use pocketmine\entity\mob\Mob;
 use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 
 abstract class WaterAnimal extends Mob implements Ageable{
-	protected bool $baby = false;
-
-	public function isBaby() : bool{
-		return $this->baby;
-	}
+	use AgeableTrait;
 
 	public function canBreathe() : bool{
 		return $this->isUnderwater();
+	}
+
+	public function saveNBT() : CompoundTag{
+		return $this->saveAgeableNBT(parent::saveNBT());
+	}
+
+	protected function entityBaseTick(int $tickDiff = 1) : bool{
+		parent::entityBaseTick($tickDiff);
+		return $this->doAgeableTick($tickDiff);
 	}
 
 	public function onAirExpired() : void{
@@ -46,6 +54,6 @@ abstract class WaterAnimal extends Mob implements Ageable{
 
 	protected function syncNetworkData(EntityMetadataCollection $properties) : void{
 		parent::syncNetworkData($properties);
-		$properties->setGenericFlag(EntityMetadataFlags::BABY, $this->baby);
+		$properties->setGenericFlag(EntityMetadataFlags::BABY, $this->isBaby());
 	}
 }

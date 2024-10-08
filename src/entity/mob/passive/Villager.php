@@ -23,8 +23,9 @@ declare(strict_types=1);
 
 namespace pocketmine\entity\mob\passive;
 
-use pocketmine\entity\Ageable;
 use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\mob\Ageable;
+use pocketmine\entity\mob\AgeableTrait;
 use pocketmine\entity\mob\Mob;
 use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
@@ -35,6 +36,7 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 
 class Villager extends Mob implements Ageable{
+	use AgeableTrait;
 	public const PROFESSION_FARMER = 0;
 	public const PROFESSION_LIBRARIAN = 1;
 	public const PROFESSION_PRIEST = 2;
@@ -45,7 +47,6 @@ class Villager extends Mob implements Ageable{
 
 	public static function getNetworkTypeId() : string{ return EntityIds::VILLAGER; }
 
-	private bool $baby = false;
 	private int $profession = self::PROFESSION_FARMER;
 
 	protected function getInitialSizeInfo() : EntitySizeInfo{
@@ -69,11 +70,15 @@ class Villager extends Mob implements Ageable{
 		$this->setProfession($profession);
 	}
 
+	protected function entityBaseTick(int $tickDiff = 1) : bool{
+		parent::entityBaseTick($tickDiff);
+		return $this->doAgeableTick($tickDiff);
+	}
+
 	public function saveNBT() : CompoundTag{
 		$nbt = parent::saveNBT();
 		$nbt->setInt(self::TAG_PROFESSION, $this->getProfession());
-
-		return $nbt;
+		return $this->saveAgeableNBT($nbt);
 	}
 
 	/**
@@ -88,17 +93,13 @@ class Villager extends Mob implements Ageable{
 		return $this->profession;
 	}
 
-	public function isBaby() : bool{
-		return $this->baby;
-	}
-
 	public function getPickedItem() : ?Item{
 		return VanillaItems::VILLAGER_SPAWN_EGG();
 	}
 
 	protected function syncNetworkData(EntityMetadataCollection $properties) : void{
 		parent::syncNetworkData($properties);
-		$properties->setGenericFlag(EntityMetadataFlags::BABY, $this->baby);
+		$properties->setGenericFlag(EntityMetadataFlags::BABY, $this->isBaby());
 
 		$properties->setInt(EntityMetadataProperties::VARIANT, $this->profession);
 	}
