@@ -47,6 +47,7 @@ class Attribute{
 	public const HORSE_JUMP_STRENGTH = self::MC_PREFIX . "horse.jump_strength";
 	public const ZOMBIE_SPAWN_REINFORCEMENTS = self::MC_PREFIX . "zombie.spawn_reinforcements";
 	public const LAVA_MOVEMENT = self::MC_PREFIX . "lava_movement";
+	public const ATTACK_KNOCKBACK = Attribute::MC_PREFIX . "attack_knockback";
 
 	protected float $currentValue;
 	protected bool $desynchronized = true;

@@ -83,6 +83,17 @@ abstract class Timings{
 	public static TimingsHandler $syncPlayerDataLoad;
 	public static TimingsHandler $syncPlayerDataSave;
 
+	public static TimingsHandler $entityAiTick;
+
+	public static TimingsHandler $pathfinding;
+
+	public static TimingsHandler $navigation;
+
+	public static TimingsHandler $goalSelector;
+	public static TimingsHandler $goalSelectorCleanup;
+	public static TimingsHandler $goalSelectorUpdate;
+	public static TimingsHandler $goalSelectorTick;
+
 	/** @var TimingsHandler[] */
 	public static array $entityTypeTimingMap = [];
 	/** @var TimingsHandler[] */
@@ -197,6 +208,17 @@ abstract class Timings{
 
 		self::$playerCommand = new TimingsHandler("Player Command");
 		self::$craftingDataCacheRebuild = new TimingsHandler("Build CraftingDataPacket Cache");
+
+		self::$entityAiTick = new TimingsHandler("Entity AI Tick", group: Timings::GROUP_BREAKDOWN);
+
+		self::$pathfinding = new TimingsHandler("Entity Pathfinding", group: Timings::GROUP_BREAKDOWN);
+
+		self::$navigation = new TimingsHandler("Entity Navigation", group: Timings::GROUP_BREAKDOWN);
+
+		self::$goalSelector = new TimingsHandler("Entity Goal Selector", group: Timings::GROUP_BREAKDOWN);
+		self::$goalSelectorCleanup = new TimingsHandler("Entity Goal Selector - Cleanup", self::$goalSelector, Timings::GROUP_BREAKDOWN);
+		self::$goalSelectorUpdate = new TimingsHandler("Entity Goal Selector - Update", self::$goalSelector, Timings::GROUP_BREAKDOWN);
+		self::$goalSelectorTick = new TimingsHandler("Entity Goal Selector - Tick", self::$goalSelector, Timings::GROUP_BREAKDOWN);
 
 	}
 
