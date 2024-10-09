@@ -38,12 +38,12 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 
 		$this->register(VanillaBlocks::ACACIA_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::BIRCH_SAPLING()->asItem(), 30);
-		//Cherry sapling
+		$this->register(VanillaBlocks::CHERRY_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::DARK_OAK_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::JUNGLE_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::OAK_SAPLING()->asItem(), 30);
 		$this->register(VanillaBlocks::SPRUCE_SAPLING()->asItem(), 30);
-		//Mangrove propagule
+		$this->register(VanillaBlocks::MANGROVE_PROPAGULE()->asItem(), 30);
 		$this->register(VanillaBlocks::MANGROVE_ROOTS()->asItem(), 30);
 		$this->register(VanillaItems::MELON_SEEDS(), 30);
 		$this->register(VanillaBlocks::MOSS_CARPET()->asItem(), 30);
@@ -63,7 +63,7 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaBlocks::GLOW_LICHEN()->asItem(), 50);
 		$this->register(VanillaItems::MELON(), 50);
 		$this->register(VanillaBlocks::NETHER_SPROUTS()->asItem(), 50);
-		//Nether Sprouts Item
+		$this->register(VanillaItems::NETHER_SPROUTS(), 50);
 		$this->register(VanillaBlocks::SUGARCANE()->asItem(), 50);
 		$this->register(VanillaBlocks::DOUBLE_TALLGRASS()->asItem(), 50);
 
@@ -99,8 +99,8 @@ final class CompostFactory{ // todo It would be better if it were placed directl
 		$this->register(VanillaBlocks::SHROOMLIGHT()->asItem(), 65);
 		$this->register(VanillaBlocks::SPORE_BLOSSOM()->asItem(), 65);
 		$this->register(VanillaItems::WHEAT(), 65);
-		//Crimson fungus
-		//Warped fungus
+		$this->register(VanillaBlocks::CRIMSON_FUNGUS()->asItem(), 65);
+		$this->register(VanillaBlocks::WARPED_FUNGUS()->asItem(), 65);
 		$this->register(VanillaBlocks::CRIMSON_ROOTS()->asItem(), 65);
 		$this->register(VanillaBlocks::WARPED_ROOTS()->asItem(), 65);
 

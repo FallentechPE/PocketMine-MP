@@ -1967,7 +1967,27 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::BAMBOO_MOSAIC, fn() => Blocks::BAMBOO_MOSAIC());
 		$this->mapStairs(Ids::BAMBOO_MOSAIC_STAIRS, fn() => Blocks::BAMBOO_MOSAIC_STAIRS());
 		$this->mapSlab(Ids::BAMBOO_MOSAIC_SLAB, Ids::BAMBOO_MOSAIC_DOUBLE_SLAB, fn() => Blocks::BAMBOO_MOSAIC_SLAB());
-
+		$this->map(Ids::PISTON, function(Reader $in) : Block {
+			return Blocks::PISTON()
+				->setFacing($in->readFacingDirection());
+		});
+		$this->map(Ids::STICKY_PISTON, function(Reader $in) : Block {
+			return Blocks::STICKY_PISTON()
+				->setFacing($in->readFacingDirection());
+		});
+		$this->map(Ids::PISTON_ARM_COLLISION, function(Reader $in) : Block {
+			return Blocks::PISTON_HEAD()
+				->setFacing($in->readFacingDirection());
+		});
+		$this->map(Ids::STICKY_PISTON_ARM_COLLISION, function(Reader $in) : Block {
+			return Blocks::STICKY_PISTON_HEAD()
+				->setFacing($in->readFacingDirection());
+		});
+		$this->map(Ids::MANGROVE_PROPAGULE, function(Reader $in) : Block {
+			return Blocks::MANGROVE_PROPAGULE()
+				->setHanging($in->readBool(StateNames::HANGING))
+				->setReady($in->readInt(StateNames::PROPAGULE_STAGE) === 1);
+		});
 	}
 
 	/** @throws BlockStateDeserializeException */

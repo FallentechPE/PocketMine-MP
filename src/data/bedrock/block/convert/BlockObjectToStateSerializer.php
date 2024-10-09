@@ -41,6 +41,9 @@ use pocketmine\block\BubbleColumn;
 use pocketmine\block\Campfire;
 use pocketmine\block\CommandBlock;
 use pocketmine\block\Jigsaw;
+use pocketmine\block\MangrovePropagule;
+use pocketmine\block\Piston;
+use pocketmine\block\PistonHead;
 use pocketmine\block\SnifferEgg;
 use pocketmine\block\SoulCampfire;
 use pocketmine\block\BoneBlock;
@@ -2092,7 +2095,26 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::BAMBOO_MOSAIC(), Ids::BAMBOO_MOSAIC);
 		$this->mapStairs(Blocks::BAMBOO_MOSAIC_STAIRS(), Ids::BAMBOO_MOSAIC_STAIRS);
 		$this->mapSlab(Blocks::BAMBOO_MOSAIC_SLAB(), Ids::BAMBOO_MOSAIC_SLAB, Ids::BAMBOO_MOSAIC_DOUBLE_SLAB);
-
-
+		$this->map(Blocks::PISTON(), function(Piston $block) : Writer {
+			return Writer::create(Ids::PISTON)
+				->writeFacingDirection($block->getFacing());
+		});
+		$this->map(Blocks::STICKY_PISTON(), function(Piston $block) : Writer {
+			return Writer::create(Ids::STICKY_PISTON)
+				->writeFacingDirection($block->getFacing());
+		});
+		$this->map(Blocks::PISTON_HEAD(), function(PistonHead $block) : Writer {
+			return Writer::create(Ids::PISTON_ARM_COLLISION)
+				->writeFacingDirection($block->getFacing());
+		});
+		$this->map(Blocks::STICKY_PISTON_HEAD(), function(PistonHead $block) : Writer {
+			return Writer::create(Ids::STICKY_PISTON_ARM_COLLISION)
+				->writeFacingDirection($block->getFacing());
+		});
+		$this->map(Blocks::MANGROVE_PROPAGULE(), function(MangrovePropagule $block) : Writer {
+			return Writer::create(Ids::MANGROVE_PROPAGULE)
+				->writeBool(StateNames::HANGING, $block->isHanging())
+				->writeInt(StateNames::PROPAGULE_STAGE, $block->isReady() === true ? 1 : 0);
+		});
 	}
 }

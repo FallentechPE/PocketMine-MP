@@ -855,8 +855,13 @@ final class BlockTypeIds{
 	public const BAMBOO_TRAPDOOR = 10825;
 	public const BAMBOO_WALL_SIGN = 10826;
 	public const BAMBOO_SIGN = 10827;
+	public const PISTON = 10828;
+	public const STICKY_PISTON = 10829;
+	public const PISTON_HEAD = 10830;
+	public const STICKY_PISTON_HEAD = 10831;
+	public const MANGROVE_PROPAGULE = 10832;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10828;
+	public const FIRST_UNUSED_BLOCK_ID = 10833;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

@@ -26,9 +26,9 @@ namespace pocketmine\block;
 final class BlockTypeTags{
 	private const PREFIX = "pocketmine:";
 
-	public const DIRT = self::PREFIX . "dirt";
-	public const MUD = self::PREFIX . "mud";
-	public const SAND = self::PREFIX . "sand";
-	public const POTTABLE_PLANTS = self::PREFIX . "pottable";
-	public const FIRE = self::PREFIX . "fire";
+	public const DIRT = self::PREFIX . "dirt"; // dirt, farmland, grass, mycelium, podzol
+	public const MUD = self::PREFIX . "mud"; // mud, muddy mangrove roots
+	public const SAND = self::PREFIX . "sand"; // sand, red sand
+	public const POTTABLE_PLANTS = self::PREFIX . "pottable"; // brown mushroom, cactus, deadbush, flowers, red mushroom, fern, saplings, azaleas, wither rose, nether roots
+	public const FIRE = self::PREFIX . "fire"; // fire, soul fire
 }

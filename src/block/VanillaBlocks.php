@@ -584,6 +584,7 @@ use function strtolower;
  * @method static Wood MANGROVE_LOG()
  * @method static Planks MANGROVE_PLANKS()
  * @method static WoodenPressurePlate MANGROVE_PRESSURE_PLATE()
+ * @method static MangrovePropagule MANGROVE_PROPAGULE()
  * @method static MangroveRoots MANGROVE_ROOTS()
  * @method static FloorSign MANGROVE_SIGN()
  * @method static WoodenSlab MANGROVE_SLAB()
@@ -656,6 +657,8 @@ use function strtolower;
  * @method static DoublePlant PEONY()
  * @method static PinkPetals PINK_PETALS()
  * @method static Flower PINK_TULIP()
+ * @method static Piston PISTON()
+ * @method static PistonHead PISTON_HEAD()
  * @method static PitcherCrop PITCHER_CROP()
  * @method static DoublePlant PITCHER_PLANT()
  * @method static Podzol PODZOL()
@@ -806,6 +809,8 @@ use function strtolower;
  * @method static StainedGlassPane STAINED_GLASS_PANE()
  * @method static StainedHardenedGlass STAINED_HARDENED_GLASS()
  * @method static StainedHardenedGlassPane STAINED_HARDENED_GLASS_PANE()
+ * @method static Piston STICKY_PISTON()
+ * @method static PistonHead STICKY_PISTON_HEAD()
  * @method static Opaque STONE()
  * @method static Stonecutter STONECUTTER()
  * @method static Opaque STONE_BRICKS()
@@ -1439,6 +1444,12 @@ final class VanillaBlocks{
 		self::register("bamboo_wall_sign", new WallSign(new BID(Ids::BAMBOO_WALL_SIGN), "Bamboo Wall Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
 		self::register("bamboo_ceiling_hanging_sign", new CeilingHangingSign(new BID(Ids::BAMBOO_CEILING_SIGN), "Bamboo Ceiling Hanging Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
 		self::register("bamboo_wall_hanging_sign", new WallHangingSign(new BID(Ids::BAMBOO_HANGING_SIGN), "Bamboo Wall Hanging Sign", $signBreakInfo, WoodType::BAMBOO, fn() => VanillaItems::BAMBOO_SIGN()));
+		$pistonBreakInfo = new Info(BreakInfo::pickaxe(1.5, blastResistance: 0.5));
+		self::register("piston", new Piston(new BID(Ids::PISTON), "Piston", $pistonBreakInfo));
+		self::register("sticky_piston", new Piston(new BID(Ids::STICKY_PISTON), "Sticky Piston", $pistonBreakInfo));
+		self::register("piston_head", new PistonHead(new BID(Ids::PISTON_HEAD), "Piston Head", $pistonBreakInfo));
+		self::register("sticky_piston_head", new PistonHead(new BID(Ids::STICKY_PISTON_HEAD), "Sticky Piston Head", $pistonBreakInfo));
+		self::register("mangrove_propagule", new MangrovePropagule(new BID(Ids::MANGROVE_PROPAGULE), "Mangrove Propagule", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 
 
 		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));

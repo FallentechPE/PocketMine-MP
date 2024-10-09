@@ -1245,6 +1245,11 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("bamboo_sign", fn() => Blocks::BAMBOO_SIGN());
 		$result->registerBlock("bamboo_standing_sign", fn() => Blocks::BAMBOO_SIGN());
 		$result->registerBlock("bamboo_wall_sign", fn() => Blocks::BAMBOO_SIGN());
+		$result->registerBlock("piston", fn() => Blocks::PISTON());
+		$result->registerBlock("sticky_piston", fn() => Blocks::STICKY_PISTON());
+		$result->registerBlock("piston_head", fn() => Blocks::PISTON_HEAD());
+		$result->registerBlock("sticky_piston_head", fn() => Blocks::STICKY_PISTON_HEAD());
+		$result->registerBlock("mangrove_propagule", fn() => Blocks::MANGROVE_PROPAGULE());
 	}
 
 	private static function registerDynamicItems(self $result) : void{
