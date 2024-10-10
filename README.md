@@ -85,7 +85,8 @@ Additions
 
 Projects implemented
 > https://github.com/IvanCraft623/MobPlugin \
-> https://github.com/Muqsit/VanillaGenerator
+> https://github.com/Muqsit/VanillaGenerator \
+> https://github.com/Muqsit/PMArmorStand
 
 ## What is this?
 PocketMine-MP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.

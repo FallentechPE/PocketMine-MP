@@ -126,6 +126,8 @@ use pocketmine\entity\monster\Endermite;
 use pocketmine\entity\monster\Slime;
 use pocketmine\entity\monster\Spider;
 use pocketmine\entity\object\AreaEffectCloud;
+use pocketmine\entity\object\armorstand\ArmorStandEntity;
+use pocketmine\entity\object\armorstand\behavior\ArmorStandBehaviorRegistry;
 use pocketmine\entity\object\EndCrystal;
 use pocketmine\entity\object\ExperienceOrb;
 use pocketmine\entity\object\FallingBlock;
@@ -140,6 +142,7 @@ use pocketmine\entity\projectile\ExperienceBottle;
 use pocketmine\entity\projectile\Snowball;
 use pocketmine\entity\projectile\SplashPotion;
 use pocketmine\entity\projectile\WindCharge;
+use pocketmine\item\ArmorStand;
 use pocketmine\item\Item;
 use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
@@ -213,6 +216,10 @@ final class EntityFactory{
 		$this->register(Arrow::class, function(World $world, CompoundTag $nbt) : Arrow{
 			return new Arrow(Helper::parseLocation($nbt, $world), null, $nbt->getByte(Arrow::TAG_CRIT, 0) === 1, $nbt);
 		}, ['Arrow', 'minecraft:arrow']);
+
+		$this->register(ArmorStandEntity::class, function(World $world, CompoundTag $nbt) : ArmorStandEntity{
+			return new ArmorStandEntity(Helper::parseLocation($nbt, $world), null);
+		}, ['Armor Stand', 'minecraft:armor_stand']);
 
 		$this->register(Egg::class, function(World $world, CompoundTag $nbt) : Egg{
 			return new Egg(Helper::parseLocation($nbt, $world), null, $nbt);
