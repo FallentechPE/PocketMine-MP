@@ -39,6 +39,7 @@ use pocketmine\data\bedrock\MedicineTypeIdMap;
 use pocketmine\data\bedrock\MobHeadTypeIdMap;
 use pocketmine\data\bedrock\PotionTypeIdMap;
 use pocketmine\data\bedrock\SuspiciousStewTypeIdMap;
+use pocketmine\item\Arrow;
 use pocketmine\item\Balloon;
 use pocketmine\item\Banner;
 use pocketmine\item\Dye;

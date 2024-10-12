@@ -115,4 +115,7 @@ final class YmlServerProperties{
 	public const TIMINGS = 'timings';
 	public const TIMINGS_HOST = 'timings.host';
 	public const WORLDS = 'worlds';
+
+	public const NEW = "new";
+	public const NEW_BETTER_GENERATION = "new.better-generation";
 }

@@ -169,21 +169,21 @@ final class EntityFactory{
 	public const TAG_LEGACY_ID = "id"; //TAG_Int
 
 	public const ENTITIES = [
-		Bat::class,
-		Chicken::class,
-		Cow::class,
-		MooshroomCow::class,
-		Pig::class,
-		Sheep::class,
-		IronGolem::class,
-		SnowGolem::class,
-		CaveSpider::class,
-		Creeper::class,
-		Enderman::class,
-		Endermite::class,
-		Slime::class,
-		Spider::class,
-		Villager::class
+//		Bat::class,
+//		Chicken::class,
+//		Cow::class,
+//		MooshroomCow::class,
+//		Pig::class,
+//		Sheep::class,
+//		IronGolem::class,
+//		SnowGolem::class,
+//		CaveSpider::class,
+//		Creeper::class,
+//		Enderman::class,
+//		Endermite::class,
+//		Slime::class,
+//		Spider::class,
+//		Villager::class
 	];
 
 	/**
