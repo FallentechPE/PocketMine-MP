@@ -86,7 +86,6 @@ class ResourcePacksPacketHandler extends PacketHandler{
 		private array $resourcePackStack,
 		private array $encryptionKeys,
 		private bool $mustAccept,
-		private array $resourcePackURLs,
 		private \Closure $completionCallback
 	){
 		$this->requestQueue = new \SplQueue();
@@ -119,7 +118,8 @@ class ResourcePacksPacketHandler extends PacketHandler{
 			mustAccept: $this->mustAccept,
 			hasAddons: false,
 			hasScripts: false,
-			cdnUrls: $this->resourcePackURLs
+			cdnUrls: $this->resourcePackURLs,
+			hasScripts: false
 		));
 		$this->session->getLogger()->debug("Waiting for client to accept resource packs");
 	}
