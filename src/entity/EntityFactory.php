@@ -38,85 +38,6 @@ use pocketmine\entity\animal\MooshroomCow;
 use pocketmine\entity\animal\Pig;
 use pocketmine\entity\animal\Sheep;
 use pocketmine\entity\EntityDataHelper as Helper;
-//use pocketmine\entity\mob\boss\EnderDragon;
-//use pocketmine\entity\mob\boss\Wither;
-//use pocketmine\entity\mob\hostile\Blaze;
-//use pocketmine\entity\mob\hostile\Bogged;
-//use pocketmine\entity\mob\hostile\Breeze;
-//use pocketmine\entity\mob\hostile\Creeper;
-//use pocketmine\entity\mob\hostile\ElderGuardian;
-//use pocketmine\entity\mob\hostile\Endermite;
-//use pocketmine\entity\mob\hostile\Evoker;
-//use pocketmine\entity\mob\hostile\Ghast;
-//use pocketmine\entity\mob\hostile\Guardian;
-//use pocketmine\entity\mob\hostile\Hoglin;
-//use pocketmine\entity\mob\hostile\Husk;
-//use pocketmine\entity\mob\hostile\MagmaCube;
-//use pocketmine\entity\mob\hostile\Phantom;
-//use pocketmine\entity\mob\hostile\PiglinBrute;
-//use pocketmine\entity\mob\hostile\Pillager;
-//use pocketmine\entity\mob\hostile\Ravager;
-//use pocketmine\entity\mob\hostile\Shulker;
-//use pocketmine\entity\mob\hostile\Silverfish;
-//use pocketmine\entity\mob\hostile\Skeleton;
-//use pocketmine\entity\mob\hostile\Slime;
-//use pocketmine\entity\mob\hostile\Stray;
-//use pocketmine\entity\mob\hostile\Vex;
-//use pocketmine\entity\mob\hostile\Vindicator;
-//use pocketmine\entity\mob\hostile\Warden;
-//use pocketmine\entity\mob\hostile\Witch;
-//use pocketmine\entity\mob\hostile\WitherSkeleton;
-//use pocketmine\entity\mob\hostile\Zoglin;
-//use pocketmine\entity\mob\hostile\Zombie;
-//use pocketmine\entity\mob\hostile\ZombieVillager;
-//use pocketmine\entity\mob\neutral\Bee;
-//use pocketmine\entity\mob\neutral\CaveSpider;
-//use pocketmine\entity\mob\neutral\Dolphin;
-//use pocketmine\entity\mob\neutral\Drowned;
-//use pocketmine\entity\mob\neutral\Enderman;
-//use pocketmine\entity\mob\neutral\Fox;
-//use pocketmine\entity\mob\neutral\Goat;
-//use pocketmine\entity\mob\neutral\IronGolem;
-//use pocketmine\entity\mob\neutral\Llama;
-//use pocketmine\entity\mob\neutral\Panda;
-//use pocketmine\entity\mob\neutral\Piglin;
-//use pocketmine\entity\mob\neutral\PolarBear;
-//use pocketmine\entity\mob\neutral\Spider;
-//use pocketmine\entity\mob\neutral\TraderLlama;
-//use pocketmine\entity\mob\neutral\Wolf;
-//use pocketmine\entity\mob\neutral\ZombifiedPiglin;
-//use pocketmine\entity\mob\passive\Allay;
-//use pocketmine\entity\mob\passive\Armadillo;
-//use pocketmine\entity\mob\passive\Axolotl;
-//use pocketmine\entity\mob\passive\Bat;
-//use pocketmine\entity\mob\passive\Camel;
-//use pocketmine\entity\mob\passive\Cat;
-//use pocketmine\entity\mob\passive\Chicken;
-//use pocketmine\entity\mob\passive\Cod;
-//use pocketmine\entity\mob\passive\Cow;
-//use pocketmine\entity\mob\passive\Donkey;
-//use pocketmine\entity\mob\passive\Frog;
-//use pocketmine\entity\mob\passive\GlowSquid;
-//use pocketmine\entity\mob\passive\Horse;
-//use pocketmine\entity\mob\passive\Mooshroom;
-//use pocketmine\entity\mob\passive\Mule;
-//use pocketmine\entity\mob\passive\Ocelot;
-//use pocketmine\entity\mob\passive\Parrot;
-//use pocketmine\entity\mob\passive\Pig;
-//use pocketmine\entity\mob\passive\Pufferfish;
-//use pocketmine\entity\mob\passive\Rabbit;
-//use pocketmine\entity\mob\passive\Salmon;
-//use pocketmine\entity\mob\passive\Sheep;
-//use pocketmine\entity\mob\passive\SkeletonHorse;
-//use pocketmine\entity\mob\passive\Sniffer;
-//use pocketmine\entity\mob\passive\SnowGolem;
-//use pocketmine\entity\mob\passive\Squid;
-//use pocketmine\entity\mob\passive\Strider;
-//use pocketmine\entity\mob\passive\Tadpole;
-//use pocketmine\entity\mob\passive\TropicalFish;
-//use pocketmine\entity\mob\passive\Turtle;
-//use pocketmine\entity\mob\passive\Villager;
-//use pocketmine\entity\mob\passive\WanderingTrader;
 use pocketmine\entity\golem\IronGolem;
 use pocketmine\entity\golem\SnowGolem;
 use pocketmine\entity\monster\CaveSpider;
@@ -127,7 +48,6 @@ use pocketmine\entity\monster\Slime;
 use pocketmine\entity\monster\Spider;
 use pocketmine\entity\object\AreaEffectCloud;
 use pocketmine\entity\object\armorstand\ArmorStandEntity;
-use pocketmine\entity\object\armorstand\behavior\ArmorStandBehaviorRegistry;
 use pocketmine\entity\object\EndCrystal;
 use pocketmine\entity\object\ExperienceOrb;
 use pocketmine\entity\object\FallingBlock;
@@ -142,7 +62,6 @@ use pocketmine\entity\projectile\ExperienceBottle;
 use pocketmine\entity\projectile\Snowball;
 use pocketmine\entity\projectile\SplashPotion;
 use pocketmine\entity\projectile\WindCharge;
-use pocketmine\item\ArmorStand;
 use pocketmine\item\Item;
 use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
@@ -169,21 +88,21 @@ final class EntityFactory{
 	public const TAG_LEGACY_ID = "id"; //TAG_Int
 
 	public const ENTITIES = [
-//		Bat::class,
-//		Chicken::class,
-//		Cow::class,
-//		MooshroomCow::class,
-//		Pig::class,
-//		Sheep::class,
-//		IronGolem::class,
-//		SnowGolem::class,
-//		CaveSpider::class,
-//		Creeper::class,
-//		Enderman::class,
-//		Endermite::class,
-//		Slime::class,
-//		Spider::class,
-//		Villager::class
+		Bat::class,
+		Chicken::class,
+		Cow::class,
+		MooshroomCow::class,
+		Pig::class,
+		Sheep::class,
+		IronGolem::class,
+		SnowGolem::class,
+		CaveSpider::class,
+		Creeper::class,
+		Enderman::class,
+		Endermite::class,
+		Slime::class,
+		Spider::class,
+		Villager::class
 	];
 
 	/**
@@ -298,331 +217,12 @@ final class EntityFactory{
 		}, ['ThrownPotion', 'minecraft:potion', 'thrownpotion']);
 
 
-
-		foreach (self::ENTITIES as $entity) {
+		foreach (self::ENTITIES as $entity){
 			$this->registerEntity($entity);
 		}
-
-//		$this->register(Squid::class, function(World $world, CompoundTag $nbt) : Squid{
-//			return new Squid(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Squid', 'minecraft:squid']);
-//
-//		$this->register(Villager::class, function(World $world, CompoundTag $nbt) : Villager{
-//			return new Villager(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Villager', 'minecraft:villager']);
-
 		$this->register(WindCharge::class, function(World $world, CompoundTag $nbt) : WindCharge {
 			return new WindCharge(Helper::parseLocation($nbt, $world), null, $nbt);
 		}, ['Wind Charge', 'minecraft:wind_charge']);
-
-//		$this->register(Zombie::class, function(World $world, CompoundTag $nbt) : Zombie{
-//			return new Zombie(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Zombie', 'minecraft:zombie']);
-//
-//		$this->register(Allay::class, function(World $world, CompoundTag $nbt) : Allay{
-//			return new Allay(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Allay', 'minecraft:allay']);
-//
-//		$this->register(Armadillo::class, function(World $world, CompoundTag $nbt) : Armadillo{
-//			return new Armadillo(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Armadillo', 'minecraft:armadillo']);
-//
-//		$this->register(Axolotl::class, function(World $world, CompoundTag $nbt) : Axolotl{
-//			return new Axolotl(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Axolotl', 'minecraft:axolotl']);
-//
-//		$this->register(Bat::class, function(World $world, CompoundTag $nbt) : Bat{
-//			return new Bat(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Bat', 'minecraft:bat']);
-//
-//		$this->register(Camel::class, function(World $world, CompoundTag $nbt) : Camel{
-//			return new Camel(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Camel', 'minecraft:camel']);
-//
-//		$this->register(Cat::class, function(World $world, CompoundTag $nbt) : Cat{
-//			return new Cat(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Cat', 'minecraft:cat']);
-//
-//		$this->register(Chicken::class, function(World $world, CompoundTag $nbt) : Chicken{
-//			return new Chicken(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Chicken', 'minecraft:chicken']);
-//
-//		$this->register(Cod::class, function(World $world, CompoundTag $nbt) : Cod{
-//			return new Cod(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Cod', 'minecraft:cod']);
-//
-//		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
-//			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Cow', 'minecraft:cow']);
-//
-//		$this->register(Donkey::class, function(World $world, CompoundTag $nbt) : Donkey{
-//			return new Donkey(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Donkey', 'minecraft:donkey']);
-//
-//		$this->register(Frog::class, function(World $world, CompoundTag $nbt) : Frog{
-//			return new Frog(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Frog', 'minecraft:frog']);
-//
-//		$this->register(GlowSquid::class, function(World $world, CompoundTag $nbt) : GlowSquid{
-//			return new GlowSquid(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['GlowSquid', 'minecraft:glow_squid']);
-//
-//		$this->register(Horse::class, function(World $world, CompoundTag $nbt) : Horse{
-//			return new Horse(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Horse', 'minecraft:horse']);
-//
-//		$this->register(Mooshroom::class, function(World $world, CompoundTag $nbt) : Mooshroom{
-//			return new Mooshroom(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Mooshroom', 'minecraft:mooshroom']);
-//
-//		$this->register(Mule::class, function(World $world, CompoundTag $nbt) : Mule{
-//			return new Mule(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Mule', 'minecraft:mule']);
-//
-//		$this->register(Ocelot::class, function(World $world, CompoundTag $nbt) : Ocelot{
-//			return new Ocelot(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Ocelot', 'minecraft:ocelot']);
-//
-//		$this->register(Parrot::class, function(World $world, CompoundTag $nbt) : Parrot{
-//			return new Parrot(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Parrot', 'minecraft:parrot']);
-//
-//		$this->register(Pig::class, function(World $world, CompoundTag $nbt) : Pig{
-//			return new Pig(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Pig', 'minecraft:pig']);
-//
-//		$this->register(Pufferfish::class, function(World $world, CompoundTag $nbt) : Pufferfish{
-//			return new Pufferfish(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Pufferfish', 'minecraft:pufferfish']);
-//
-//		$this->register(Rabbit::class, function(World $world, CompoundTag $nbt) : Rabbit{
-//			return new Rabbit(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Rabbit', 'minecraft:rabbit']);
-//
-//		$this->register(Salmon::class, function(World $world, CompoundTag $nbt) : Salmon{
-//			return new Salmon(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Salmon', 'minecraft:salmon']);
-//
-//		$this->register(Sheep::class, function(World $world, CompoundTag $nbt) : Sheep{
-//			return new Sheep(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Sheep', 'minecraft:sheep']);
-//
-//		$this->register(SkeletonHorse::class, function(World $world, CompoundTag $nbt) : SkeletonHorse{
-//			return new SkeletonHorse(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['SkeletonHorse', 'minecraft:skeleton_horse']);
-//
-//		$this->register(Sniffer::class, function(World $world, CompoundTag $nbt) : Sniffer{
-//			return new Sniffer(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Sniffer', 'minecraft:sniffer']);
-//
-//		$this->register(SnowGolem::class, function(World $world, CompoundTag $nbt) : SnowGolem{
-//			return new SnowGolem(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['SnowGolem', 'minecraft:snow_golem']);
-//
-//		$this->register(Strider::class, function(World $world, CompoundTag $nbt) : Strider{
-//			return new Strider(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Strider', 'minecraft:strider']);
-//
-//		$this->register(Tadpole::class, function(World $world, CompoundTag $nbt) : Tadpole{
-//			return new Tadpole(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Tadpole', 'minecraft:tadpole']);
-//
-//		$this->register(TropicalFish::class, function(World $world, CompoundTag $nbt) : TropicalFish{
-//			return new TropicalFish(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['TropicalFish', 'minecraft:tropical_fish']);
-//
-//		$this->register(Turtle::class, function(World $world, CompoundTag $nbt) : Turtle{
-//			return new Turtle(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Turtle', 'minecraft:turtle']);
-//
-//		$this->register(WanderingTrader::class, function(World $world, CompoundTag $nbt) : WanderingTrader{
-//			return new WanderingTrader(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['WanderingTrader', 'minecraft:wandering_trader']);
-//
-//		$this->register(Bee::class, function(World $world, CompoundTag $nbt) : Bee {
-//			return new Bee(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Bee', 'minecraft:bee']);
-//
-//		$this->register(CaveSpider::class, function(World $world, CompoundTag $nbt) : CaveSpider {
-//			return new CaveSpider(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['CaveSpider', 'minecraft:cave_spider']);
-//
-//		$this->register(Dolphin::class, function(World $world, CompoundTag $nbt) : Dolphin {
-//			return new Dolphin(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Dolphin', 'minecraft:dolphin']);
-//
-//		$this->register(Drowned::class, function(World $world, CompoundTag $nbt) : Drowned {
-//			return new Drowned(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Drowned', 'minecraft:drowned']);
-//
-//		$this->register(Enderman::class, function(World $world, CompoundTag $nbt) : Enderman {
-//			return new Enderman(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Enderman', 'minecraft:enderman']);
-//
-//		$this->register(Fox::class, function(World $world, CompoundTag $nbt) : Fox {
-//			return new Fox(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Fox', 'minecraft:fox']);
-//
-//		$this->register(Goat::class, function(World $world, CompoundTag $nbt) : Goat {
-//			return new Goat(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Goat', 'minecraft:goat']);
-//
-//		$this->register(IronGolem::class, function(World $world, CompoundTag $nbt) : IronGolem {
-//			return new IronGolem(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['IronGolem', 'minecraft:iron_golem']);
-//
-//		$this->register(Llama::class, function(World $world, CompoundTag $nbt) : Llama {
-//			return new Llama(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Llama', 'minecraft:llama']);
-//
-//		$this->register(Panda::class, function(World $world, CompoundTag $nbt) : Panda {
-//			return new Panda(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Panda', 'minecraft:panda']);
-//
-//		$this->register(Piglin::class, function(World $world, CompoundTag $nbt) : Piglin {
-//			return new Piglin(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Piglin', 'minecraft:piglin']);
-//
-//		$this->register(PolarBear::class, function(World $world, CompoundTag $nbt) : PolarBear {
-//			return new PolarBear(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['PolarBear', 'minecraft:polar_bear']);
-//
-//		$this->register(Spider::class, function(World $world, CompoundTag $nbt) : Spider {
-//			return new Spider(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Spider', 'minecraft:spider']);
-//
-//		$this->register(TraderLlama::class, function(World $world, CompoundTag $nbt) : TraderLlama {
-//			return new TraderLlama(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['TraderLlama', 'minecraft:trader_llama']);
-//
-//		$this->register(Wolf::class, function(World $world, CompoundTag $nbt) : Wolf {
-//			return new Wolf(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Wolf', 'minecraft:wolf']);
-//
-//		$this->register(ZombifiedPiglin::class, function(World $world, CompoundTag $nbt) : ZombifiedPiglin {
-//			return new ZombifiedPiglin(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['ZombifiedPiglin', 'minecraft:zombified_piglin']);
-//
-//		$this->register(EnderDragon::class, function(World $world, CompoundTag $nbt) : EnderDragon {
-//			return new EnderDragon(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['EnderDragon', 'minecraft:ender_dragon']);
-//
-//		$this->register(Wither::class, function(World $world, CompoundTag $nbt) : Wither {
-//			return new Wither(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Wither', 'minecraft:wither']);
-//
-//		$this->register(Blaze::class, function(World $world, CompoundTag $nbt) : Blaze {
-//			return new Blaze(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Blaze', 'minecraft:blaze']);
-//
-//		$this->register(Bogged::class, function(World $world, CompoundTag $nbt) : Bogged {
-//			return new Bogged(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Bogged', 'minecraft:bogged']);
-//
-//		$this->register(Breeze::class, function(World $world, CompoundTag $nbt) : Breeze {
-//			return new Breeze(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Breeze', 'minecraft:breeze']);
-//
-//		$this->register(Creeper::class, function(World $world, CompoundTag $nbt) : Creeper {
-//			return new Creeper(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Creeper', 'minecraft:creeper']);
-//
-//		$this->register(ElderGuardian::class, function(World $world, CompoundTag $nbt) : ElderGuardian {
-//			return new ElderGuardian(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['ElderGuardian', 'minecraft:elder_guardian']);
-//
-//		$this->register(Endermite::class, function(World $world, CompoundTag $nbt) : Endermite {
-//			return new Endermite(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Endermite', 'minecraft:endermite']);
-//
-//		$this->register(Evoker::class, function(World $world, CompoundTag $nbt) : Evoker {
-//			return new Evoker(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Evoker', 'minecraft:evoker']);
-//
-//		$this->register(Ghast::class, function(World $world, CompoundTag $nbt) : Ghast {
-//			return new Ghast(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Ghast', 'minecraft:ghast']);
-//
-//		$this->register(Guardian::class, function(World $world, CompoundTag $nbt) : Guardian {
-//			return new Guardian(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Guardian', 'minecraft:guardian']);
-//
-//		$this->register(Hoglin::class, function(World $world, CompoundTag $nbt) : Hoglin {
-//			return new Hoglin(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Hoglin', 'minecraft:hoglin']);
-//
-//		$this->register(Husk::class, function(World $world, CompoundTag $nbt) : Husk {
-//			return new Husk(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Husk', 'minecraft:husk']);
-//
-//		$this->register(MagmaCube::class, function(World $world, CompoundTag $nbt) : MagmaCube {
-//			return new MagmaCube(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['MagmaCube', 'minecraft:magma_cube']);
-//
-//		$this->register(Phantom::class, function(World $world, CompoundTag $nbt) : Phantom {
-//			return new Phantom(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Phantom', 'minecraft:phantom']);
-//
-//		$this->register(PiglinBrute::class, function(World $world, CompoundTag $nbt) : PiglinBrute {
-//			return new PiglinBrute(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['PiglinBrute', 'minecraft:piglin_brute']);
-//
-//		$this->register(Pillager::class, function(World $world, CompoundTag $nbt) : Pillager {
-//			return new Pillager(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Pillager', 'minecraft:pillager']);
-//
-//		$this->register(Ravager::class, function(World $world, CompoundTag $nbt) : Ravager {
-//			return new Ravager(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Ravager', 'minecraft:ravager']);
-//
-//		$this->register(Shulker::class, function(World $world, CompoundTag $nbt) : Shulker {
-//			return new Shulker(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Shulker', 'minecraft:shulker']);
-//
-//		$this->register(Silverfish::class, function(World $world, CompoundTag $nbt) : Silverfish {
-//			return new Silverfish(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Silverfish', 'minecraft:silverfish']);
-//
-//		$this->register(Skeleton::class, function(World $world, CompoundTag $nbt) : Skeleton {
-//			return new Skeleton(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Skeleton', 'minecraft:skeleton']);
-//
-//		$this->register(Slime::class, function(World $world, CompoundTag $nbt) : Slime {
-//			return new Slime(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Slime', 'minecraft:slime']);
-//
-//		$this->register(Stray::class, function(World $world, CompoundTag $nbt) : Stray {
-//			return new Stray(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Stray', 'minecraft:stray']);
-//
-//		$this->register(Vex::class, function(World $world, CompoundTag $nbt) : Vex {
-//			return new Vex(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Vex', 'minecraft:vex']);
-//
-//		$this->register(Vindicator::class, function(World $world, CompoundTag $nbt) : Vindicator {
-//			return new Vindicator(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Vindicator', 'minecraft:vindicator']);
-//
-//		$this->register(Warden::class, function(World $world, CompoundTag $nbt) : Warden {
-//			return new Warden(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Warden', 'minecraft:warden']);
-//
-//		$this->register(Witch::class, function(World $world, CompoundTag $nbt) : Witch {
-//			return new Witch(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Witch', 'minecraft:witch']);
-//
-//		$this->register(WitherSkeleton::class, function(World $world, CompoundTag $nbt) : WitherSkeleton {
-//			return new WitherSkeleton(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['WitherSkeleton', 'minecraft:wither_skeleton']);
-//
-//		$this->register(Zoglin::class, function(World $world, CompoundTag $nbt) : Zoglin {
-//			return new Zoglin(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['Zoglin', 'minecraft:zoglin']);
-//
-//		$this->register(ZombieVillager::class, function(World $world, CompoundTag $nbt) : ZombieVillager {
-//			return new ZombieVillager(Helper::parseLocation($nbt, $world), $nbt);
-//		}, ['ZombieVillager', 'minecraft:zombie_villager']);
-
 
 		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
 			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
